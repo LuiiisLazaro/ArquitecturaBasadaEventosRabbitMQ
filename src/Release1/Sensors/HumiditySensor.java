@@ -1,11 +1,11 @@
-/**
- *
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package Release1.Sensors;
 
-/**
- *
- */
+import static Release1.Sensors.Sensor.HOST;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -15,49 +15,43 @@ import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author luiiislazaro
  */
-public class TemperatureSensor extends Sensor implements Runnable {
+public class HumiditySensor extends Sensor implements Runnable {
 
-    private boolean heaterState = false;	// Heater state: false == off, true == on
-    private boolean chillerState = false;	// Chiller state: false == off, true == on
-    private float currentTemperature;		// Current simulated ambient room temperature
+    private boolean humidityState = false;
+    private boolean deshumidityState =false;
+    private float currentHumidity;
 
-    private static TemperatureSensor INSTANCE = new TemperatureSensor();
+    private static HumiditySensor INSTANCE = new HumiditySensor();
 
-    private static final String ID_CHANNEL_TEMPERATURE_SENSOR = "-5";       //channel ID to send messages
-    private static final String ID_CHANNEL_TEMPERATURE_CONTROLLER = "5";    //channel ID to receive messages
+    private static final String ID_CHANNEL_HUMIDITY_SENSOR = "-4";
+    private static final String ID_CHANNEL_HUMIDITY_CONTROLLER = "4";
 
-    /**
-     *
-     */
-    private TemperatureSensor() {
+    private HumiditySensor() {
         super();
     }
 
-    /**
-     *
-     * @throws IOException
-     * @throws TimeoutException
-     */
     public void receiveMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
-        channel.exchangeDeclare(ID_CHANNEL_TEMPERATURE_CONTROLLER, "fanout");
+        channel.exchangeDeclare(ID_CHANNEL_HUMIDITY_CONTROLLER, "fanout");
         String queueName = channel.queueDeclare().getQueue();
-        channel.queueBind(queueName, ID_CHANNEL_TEMPERATURE_CONTROLLER, "");
+        channel.queueBind(queueName, ID_CHANNEL_HUMIDITY_CONTROLLER, "");
 
         Consumer consumer = new DefaultConsumer(channel) {
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                 setMessage(new String(body, "UTF-8"));
-                logger.info("Class TemperatureSensor --- RECEIVED From Controller --- Value: " + new String(body, "UTF-8"));
+                logger.info("Class HumiditySensor --- RECEIVED From Controller --- Value" + new String(body, "UTF-8"));
                 checkValuesExecute();
 
             }
@@ -65,31 +59,26 @@ public class TemperatureSensor extends Sensor implements Runnable {
         channel.basicConsume(queueName, true, consumer);
     }
 
-    /**
-     *
-     */
     public void checkValuesExecute() {
         switch (getMessage()) {
             case "H1":
-                heaterState = true;
+                humidityState = true;
                 break;
             case "H0":
-                heaterState = false;
+                humidityState = false;
                 break;
-            case "C1":
-                chillerState = true;
+            case "D1":
+                deshumidityState=true;
                 break;
-            case "C0":
-                chillerState = false;
+            case "D0":
+                deshumidityState= false;
                 break;
+                
             default:
         }
-        logger.info("Class TemperatureSensor --- NewValues Heater: " + heaterState + " , Chiller: " + chillerState);
+        logger.info("Class HumiditySensor --- NewValues Humidity:" + humidityState+" , Deshumidity: "+deshumidityState);
     }
 
-    /**
-     *
-     */
     @Override
     public void run() {
         try {
@@ -97,17 +86,17 @@ public class TemperatureSensor extends Sensor implements Runnable {
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
-        currentTemperature = (float) 70.00;
-        while (!isDone) {
+        currentHumidity = 45;
 
+        while (!isDone) {
             if (coinToss()) {
                 driftValue = getRandomNumber() * (float) -1.0;
             } else {
                 driftValue = getRandomNumber();
             }
-            currentTemperature += driftValue;
+            currentHumidity += driftValue;
             try {
-                sendMessage(ID_CHANNEL_TEMPERATURE_SENSOR, String.valueOf(currentTemperature));
+                sendMessage(ID_CHANNEL_HUMIDITY_SENSOR, String.valueOf(currentHumidity));
             } catch (IOException | TimeoutException e1) {
                 logger.error(e1);
             }
@@ -119,14 +108,11 @@ public class TemperatureSensor extends Sensor implements Runnable {
         }
     }
 
-    /**
-     *
-     */
     private static void createInstance() {
         if (INSTANCE == null) {
             synchronized (TemperatureSensor.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = new TemperatureSensor();
+                    INSTANCE = new HumiditySensor();
                 }
             }
         }
@@ -138,7 +124,7 @@ public class TemperatureSensor extends Sensor implements Runnable {
      *
      * @return The instance of this class.
      */
-    public static TemperatureSensor getInstance() {
+    public static HumiditySensor getInstance() {
         if (INSTANCE == null) {
             createInstance();
         }
@@ -150,9 +136,9 @@ public class TemperatureSensor extends Sensor implements Runnable {
      * @param args
      */
     public static void main(String args[]) {
-        TemperatureSensor temperatureSensor = TemperatureSensor.getInstance();
-        logger.info("Class TemperatureSensot --- Start Sensor Temperature...");
-        temperatureSensor.run();
+        HumiditySensor humiditySensor = HumiditySensor.getInstance();
+        logger.info("Class HumiditysSensor --- Start Sensor Temperature...");
+        humiditySensor.run();
     }
 
 }

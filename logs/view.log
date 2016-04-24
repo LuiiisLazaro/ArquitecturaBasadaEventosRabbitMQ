@@ -1,0 +1,6 @@
+24 Apr 2016 14:37:37,675  INFO Sensor:156 - Start Sensor Temperature...
+24 Apr 2016 14:37:37,833  INFO Sensor:85 - -[X]Sensor SEND --- to Controller: 69.60579
+24 Apr 2016 14:37:41,860  INFO Sensor:85 - -[X]Sensor SEND --- to Controller: 70.51179
+24 Apr 2016 14:50:08,630  INFO Sensor:154 - Class Temperature --- Start Sensor Temperature...
+24 Apr 2016 14:50:08,784  INFO Sensor:88 - Class Sensor --- SEND to Controller --- Value:70.72311
+24 Apr 2016 14:50:12,805  INFO Sensor:88 - Class Sensor --- SEND to Controller --- Value:71.6836

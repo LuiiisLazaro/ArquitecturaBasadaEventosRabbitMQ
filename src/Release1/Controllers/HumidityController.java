@@ -8,6 +8,7 @@ package Release1.Controllers;
 /**
  *
  */
+import static Release1.Controllers.Controller.logger;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -17,28 +18,30 @@ import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author luiiislazaro
  */
-public class TemperatureController extends Controller {
+public class HumidityController extends Controller {
 
-    private static TemperatureController INSTANCE = new TemperatureController();
+    private static HumidityController INSTANCE = new HumidityController();
 
-    private static final String ID_CHANNEL_TEMPERATURE_CONTROLLER = "5";
-    private static final String ID_CHANNEL_TEMPERATURE_SENSOR = "-5";
+    private static final String ID_CHANNEL_HUMIDITY_CONTROLLER = "4";
+    private static final String ID_CHANNEL_HUMIDITY_SENSOR = "-4";
 
-    private static final String ID_HEATER_ON = "H1";
-    private static final String ID_HEATER_OFF = "H0";
+    private static final String ID_HUMIDITY_ON = "H1";
+    private static final String ID_HUMIDITY_OFF = "H0";
 
-    private static final String ID_CHILLER_ON = "C1";
-    private static final String ID_CHILLER_OFF = "C0";
+    private static final String ID_DESHUMIDITY_ON = "D1";
+    private static final String ID_DESHUMIDITY_OFF = "D0";
 
     /**
      *
      */
-    private TemperatureController() {
+    private HumidityController() {
         super();
     }
 
@@ -53,17 +56,17 @@ public class TemperatureController extends Controller {
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
-        channel.exchangeDeclare(ID_CHANNEL_TEMPERATURE_SENSOR, "fanout");
+        channel.exchangeDeclare(ID_CHANNEL_HUMIDITY_SENSOR, "fanout");
         String queueName = channel.queueDeclare().getQueue();
-        channel.queueBind(queueName, ID_CHANNEL_TEMPERATURE_SENSOR, "");
+        channel.queueBind(queueName, ID_CHANNEL_HUMIDITY_SENSOR, "");
 
         Consumer consumer = new DefaultConsumer(channel) {
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                 setMessage(new String(body, "UTF-8"));
-                logger.info("Class TemperatureController --- RECEIVED from Sensor --- Value: " + new String(body, "UTF-8"));
+                logger.info("Class HumidityController --- RECEIVED from Sensor --- Value: " + new String(body, "UTF-8"));
                 try {
-                    checkValuesTemperature();
+                    checkValuesHumidity();
                 } catch (TimeoutException ex) {
                     logger.error(ex);
                 }
@@ -77,15 +80,15 @@ public class TemperatureController extends Controller {
      * @throws IOException
      * @throws TimeoutException
      */
-    private void checkValuesTemperature() throws IOException, TimeoutException {
+    private void checkValuesHumidity() throws IOException, TimeoutException {
 
-        logger.info("Class TemperatureController --- SEND to Controller ...");
-        if (70 < Math.round(Float.parseFloat(getMessage()))) {
-            sendMessage(ID_CHANNEL_TEMPERATURE_CONTROLLER, ID_CHILLER_ON);
-            sendMessage(ID_CHANNEL_TEMPERATURE_CONTROLLER, ID_HEATER_OFF);
-        } else if (75 > Math.round(Float.parseFloat(getMessage()))) {
-            sendMessage(ID_CHANNEL_TEMPERATURE_CONTROLLER, ID_CHILLER_OFF);
-            sendMessage(ID_CHANNEL_TEMPERATURE_CONTROLLER, ID_HEATER_ON);
+        logger.info("Class HumidityController --- SEND to Controller ...");
+        if (40 < Math.round(Float.parseFloat(getMessage()))) {
+            sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_HUMIDITY_ON);
+            sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_DESHUMIDITY_OFF);
+        } else if (45 > Math.round(Float.parseFloat(getMessage()))) {
+            sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_HUMIDITY_OFF);
+            sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_DESHUMIDITY_ON);
         }
     }
 
@@ -94,9 +97,9 @@ public class TemperatureController extends Controller {
      */
     private static void createInstance() {
         if (INSTANCE == null) {
-            synchronized (TemperatureController.class) {
+            synchronized (HumidityController.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = new TemperatureController();
+                    INSTANCE = new HumidityController();
                 }
             }
         }
@@ -108,16 +111,13 @@ public class TemperatureController extends Controller {
      *
      * @return The instance of this class.
      */
-    public static TemperatureController getInstance() {
+    public static HumidityController getInstance() {
         if (INSTANCE == null) {
             createInstance();
         }
         return INSTANCE;
     }
 
-    /**
-     *
-     */
     public void run() {
         try {
             receiveMessage();
@@ -131,8 +131,8 @@ public class TemperatureController extends Controller {
      * @param args
      */
     public static void main(String args[]) {
-        TemperatureController temperatureController = TemperatureController.getInstance();
-        logger.info("Class TemperatureController --- Start Controller Temperature...");
-        temperatureController.run();
+        HumidityController humidityController = HumidityController.getInstance();
+        logger.info("Class HumidityController --- Start Controller Humidity...");
+        humidityController.run();
     }
 }

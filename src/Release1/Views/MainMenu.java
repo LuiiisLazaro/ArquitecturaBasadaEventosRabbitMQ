@@ -72,8 +72,8 @@ public class MainMenu {
         frmConsoleMainMenu.setBounds(100, 100, 800, 600);
         frmConsoleMainMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frmConsoleMainMenu.getContentPane().setLayout(null);
-        progressBarTemperature.setOrientation(SwingConstants.VERTICAL);
 
+        progressBarTemperature.setOrientation(SwingConstants.VERTICAL);
         progressBarTemperature.setForeground(Color.BLACK);
         progressBarTemperature.setValue(70);
         progressBarTemperature.setBounds(442, 167, 51, 215);
