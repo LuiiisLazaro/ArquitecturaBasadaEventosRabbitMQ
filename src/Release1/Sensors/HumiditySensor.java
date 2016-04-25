@@ -36,8 +36,24 @@ public class HumiditySensor extends Sensor implements Runnable {
     }
 
     public void receiveMessage() throws IOException, TimeoutException {
-        receiveMessage(ID_CHANNEL_HUMIDITY_CONTROLLER);
-        logger.info("Class HumiditySensor --- RECEIVE from Controller --- value:"+ getMessage());
+        ConnectionFactory factory = new ConnectionFactory();
+        factory.setHost(HOST);
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+
+        channel.exchangeDeclare(ID_CHANNEL_HUMIDITY_CONTROLLER, "fanout");
+        String queueName = channel.queueDeclare().getQueue();
+        channel.queueBind(queueName, ID_CHANNEL_HUMIDITY_CONTROLLER, "");
+
+        Consumer consumer = new DefaultConsumer(channel) {
+            @Override
+            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                setMessage(new String(body, "UTF-8"));
+                logger.info("Class Sensor --- RECEIVED From Controller --- Value: " + new String(body, "UTF-8"));
+                checkValuesExecute();
+            }
+        };
+        channel.basicConsume(queueName, true, consumer);
     }
 
     public void checkValuesExecute() {

@@ -28,6 +28,9 @@ public class TemperatureController extends Controller implements Runnable{
 
     private static final String ID_CHANNEL_TEMPERATURE_CONTROLLER = "5";
     private static final String ID_CHANNEL_TEMPERATURE_SENSOR = "-5";
+    
+    private static final int MAX_TEMPERATURE = 75;
+    private static final int MIN_TEMPERATURE = 70;
 
     private static final String ID_HEATER_ON = "H1";
     private static final String ID_HEATER_OFF = "H0";
@@ -80,7 +83,7 @@ public class TemperatureController extends Controller implements Runnable{
     private void checkValuesTemperature() throws IOException, TimeoutException {
 
         logger.info("Class TemperatureController --- SEND to Controller ...");
-        if (70 < Math.round(Float.parseFloat(getMessage()))) {
+        if (Math.round(Float.parseFloat(getMessage()))>MAX_TEMPERATURE) {
             sendMessage(ID_CHANNEL_TEMPERATURE_CONTROLLER, ID_CHILLER_ON);
             sendMessage(ID_CHANNEL_TEMPERATURE_CONTROLLER, ID_HEATER_OFF);
         } else { // (75 > Math.round(Float.parseFloat(getMessage()))) {

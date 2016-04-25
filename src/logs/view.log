@@ -1,0 +1,1410 @@
+25 Apr 2016 00:08:19,471  INFO Controller:139 - Class TemperatureController --- Start Controller Temperature...
+25 Apr 2016 00:10:12,572  INFO Controller:139 - Class TemperatureController --- Start Controller Temperature...
+25 Apr 2016 00:11:21,604  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 69.49536
+25 Apr 2016 00:11:21,605  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:11:21,642  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:11:21,702  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:11:25,651  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 68.928276
+25 Apr 2016 00:11:25,651  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:11:25,664  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:11:25,680  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:11:29,677  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 68.20938
+25 Apr 2016 00:11:29,677  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:11:29,687  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:11:29,713  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:11:33,694  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 68.04524
+25 Apr 2016 00:11:33,694  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:11:33,701  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:11:33,718  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:11:37,707  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 68.65018
+25 Apr 2016 00:11:37,707  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:11:37,718  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:11:37,746  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:11:41,726  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 69.04463
+25 Apr 2016 00:11:41,726  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:11:41,738  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:11:41,759  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:11:45,774  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 69.7211
+25 Apr 2016 00:11:45,774  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:11:45,804  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:11:45,832  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:11:49,861  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 69.188194
+25 Apr 2016 00:11:49,861  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:11:49,872  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:11:49,890  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:12:53,072  INFO Controller:139 - Class TemperatureController --- Start Controller Temperature...
+25 Apr 2016 00:12:59,637  INFO Controller:139 - Class TemperatureController --- Start Controller Temperature...
+25 Apr 2016 00:13:04,984  INFO Sensor:156 - Class TemperatureSensot --- Start Sensor Temperature...
+25 Apr 2016 00:13:05,160  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.8571
+25 Apr 2016 00:13:05,169  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 69.8571
+25 Apr 2016 00:13:05,169  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:13:05,184  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:13:05,197  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:13:05,197  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: false , Chiller: false
+25 Apr 2016 00:13:05,214  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:13:05,217  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:13:05,217  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:13:09,187  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:68.89517
+25 Apr 2016 00:13:09,190  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 68.89517
+25 Apr 2016 00:13:09,191  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:13:09,197  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:13:09,201  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:13:09,201  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:13:09,213  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:13:09,217  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:13:09,217  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:13:13,202  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.50093
+25 Apr 2016 00:13:13,204  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 69.50093
+25 Apr 2016 00:13:13,204  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:13:13,215  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:13:13,217  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:13:13,219  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:13:13,226  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:13:13,229  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:13:13,229  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:46:48,228  INFO Controller:139 - Class TemperatureController --- Start Controller Temperature...
+25 Apr 2016 00:46:48,340  INFO Controller:138 - Class HumidityController --- Start Controller Humidity...
+25 Apr 2016 00:46:56,526  INFO Sensor:156 - Class TemperatureSensot --- Start Sensor Temperature...
+25 Apr 2016 00:46:56,626  INFO Sensor:156 - Class TemperatureSensot --- Start Sensor Temperature...
+25 Apr 2016 00:46:56,757  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:70.153915
+25 Apr 2016 00:46:56,767  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 70.153915
+25 Apr 2016 00:46:56,771  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:46:56,797  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:46:56,809  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:46:56,810  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: false , Chiller: false
+25 Apr 2016 00:46:56,831  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:46:56,836  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:46:56,837  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:46:56,875  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.29492
+25 Apr 2016 00:46:56,881  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 69.29492
+25 Apr 2016 00:46:56,881  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:46:56,892  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:46:56,894  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:46:56,894  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:46:56,899  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:46:56,899  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: false , Chiller: false
+25 Apr 2016 00:46:56,909  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:46:56,912  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:46:56,913  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:46:56,915  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:46:56,916  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:47:00,784  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:71.0322
+25 Apr 2016 00:47:00,786  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 71.0322
+25 Apr 2016 00:47:00,787  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:47:00,795  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:47:00,799  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:47:00,799  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:47:00,800  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:47:00,800  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:47:00,806  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:47:00,811  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:47:00,811  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:47:00,812  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:47:00,813  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:47:00,905  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.41764
+25 Apr 2016 00:47:00,912  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 69.41764
+25 Apr 2016 00:47:00,913  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:47:00,925  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:47:00,941  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:47:00,941  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:47:00,939  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:47:00,946  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:47:00,965  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:47:00,974  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:47:00,974  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:47:00,975  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:47:00,975  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:47:04,927  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.525345
+25 Apr 2016 00:47:04,932  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 69.525345
+25 Apr 2016 00:47:04,933  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:47:04,941  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:47:04,945  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:47:04,945  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:47:04,963  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:47:04,965  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:47:04,965  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:50:19,604  INFO Sensor:136 - Class HumiditysSensor --- Start Sensor Temperature...
+25 Apr 2016 00:50:19,677  INFO Sensor:156 - Class TemperatureSensot --- Start Sensor Temperature...
+25 Apr 2016 00:50:19,902  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:46.685802
+25 Apr 2016 00:50:19,942  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:70.3786
+25 Apr 2016 00:50:23,933  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:47.192257
+25 Apr 2016 00:50:23,968  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:70.960754
+25 Apr 2016 00:50:27,950  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:46.454758
+25 Apr 2016 00:50:27,980  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:71.38903
+25 Apr 2016 00:50:31,967  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:46.777702
+25 Apr 2016 00:50:32,006  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:71.03678
+25 Apr 2016 00:50:35,984  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:47.104126
+25 Apr 2016 00:50:36,029  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:71.350426
+25 Apr 2016 00:51:04,759  INFO Controller:139 - Class TemperatureController --- Start Controller Temperature...
+25 Apr 2016 00:51:04,850  INFO Controller:138 - Class HumidityController --- Start Controller Humidity...
+25 Apr 2016 00:51:17,748  INFO Sensor:136 - Class HumiditysSensor --- Start Sensor Temperature...
+25 Apr 2016 00:51:17,795  INFO Sensor:156 - Class TemperatureSensot --- Start Sensor Temperature...
+25 Apr 2016 00:51:18,013  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:46.473064
+25 Apr 2016 00:51:18,022  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 46.473064
+25 Apr 2016 00:51:18,022  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:51:18,043  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:51:18,051  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:51:18,052  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:51:18,057  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.24263
+25 Apr 2016 00:51:18,068  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 69.24263
+25 Apr 2016 00:51:18,069  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:51:18,077  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:51:18,081  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:51:18,081  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:51:18,093  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:51:18,099  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:51:18,100  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: false , Chiller: false
+25 Apr 2016 00:51:18,115  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:51:18,117  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:51:18,118  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:51:36,441  INFO Controller:138 - Class HumidityController --- Start Controller Humidity...
+25 Apr 2016 00:51:36,514  INFO Controller:139 - Class TemperatureController --- Start Controller Temperature...
+25 Apr 2016 00:51:36,524  INFO Sensor:136 - Class HumiditysSensor --- Start Sensor Temperature...
+25 Apr 2016 00:51:36,712  INFO Sensor:156 - Class TemperatureSensot --- Start Sensor Temperature...
+25 Apr 2016 00:51:37,101  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:46.10033
+25 Apr 2016 00:51:37,113  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 46.10033
+25 Apr 2016 00:51:37,113  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:51:37,135  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:51:37,151  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:51:37,152  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:51:37,181  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:51:37,186  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:51:37,186  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:51:37,296  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.838066
+25 Apr 2016 00:51:37,320  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 69.838066
+25 Apr 2016 00:51:37,320  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:51:37,356  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:51:37,366  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:51:37,366  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: false , Chiller: false
+25 Apr 2016 00:51:37,407  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:51:37,412  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:51:37,412  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:51:41,154  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:45.57577
+25 Apr 2016 00:51:41,158  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 45.57577
+25 Apr 2016 00:51:41,159  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:51:41,162  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 45.57577
+25 Apr 2016 00:51:41,178  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:51:41,197  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:51:41,198  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:51:41,201  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:51:41,220  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:51:41,224  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:51:41,223  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:51:41,224  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:51:41,343  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:70.78544
+25 Apr 2016 00:51:41,349  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 70.78544
+25 Apr 2016 00:51:41,351  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 70.78544
+25 Apr 2016 00:51:41,351  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:51:41,358  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:51:41,361  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:51:41,364  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:51:41,365  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:51:41,376  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:51:41,382  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:51:41,385  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:51:41,386  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:51:45,181  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:45.825645
+25 Apr 2016 00:51:45,194  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 45.825645
+25 Apr 2016 00:51:45,194  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 45.825645
+25 Apr 2016 00:51:45,194  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:51:45,204  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:51:45,209  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:51:45,210  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:51:45,224  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:51:45,239  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:51:45,244  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:51:45,244  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:51:45,244  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:51:45,367  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:71.23549
+25 Apr 2016 00:51:45,376  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 71.23549
+25 Apr 2016 00:51:45,378  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 71.23549
+25 Apr 2016 00:51:45,378  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:51:45,394  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:51:45,397  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:51:45,401  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:51:45,401  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:51:45,410  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:51:45,415  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:51:45,416  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:51:45,424  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:51:49,212  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:46.126377
+25 Apr 2016 00:51:49,216  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 46.126377
+25 Apr 2016 00:51:49,216  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 46.126377
+25 Apr 2016 00:51:49,216  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:51:49,224  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:51:49,238  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:51:49,239  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:51:49,238  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:51:49,251  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:51:49,255  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:51:49,256  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:51:49,257  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:51:49,399  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:71.76618
+25 Apr 2016 00:51:49,405  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 71.76618
+25 Apr 2016 00:51:49,402  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 71.76618
+25 Apr 2016 00:51:49,406  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:51:49,414  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:51:49,421  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:51:49,422  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:51:49,422  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:51:49,441  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:51:49,443  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:51:49,443  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:51:49,444  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:51:53,249  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:47.10439
+25 Apr 2016 00:51:53,255  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 47.10439
+25 Apr 2016 00:51:53,256  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:51:53,263  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:51:53,266  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:51:53,266  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:51:53,294  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:51:53,297  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:51:53,297  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:51:53,421  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:72.458824
+25 Apr 2016 00:51:53,424  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 72.458824
+25 Apr 2016 00:51:53,424  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:51:53,432  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:51:53,434  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:51:53,435  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:51:53,456  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:51:53,459  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:51:53,460  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:51:57,267  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:46.25045
+25 Apr 2016 00:51:57,440  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:71.644005
+25 Apr 2016 00:52:39,636  INFO Sensor:156 - Class TemperatureSensot --- Start Sensor Temperature...
+25 Apr 2016 00:52:39,733  INFO Controller:138 - Class HumidityController --- Start Controller Humidity...
+25 Apr 2016 00:52:39,818  INFO Sensor:136 - Class HumiditysSensor --- Start Sensor Temperature...
+25 Apr 2016 00:52:40,194  INFO Controller:139 - Class TemperatureController --- Start Controller Temperature...
+25 Apr 2016 00:52:40,219  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.46289
+25 Apr 2016 00:52:40,415  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:47.12119
+25 Apr 2016 00:52:40,435  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 47.12119
+25 Apr 2016 00:52:40,436  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:52:40,453  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:52:40,461  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:52:40,461  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:52:40,511  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:52:40,516  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:52:40,517  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:52:44,286  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.06881
+25 Apr 2016 00:52:44,307  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 69.06881
+25 Apr 2016 00:52:44,305  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 69.06881
+25 Apr 2016 00:52:44,308  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:52:44,330  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:52:44,338  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:52:44,338  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:52:44,344  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: false , Chiller: false
+25 Apr 2016 00:52:44,380  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:52:44,384  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:52:44,387  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:52:44,388  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:52:44,453  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:47.810276
+25 Apr 2016 00:52:44,457  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 47.810276
+25 Apr 2016 00:52:44,457  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 47.810276
+25 Apr 2016 00:52:44,458  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:52:44,482  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:52:44,485  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:52:44,486  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:52:44,487  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:52:44,509  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:52:44,513  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:52:44,513  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:52:44,513  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:52:48,307  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.2215
+25 Apr 2016 00:52:48,311  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 69.2215
+25 Apr 2016 00:52:48,311  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 69.2215
+25 Apr 2016 00:52:48,311  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:52:48,320  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:52:48,338  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:52:48,339  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:52:48,343  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:52:48,349  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:52:48,353  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:52:48,353  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:52:48,357  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:52:48,494  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:47.433548
+25 Apr 2016 00:52:48,496  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 47.433548
+25 Apr 2016 00:52:48,496  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 47.433548
+25 Apr 2016 00:52:48,497  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:52:48,507  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:52:48,514  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:52:48,515  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:52:48,516  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:52:48,528  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:52:48,531  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:52:48,531  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:52:48,531  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:52:52,344  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.01806
+25 Apr 2016 00:52:52,347  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 69.01806
+25 Apr 2016 00:52:52,349  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 69.01806
+25 Apr 2016 00:52:52,349  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:52:52,361  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:52:52,363  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:52:52,363  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:52:52,364  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:52:52,379  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:52:52,381  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:52:52,381  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:52:52,387  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:52:52,514  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:47.89002
+25 Apr 2016 00:52:52,517  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 47.89002
+25 Apr 2016 00:52:52,517  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:52:52,517  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 47.89002
+25 Apr 2016 00:52:52,532  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:52:52,538  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:52:52,538  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:52:52,538  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:52:52,546  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:52:52,549  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:52:52,549  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:52:52,549  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:52:56,372  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.20824
+25 Apr 2016 00:52:56,375  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 69.20824
+25 Apr 2016 00:52:56,375  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 69.20824
+25 Apr 2016 00:52:56,376  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:52:56,393  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:52:56,402  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:52:56,402  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:52:56,403  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:52:56,413  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:52:56,419  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:52:56,420  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:52:56,420  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:52:56,539  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:48.61994
+25 Apr 2016 00:52:56,543  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 48.61994
+25 Apr 2016 00:52:56,543  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 48.61994
+25 Apr 2016 00:52:56,544  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:52:56,559  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:52:56,563  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:52:56,563  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:52:56,567  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:52:56,590  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:52:56,593  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:52:56,593  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:52:56,596  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:53:00,398  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:68.495094
+25 Apr 2016 00:53:00,400  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 68.495094
+25 Apr 2016 00:53:00,401  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 68.495094
+25 Apr 2016 00:53:00,402  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:53:00,412  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:53:00,418  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:53:00,418  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:53:00,419  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:00,435  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:00,437  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:00,437  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:53:00,437  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:00,568  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:47.756874
+25 Apr 2016 00:53:00,571  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 47.756874
+25 Apr 2016 00:53:00,571  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:53:00,572  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 47.756874
+25 Apr 2016 00:53:00,578  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:00,581  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:53:00,582  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:00,583  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:00,590  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:53:00,591  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:53:00,592  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:53:00,592  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:04,420  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:68.94991
+25 Apr 2016 00:53:04,424  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 68.94991
+25 Apr 2016 00:53:04,425  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 68.94991
+25 Apr 2016 00:53:04,426  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:53:04,432  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:53:04,435  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:53:04,438  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:53:04,438  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:04,452  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:04,454  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:04,455  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:53:04,455  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:04,581  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:48.602993
+25 Apr 2016 00:53:04,584  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 48.602993
+25 Apr 2016 00:53:04,585  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:53:04,587  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 48.602993
+25 Apr 2016 00:53:04,595  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:04,601  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:04,601  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:53:04,601  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:04,617  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:53:04,623  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:53:04,625  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:53:04,626  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:08,446  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.745964
+25 Apr 2016 00:53:08,449  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 69.745964
+25 Apr 2016 00:53:08,453  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 69.745964
+25 Apr 2016 00:53:08,459  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:53:08,473  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:53:08,477  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:53:08,477  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:53:08,478  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:08,486  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:08,490  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:53:08,490  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:08,490  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:08,603  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:47.88799
+25 Apr 2016 00:53:08,611  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 47.88799
+25 Apr 2016 00:53:08,617  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 47.88799
+25 Apr 2016 00:53:08,618  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:53:08,630  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:08,633  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:53:08,634  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:08,635  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:08,646  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:53:08,650  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:53:08,650  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:53:08,651  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:12,475  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.20796
+25 Apr 2016 00:53:12,477  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 69.20796
+25 Apr 2016 00:53:12,477  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 69.20796
+25 Apr 2016 00:53:12,478  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:53:12,489  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:53:12,492  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:53:12,493  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:53:12,494  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:12,502  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:12,504  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:53:12,505  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:12,505  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:12,633  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:47.549427
+25 Apr 2016 00:53:12,636  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 47.549427
+25 Apr 2016 00:53:12,636  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:53:12,638  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 47.549427
+25 Apr 2016 00:53:12,652  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:12,654  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:53:12,655  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:12,656  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:12,674  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:53:12,676  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:53:12,676  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:53:12,677  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:16,511  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.6462
+25 Apr 2016 00:53:16,514  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 69.6462
+25 Apr 2016 00:53:16,514  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 69.6462
+25 Apr 2016 00:53:16,514  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:53:16,527  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:53:16,530  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:53:16,530  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:53:16,530  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:16,543  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:16,550  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:53:16,551  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:16,551  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:16,654  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:47.858868
+25 Apr 2016 00:53:16,657  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 47.858868
+25 Apr 2016 00:53:16,658  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 47.858868
+25 Apr 2016 00:53:16,659  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:53:16,666  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:16,669  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:16,669  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:53:16,670  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:16,677  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:53:16,680  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:53:16,680  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:53:16,680  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:20,531  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:68.88578
+25 Apr 2016 00:53:20,534  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 68.88578
+25 Apr 2016 00:53:20,535  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 68.88578
+25 Apr 2016 00:53:20,536  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:53:20,543  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:53:20,549  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:53:20,550  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:53:20,551  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:20,558  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:20,560  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:53:20,561  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:20,562  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:20,671  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:48.419643
+25 Apr 2016 00:53:20,674  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 48.419643
+25 Apr 2016 00:53:20,675  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:53:20,676  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 48.419643
+25 Apr 2016 00:53:20,689  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:20,692  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:53:20,694  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:20,694  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:20,702  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:53:20,704  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:53:20,704  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:53:20,705  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:24,560  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.0531
+25 Apr 2016 00:53:24,563  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 69.0531
+25 Apr 2016 00:53:24,566  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 69.0531
+25 Apr 2016 00:53:24,567  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:53:24,575  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:53:24,577  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:53:24,577  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:53:24,577  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:24,586  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:24,590  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:24,590  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:24,593  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:53:24,702  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:49.379642
+25 Apr 2016 00:53:24,704  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 49.379642
+25 Apr 2016 00:53:24,705  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 49.379642
+25 Apr 2016 00:53:24,705  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:53:24,715  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:24,718  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:53:24,718  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:24,718  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:24,731  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:53:24,733  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:53:24,733  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:53:24,734  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:28,591  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:68.85455
+25 Apr 2016 00:53:28,594  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 68.85455
+25 Apr 2016 00:53:28,595  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 68.85455
+25 Apr 2016 00:53:28,595  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:53:28,602  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:53:28,605  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:53:28,606  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:28,607  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:53:28,618  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:28,626  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:53:28,627  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:28,628  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:28,723  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:49.824383
+25 Apr 2016 00:53:28,728  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 49.824383
+25 Apr 2016 00:53:28,728  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:53:28,729  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 49.824383
+25 Apr 2016 00:53:28,747  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:28,752  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:53:28,758  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:28,760  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:28,771  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:53:28,780  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:53:28,780  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:53:28,780  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:32,618  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.50747
+25 Apr 2016 00:53:32,622  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 69.50747
+25 Apr 2016 00:53:32,623  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 69.50747
+25 Apr 2016 00:53:32,623  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:53:32,638  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:53:32,642  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:53:32,643  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:32,645  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:53:32,653  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:32,656  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:32,656  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:53:32,657  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:32,755  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:50.668037
+25 Apr 2016 00:53:32,757  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 50.668037
+25 Apr 2016 00:53:32,757  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 50.668037
+25 Apr 2016 00:53:32,757  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:53:32,765  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:32,768  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:53:32,769  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:32,769  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:32,777  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:53:32,779  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:53:32,780  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:53:32,780  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:36,637  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:68.658394
+25 Apr 2016 00:53:36,640  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 68.658394
+25 Apr 2016 00:53:36,640  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 68.658394
+25 Apr 2016 00:53:36,641  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:53:36,649  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:53:36,654  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:53:36,654  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:53:36,656  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:36,667  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:36,670  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:36,671  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:36,671  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:53:36,771  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:49.751595
+25 Apr 2016 00:53:36,773  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 49.751595
+25 Apr 2016 00:53:36,773  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 49.751595
+25 Apr 2016 00:53:36,773  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:53:36,779  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:36,782  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:53:36,783  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:36,783  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:36,792  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:53:36,793  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:53:36,794  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:36,794  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:53:40,660  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:68.346855
+25 Apr 2016 00:53:40,664  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 68.346855
+25 Apr 2016 00:53:40,664  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 68.346855
+25 Apr 2016 00:53:40,664  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:53:40,672  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:53:40,675  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:53:40,675  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:53:40,675  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:40,689  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:40,691  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:40,691  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:53:40,691  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:40,793  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:48.78888
+25 Apr 2016 00:53:40,795  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 48.78888
+25 Apr 2016 00:53:40,795  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 48.78888
+25 Apr 2016 00:53:40,796  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:53:40,807  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:40,809  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:53:40,810  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:40,811  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:40,821  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:53:40,823  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:53:40,824  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:40,824  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:53:44,683  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:68.46128
+25 Apr 2016 00:53:44,686  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 68.46128
+25 Apr 2016 00:53:44,690  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 68.46128
+25 Apr 2016 00:53:44,691  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:53:44,702  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:53:44,704  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:53:44,705  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:53:44,706  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:44,714  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:44,716  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:53:44,716  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:44,717  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:44,805  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:49.750687
+25 Apr 2016 00:53:44,807  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 49.750687
+25 Apr 2016 00:53:44,807  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:53:44,807  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 49.750687
+25 Apr 2016 00:53:44,816  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:44,818  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:44,819  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:44,821  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:53:44,827  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:53:44,830  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:53:44,833  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:53:44,833  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:48,703  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:67.9192
+25 Apr 2016 00:53:48,705  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 67.9192
+25 Apr 2016 00:53:48,706  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 67.9192
+25 Apr 2016 00:53:48,706  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:53:48,714  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:53:48,717  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:53:48,718  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:53:48,718  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:48,730  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:48,732  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:53:48,732  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:48,733  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:48,818  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:50.388355
+25 Apr 2016 00:53:48,822  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 50.388355
+25 Apr 2016 00:53:48,822  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 50.388355
+25 Apr 2016 00:53:48,823  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:53:48,832  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:48,834  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:48,835  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:48,836  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:53:48,845  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:53:48,847  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:53:48,847  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:53:48,847  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:52,722  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:66.982544
+25 Apr 2016 00:53:52,725  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 66.982544
+25 Apr 2016 00:53:52,726  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 66.982544
+25 Apr 2016 00:53:52,726  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:53:52,735  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:53:52,741  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:53:52,741  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:53:52,742  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:52,757  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:52,760  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:52,760  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:52,760  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:53:52,840  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:51.228756
+25 Apr 2016 00:53:52,843  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 51.228756
+25 Apr 2016 00:53:52,843  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 51.228756
+25 Apr 2016 00:53:52,844  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:53:52,853  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:52,855  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:52,856  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:52,856  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:53:52,865  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:53:52,868  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:53:52,868  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:52,868  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:53:56,748  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:67.29409
+25 Apr 2016 00:53:56,751  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 67.29409
+25 Apr 2016 00:53:56,754  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 67.29409
+25 Apr 2016 00:53:56,754  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:53:56,764  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:53:56,766  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:53:56,766  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:53:56,766  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:56,778  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:56,780  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:53:56,781  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:56,781  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:53:56,864  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:52.19253
+25 Apr 2016 00:53:56,867  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 52.19253
+25 Apr 2016 00:53:56,867  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 52.19253
+25 Apr 2016 00:53:56,867  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:53:56,874  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:53:56,878  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:53:56,884  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:53:56,884  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:53:56,885  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:53:56,890  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:53:56,892  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:53:56,894  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:00,769  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:66.89054
+25 Apr 2016 00:54:00,772  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 66.89054
+25 Apr 2016 00:54:00,773  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 66.89054
+25 Apr 2016 00:54:00,774  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:54:00,780  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:54:00,782  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:54:00,784  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:54:00,785  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:00,797  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:00,799  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:54:00,801  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:00,802  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:00,894  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:51.291435
+25 Apr 2016 00:54:00,898  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 51.291435
+25 Apr 2016 00:54:00,899  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 51.291435
+25 Apr 2016 00:54:00,899  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:54:00,911  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:00,913  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:00,913  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:54:00,914  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:00,923  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:54:00,925  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:54:00,925  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:54:00,925  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:04,783  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:67.83931
+25 Apr 2016 00:54:04,787  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 67.83931
+25 Apr 2016 00:54:04,787  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 67.83931
+25 Apr 2016 00:54:04,787  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:54:04,799  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:54:04,801  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:54:04,801  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:04,802  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:54:04,818  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:04,822  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:04,822  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:04,822  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:54:04,917  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:52.017857
+25 Apr 2016 00:54:04,921  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 52.017857
+25 Apr 2016 00:54:04,921  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 52.017857
+25 Apr 2016 00:54:04,921  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:54:04,930  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:04,933  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:54:04,933  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:04,933  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:04,938  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:54:04,940  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:54:04,943  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:54:04,943  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:08,799  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:67.23886
+25 Apr 2016 00:54:08,802  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 67.23886
+25 Apr 2016 00:54:08,803  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 67.23886
+25 Apr 2016 00:54:08,803  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:54:08,816  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:54:08,818  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:54:08,820  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:54:08,821  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:08,827  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:08,830  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:54:08,831  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:08,832  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:08,938  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:51.034286
+25 Apr 2016 00:54:08,941  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 51.034286
+25 Apr 2016 00:54:08,941  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:54:08,942  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 51.034286
+25 Apr 2016 00:54:08,949  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:08,952  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:54:08,953  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:08,953  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:08,957  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:54:08,959  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:54:08,959  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:54:08,961  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:12,824  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:66.297134
+25 Apr 2016 00:54:12,827  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 66.297134
+25 Apr 2016 00:54:12,829  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 66.297134
+25 Apr 2016 00:54:12,829  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:54:12,833  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:54:12,836  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:54:12,837  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:12,838  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:54:12,846  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:12,848  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:54:12,848  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:12,848  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:12,953  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:51.60081
+25 Apr 2016 00:54:12,958  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 51.60081
+25 Apr 2016 00:54:12,958  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:54:12,959  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 51.60081
+25 Apr 2016 00:54:12,966  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:12,977  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:12,977  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:12,978  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:54:12,985  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:54:12,991  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:54:12,991  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:54:12,991  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:16,837  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:66.46639
+25 Apr 2016 00:54:16,839  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 66.46639
+25 Apr 2016 00:54:16,840  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 66.46639
+25 Apr 2016 00:54:16,841  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:54:16,851  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:54:16,854  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:54:16,855  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:16,855  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:54:16,867  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:16,870  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:54:16,870  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:16,870  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:16,970  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:51.146282
+25 Apr 2016 00:54:16,972  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 51.146282
+25 Apr 2016 00:54:16,972  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 51.146282
+25 Apr 2016 00:54:16,972  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:54:16,986  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:16,988  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:54:16,988  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:16,989  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:17,001  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:54:17,004  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:54:17,004  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:54:17,004  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:20,848  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:66.749016
+25 Apr 2016 00:54:20,852  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 66.749016
+25 Apr 2016 00:54:20,852  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 66.749016
+25 Apr 2016 00:54:20,852  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:54:20,860  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:54:20,863  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:54:20,864  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:54:20,864  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:20,878  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:20,882  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:54:20,882  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:20,882  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:20,986  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:51.880882
+25 Apr 2016 00:54:20,988  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 51.880882
+25 Apr 2016 00:54:20,989  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:54:20,990  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 51.880882
+25 Apr 2016 00:54:20,998  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:21,000  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:54:21,000  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:21,001  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:21,010  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:54:21,013  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:54:21,014  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:21,014  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:54:24,867  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:66.393456
+25 Apr 2016 00:54:24,871  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 66.393456
+25 Apr 2016 00:54:24,872  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 66.393456
+25 Apr 2016 00:54:24,872  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:54:24,881  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:54:24,883  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:54:24,884  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:54:24,885  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:24,893  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:24,896  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:54:24,897  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:24,897  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:25,000  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:52.587738
+25 Apr 2016 00:54:25,002  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 52.587738
+25 Apr 2016 00:54:25,002  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 52.587738
+25 Apr 2016 00:54:25,002  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:54:25,011  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:25,014  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:54:25,014  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:25,014  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:25,026  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:54:25,029  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:54:25,029  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:54:25,030  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:28,879  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:65.617424
+25 Apr 2016 00:54:28,883  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 65.617424
+25 Apr 2016 00:54:28,887  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 65.617424
+25 Apr 2016 00:54:28,887  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:54:28,895  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:54:28,901  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:54:28,901  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:54:28,901  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:28,923  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:28,928  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:54:28,929  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:28,929  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:29,018  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:53.377377
+25 Apr 2016 00:54:29,023  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 53.377377
+25 Apr 2016 00:54:29,023  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 53.377377
+25 Apr 2016 00:54:29,024  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:54:29,031  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:29,034  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:29,034  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:54:29,035  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:29,053  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:54:29,057  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:54:29,059  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:54:29,059  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:32,902  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:65.08286
+25 Apr 2016 00:54:32,904  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 65.08286
+25 Apr 2016 00:54:32,904  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 65.08286
+25 Apr 2016 00:54:32,905  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:54:32,912  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:54:32,919  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:54:32,919  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:54:32,919  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:32,937  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:32,940  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:32,940  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:54:32,940  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:33,035  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:53.20647
+25 Apr 2016 00:54:33,037  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 53.20647
+25 Apr 2016 00:54:33,039  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 53.20647
+25 Apr 2016 00:54:33,040  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:54:33,047  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:33,050  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:54:33,050  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:33,051  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:33,057  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:54:33,059  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:54:33,059  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:54:33,059  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:36,924  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:64.10879
+25 Apr 2016 00:54:36,931  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 64.10879
+25 Apr 2016 00:54:36,933  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 64.10879
+25 Apr 2016 00:54:36,933  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:54:36,947  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:54:36,949  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:54:36,950  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:54:36,951  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:36,958  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:36,959  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:54:36,959  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:36,960  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:37,048  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:52.266193
+25 Apr 2016 00:54:37,050  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 52.266193
+25 Apr 2016 00:54:37,051  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:54:37,051  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 52.266193
+25 Apr 2016 00:54:37,059  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:37,061  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:54:37,066  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:37,066  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:37,073  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:54:37,078  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:54:37,078  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:54:37,078  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:40,943  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:63.55605
+25 Apr 2016 00:54:40,945  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 63.55605
+25 Apr 2016 00:54:40,946  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:54:40,947  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 63.55605
+25 Apr 2016 00:54:40,956  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:54:40,958  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:54:40,959  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:40,960  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:54:40,974  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:40,976  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:54:40,976  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:40,980  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:41,074  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:52.647648
+25 Apr 2016 00:54:41,079  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 52.647648
+25 Apr 2016 00:54:41,079  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 52.647648
+25 Apr 2016 00:54:41,079  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:54:41,089  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:41,092  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:54:41,092  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:41,093  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:41,104  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:54:41,106  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:54:41,106  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:54:41,106  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:44,962  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:64.45125
+25 Apr 2016 00:54:44,966  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 64.45125
+25 Apr 2016 00:54:44,966  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 64.45125
+25 Apr 2016 00:54:44,967  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:54:44,974  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:54:44,977  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:54:44,977  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:54:44,978  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:44,994  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:44,996  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:54:44,996  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:44,997  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:45,097  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:53.532753
+25 Apr 2016 00:54:45,099  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 53.532753
+25 Apr 2016 00:54:45,099  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 53.532753
+25 Apr 2016 00:54:45,100  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:54:45,109  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:45,111  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:54:45,111  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:45,111  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:45,119  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:54:45,121  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:54:45,122  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:54:45,122  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:48,978  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:64.72992
+25 Apr 2016 00:54:48,984  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 64.72992
+25 Apr 2016 00:54:48,985  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:54:48,987  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 64.72992
+25 Apr 2016 00:54:48,999  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:54:49,005  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:54:49,006  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:54:49,006  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:49,018  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:49,020  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:49,021  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:54:49,021  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:49,114  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:53.38018
+25 Apr 2016 00:54:49,116  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 53.38018
+25 Apr 2016 00:54:49,118  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 53.38018
+25 Apr 2016 00:54:49,118  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:54:49,123  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:49,130  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:49,130  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:54:49,130  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:49,142  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:54:49,146  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:54:49,146  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:54:49,147  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:53,005  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:64.30016
+25 Apr 2016 00:54:53,007  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 64.30016
+25 Apr 2016 00:54:53,008  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:54:53,007  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 64.30016
+25 Apr 2016 00:54:53,017  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:54:53,020  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:54:53,020  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:54:53,020  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:53,026  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:53,027  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:54:53,027  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:53,028  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:53,135  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:53.729774
+25 Apr 2016 00:54:53,139  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 53.729774
+25 Apr 2016 00:54:53,139  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 53.729774
+25 Apr 2016 00:54:53,139  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:54:53,147  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:53,150  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:54:53,150  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:53,151  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:53,163  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:54:53,165  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:54:53,166  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:54:53,166  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:57,021  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:65.10044
+25 Apr 2016 00:54:57,023  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 65.10044
+25 Apr 2016 00:54:57,023  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 65.10044
+25 Apr 2016 00:54:57,023  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:54:57,029  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:54:57,031  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:54:57,032  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:54:57,032  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:57,043  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:57,045  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:57,045  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:54:57,046  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:54:57,158  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:53.559048
+25 Apr 2016 00:54:57,162  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 53.559048
+25 Apr 2016 00:54:57,165  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 53.559048
+25 Apr 2016 00:54:57,165  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:54:57,176  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:54:57,178  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:54:57,183  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:54:57,184  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:57,192  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:54:57,194  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:54:57,194  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:54:57,195  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:55:01,036  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:64.68489
+25 Apr 2016 00:55:01,039  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 64.68489
+25 Apr 2016 00:55:01,041  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 64.68489
+25 Apr 2016 00:55:01,041  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:55:01,051  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:55:01,053  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:55:01,054  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:01,054  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:55:01,078  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:55:01,081  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:55:01,081  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:55:01,081  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:01,171  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:53.275986
+25 Apr 2016 00:55:01,176  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 53.275986
+25 Apr 2016 00:55:01,176  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 53.275986
+25 Apr 2016 00:55:01,177  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:55:01,190  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:55:01,195  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:55:01,196  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:55:01,196  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:55:01,206  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:55:01,209  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:55:01,209  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:55:01,210  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:55:05,054  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:64.155464
+25 Apr 2016 00:55:05,056  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 64.155464
+25 Apr 2016 00:55:05,056  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 64.155464
+25 Apr 2016 00:55:05,056  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:55:05,064  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:55:05,066  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:55:05,066  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:55:05,066  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:05,071  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:55:05,078  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:55:05,078  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:55:05,078  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:05,189  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:53.903465
+25 Apr 2016 00:55:05,191  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 53.903465
+25 Apr 2016 00:55:05,193  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 53.903465
+25 Apr 2016 00:55:05,193  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:55:05,200  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:55:05,205  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:55:05,206  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:55:05,208  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:55:05,218  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:55:05,222  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:55:05,222  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:55:05,222  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:55:09,064  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:63.988605
+25 Apr 2016 00:55:09,066  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 63.988605
+25 Apr 2016 00:55:09,066  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 63.988605
+25 Apr 2016 00:55:09,067  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:55:09,074  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:55:09,076  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:55:09,078  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:55:09,078  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:09,091  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:55:09,093  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:55:09,093  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:55:09,093  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:09,211  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:53.469837
+25 Apr 2016 00:55:09,213  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 53.469837
+25 Apr 2016 00:55:09,213  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 53.469837
+25 Apr 2016 00:55:09,214  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:55:09,223  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:55:09,225  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:55:09,225  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:55:09,226  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:55:09,231  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:55:09,234  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:55:09,234  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:55:09,239  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:55:13,084  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:64.37473
+25 Apr 2016 00:55:13,087  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 64.37473
+25 Apr 2016 00:55:13,087  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 64.37473
+25 Apr 2016 00:55:13,088  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:55:13,102  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:55:13,104  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:55:13,104  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:55:13,104  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:13,117  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:55:13,120  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:55:13,120  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:13,125  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:55:13,224  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:53.931087
+25 Apr 2016 00:55:13,230  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 53.931087
+25 Apr 2016 00:55:13,231  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 53.931087
+25 Apr 2016 00:55:13,231  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:55:13,237  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:55:13,239  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:55:13,239  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:55:13,240  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:55:13,255  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:55:13,257  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:55:13,257  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:55:13,258  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:55:17,104  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:63.593487
+25 Apr 2016 00:55:17,109  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 63.593487
+25 Apr 2016 00:55:17,109  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:55:17,111  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 63.593487
+25 Apr 2016 00:55:17,121  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:55:17,125  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:55:17,126  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:55:17,126  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:17,136  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:55:17,139  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:55:17,140  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:55:17,140  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:17,240  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:53.752365
+25 Apr 2016 00:55:17,246  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 53.752365
+25 Apr 2016 00:55:17,246  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 53.752365
+25 Apr 2016 00:55:17,246  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:55:17,260  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:55:17,264  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:55:17,264  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:55:17,264  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:55:17,275  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:55:17,277  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:55:17,278  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:55:17,279  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:55:21,127  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:63.756233
+25 Apr 2016 00:55:21,129  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 63.756233
+25 Apr 2016 00:55:21,130  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:55:21,130  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 63.756233
+25 Apr 2016 00:55:21,136  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:55:21,138  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:55:21,142  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:55:21,143  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:21,152  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:55:21,154  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:55:21,155  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:55:21,155  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:21,264  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:54.464993
+25 Apr 2016 00:55:21,267  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 54.464993
+25 Apr 2016 00:55:21,268  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 54.464993
+25 Apr 2016 00:55:21,269  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:55:21,278  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:55:21,280  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:55:21,282  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:55:21,282  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:55:21,287  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:55:21,291  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:55:21,292  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:55:21,293  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:55:25,143  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:64.538376
+25 Apr 2016 00:55:25,146  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 64.538376
+25 Apr 2016 00:55:25,146  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 64.538376
+25 Apr 2016 00:55:25,146  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:55:25,156  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:55:25,158  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:55:25,158  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:55:25,158  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:25,169  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:55:25,172  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:55:25,172  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:55:25,172  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:25,280  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:55.459423
+25 Apr 2016 00:55:25,283  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 55.459423
+25 Apr 2016 00:55:25,285  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 55.459423
+25 Apr 2016 00:55:25,285  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:55:25,292  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:55:25,295  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:55:25,295  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:55:25,296  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:55:25,311  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:55:25,314  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:55:25,315  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:55:25,315  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:55:29,162  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:64.13024
+25 Apr 2016 00:55:29,165  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 64.13024
+25 Apr 2016 00:55:29,166  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 64.13024
+25 Apr 2016 00:55:29,166  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:55:29,172  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:55:29,174  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:55:29,175  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:55:29,175  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:29,189  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:55:29,191  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:55:29,191  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:55:29,191  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:29,298  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:56.174255
+25 Apr 2016 00:55:29,301  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 56.174255
+25 Apr 2016 00:55:29,303  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 56.174255
+25 Apr 2016 00:55:29,304  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:55:29,310  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H0
+25 Apr 2016 00:55:29,313  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H0
+25 Apr 2016 00:55:29,313  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H0
+25 Apr 2016 00:55:29,314  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:false , Deshumidity: false
+25 Apr 2016 00:55:29,319  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D1
+25 Apr 2016 00:55:29,320  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D1
+25 Apr 2016 00:55:29,320  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D1
+25 Apr 2016 00:55:29,321  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:false , Deshumidity: true
+25 Apr 2016 00:55:33,178  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:63.367325
+25 Apr 2016 00:55:33,181  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 63.367325
+25 Apr 2016 00:55:33,182  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:55:33,183  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 63.367325
+25 Apr 2016 00:55:33,193  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:55:33,194  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:55:33,195  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:55:33,195  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:33,202  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:55:33,205  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:55:33,206  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:55:33,206  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:33,319  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:55.468422
+25 Apr 2016 00:55:33,322  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 55.468422
+25 Apr 2016 00:55:33,322  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 55.468422
+25 Apr 2016 00:55:33,323  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:55:33,329  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:55:33,331  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:55:33,331  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:55:33,331  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: true
+25 Apr 2016 00:55:33,344  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:55:33,346  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:55:33,346  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:55:33,347  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:55:37,201  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:64.093216
+25 Apr 2016 00:55:37,203  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 64.093216
+25 Apr 2016 00:55:37,204  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 64.093216
+25 Apr 2016 00:55:37,204  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:55:37,211  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:55:37,214  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:55:37,215  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:55:37,215  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:37,220  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:55:37,221  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:55:37,221  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:55:37,222  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:37,334  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:54.869236
+25 Apr 2016 00:55:37,337  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 54.869236
+25 Apr 2016 00:55:37,338  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 54.869236
+25 Apr 2016 00:55:37,339  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:55:37,345  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:55:37,348  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:55:37,348  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:55:37,349  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:55:37,353  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:55:37,354  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:55:37,355  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:55:37,355  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:55:41,215  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:63.32716
+25 Apr 2016 00:55:41,220  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 63.32716
+25 Apr 2016 00:55:41,221  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:55:41,223  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 63.32716
+25 Apr 2016 00:55:41,230  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:55:41,233  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:55:41,234  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:55:41,235  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:41,248  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:55:41,250  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:55:41,250  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:55:41,252  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:41,347  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:54.696896
+25 Apr 2016 00:55:41,350  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 54.696896
+25 Apr 2016 00:55:41,350  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 54.696896
+25 Apr 2016 00:55:41,350  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:55:41,360  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:55:41,362  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H1
+25 Apr 2016 00:55:41,365  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:55:41,367  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:55:41,375  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:55:41,377  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D0
+25 Apr 2016 00:55:41,378  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:55:41,378  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:55:45,244  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:62.365807
+25 Apr 2016 00:55:45,247  INFO MainMenuConsoleView:573 - Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: 62.365807
+25 Apr 2016 00:55:45,253  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 62.365807
+25 Apr 2016 00:55:45,253  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:55:45,268  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:55:45,272  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: C0
+25 Apr 2016 00:55:45,272  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:55:45,272  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:45,280  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:55:45,282  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:55:45,282  INFO MainMenuConsoleView:617 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
+25 Apr 2016 00:55:45,282  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:45,370  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:55.52599
+25 Apr 2016 00:55:45,372  INFO MainMenuConsoleView:595 - Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: 55.52599
+25 Apr 2016 00:55:45,373  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 55.52599
+25 Apr 2016 00:55:45,373  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:55:45,379  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H0
+25 Apr 2016 00:55:45,381  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: H0
+25 Apr 2016 00:55:45,383  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H0
+25 Apr 2016 00:55:45,384  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:false , Deshumidity: false
+25 Apr 2016 00:55:45,396  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D1
+25 Apr 2016 00:55:45,398  INFO MainMenuConsoleView:653 - Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: D1
+25 Apr 2016 00:55:45,398  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D1
+25 Apr 2016 00:55:45,398  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:false , Deshumidity: true
+25 Apr 2016 00:55:49,273  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:62.666176
+25 Apr 2016 00:55:49,276  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 62.666176
+25 Apr 2016 00:55:49,276  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+25 Apr 2016 00:55:49,280  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+25 Apr 2016 00:55:49,282  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:55:49,283  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:49,295  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:55:49,296  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:55:49,297  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:55:49,390  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:54.655106
+25 Apr 2016 00:55:49,394  INFO Controller:68 - Class HumidityController --- RECEIVED from Sensor --- Value: 54.655106
+25 Apr 2016 00:55:49,395  INFO Controller:86 - Class HumidityController --- SEND to Controller ...
+25 Apr 2016 00:55:49,405  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+25 Apr 2016 00:55:49,412  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:55:49,412  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: true
+25 Apr 2016 00:55:49,424  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D0
+25 Apr 2016 00:55:49,428  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D0
+25 Apr 2016 00:55:49,429  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:true , Deshumidity: false
+25 Apr 2016 00:55:53,286  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:63.662483

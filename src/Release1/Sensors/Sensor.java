@@ -103,25 +103,4 @@ public class Sensor {
         channel.close();
         connection.close();
     }
-    
-    protected void receiveMessage(String ID_CHANNEL_RECEIVE) throws IOException, TimeoutException{
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost(HOST);
-        Connection connection = factory.newConnection();
-        Channel channel = connection.createChannel();
-
-        channel.exchangeDeclare(ID_CHANNEL_RECEIVE, "fanout");
-        String queueName = channel.queueDeclare().getQueue();
-        channel.queueBind(queueName, ID_CHANNEL_RECEIVE, "");
-
-        Consumer consumer = new DefaultConsumer(channel) {
-            @Override
-            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                setMessage(new String(body, "UTF-8"));
-                logger.info("Class Sensor --- RECEIVED From Controller --- Value: " + new String(body, "UTF-8"));
-            }
-        };
-        channel.basicConsume(queueName, true, consumer);
-    }
-
 }

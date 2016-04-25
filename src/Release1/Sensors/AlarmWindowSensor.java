@@ -86,11 +86,11 @@ public class AlarmWindowSensor extends Sensor implements Runnable {
      */
     @Override
     public void run() {
-        /**
-         * try { receiveMessage(); } catch (IOException | TimeoutException ex) {
-         * logger.error(ex);
-        }*
-         */
+        try {
+            receiveMessage();
+        } catch (IOException | TimeoutException ex) {
+            logger.error(ex);
+        }
         currentWindowState = 5;
         while (!isDone) {
             if (coinToss()) {

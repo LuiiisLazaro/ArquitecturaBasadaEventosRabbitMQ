@@ -6,6 +6,14 @@ package Release1.Sensors;
 /**
  *
  */
+import static Release1.Sensors.Sensor.HOST;
+import com.rabbitmq.client.AMQP;
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.Consumer;
+import com.rabbitmq.client.DefaultConsumer;
+import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
@@ -39,8 +47,24 @@ public class TemperatureSensor extends Sensor implements Runnable {
      * @throws TimeoutException
      */
     public void receiveMessage() throws IOException, TimeoutException {
-        receiveMessage(ID_CHANNEL_TEMPERATURE_CONTROLLER);
-        logger.info("Class TemperatureSensor --- RECEIVE from Controller --- value:"+ getMessage());
+        ConnectionFactory factory = new ConnectionFactory();
+        factory.setHost(HOST);
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+
+        channel.exchangeDeclare(ID_CHANNEL_TEMPERATURE_CONTROLLER, "fanout");
+        String queueName = channel.queueDeclare().getQueue();
+        channel.queueBind(queueName, ID_CHANNEL_TEMPERATURE_CONTROLLER, "");
+
+        Consumer consumer = new DefaultConsumer(channel) {
+            @Override
+            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                setMessage(new String(body, "UTF-8"));
+                logger.info("Class Sensor --- RECEIVED From Controller --- Value: " + new String(body, "UTF-8"));
+                checkValuesExecute();
+            }
+        };
+        channel.basicConsume(queueName, true, consumer);
     }
 
     /**

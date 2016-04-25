@@ -29,6 +29,9 @@ public class HumidityController extends Controller implements Runnable {
 
     private static final String ID_CHANNEL_HUMIDITY_CONTROLLER = "4";
     private static final String ID_CHANNEL_HUMIDITY_SENSOR = "-4";
+    
+    private static final int MAX_HUMIDITY = 55;
+    private static final int MIN_HUMIDITY = 45;
 
     private static final String ID_HUMIDITY_ON = "H1";
     private static final String ID_HUMIDITY_OFF = "H0";
@@ -82,12 +85,12 @@ public class HumidityController extends Controller implements Runnable {
 
         logger.info("Class HumidityController --- SEND to Controller ...");
 
-        if (Math.round(Float.parseFloat(getMessage())) < 40) {
-            sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_HUMIDITY_ON);
-            sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_DESHUMIDITY_OFF);
-        } else { //(Math.round(Float.parseFloat(getMessage())) > 45)
+        if (Math.round(Float.parseFloat(getMessage())) > MAX_HUMIDITY) {
             sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_HUMIDITY_OFF);
             sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_DESHUMIDITY_ON);
+        } else { //(Math.round(Float.parseFloat(getMessage())) > 45)
+            sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_HUMIDITY_ON);
+            sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_DESHUMIDITY_OFF);
         }
     }
 

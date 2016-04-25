@@ -7069,3 +7069,229 @@
 24 Apr 2016 22:27:57,401  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
 24 Apr 2016 22:27:57,404  INFO MainMenuConsoleView:615 - Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: H1
 24 Apr 2016 22:27:57,404  INFO Sensor:121 - Class Sensor --- RECEIVED From Controller --- Value: H1
+24 Apr 2016 22:55:03,695  INFO Controller:136 - Class TemperatureController --- Start Controller Temperature...
+24 Apr 2016 22:55:07,978  INFO Sensor:156 - Class TemperatureSensot --- Start Sensor Temperature...
+24 Apr 2016 22:55:08,129  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.23702
+24 Apr 2016 22:55:08,138  INFO Controller:64 - Class TemperatureController --- RECEIVED from Sensor --- Value: 69.23702
+24 Apr 2016 22:55:08,142  INFO Controller:82 - Class TemperatureController --- SEND to Controller ...
+24 Apr 2016 22:55:08,154  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+24 Apr 2016 22:55:08,159  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+24 Apr 2016 22:55:08,160  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: false , Chiller: false
+24 Apr 2016 22:55:08,173  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+24 Apr 2016 22:55:08,176  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+24 Apr 2016 22:55:08,177  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+24 Apr 2016 22:55:12,147  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:68.93393
+24 Apr 2016 22:55:12,151  INFO Controller:64 - Class TemperatureController --- RECEIVED from Sensor --- Value: 68.93393
+24 Apr 2016 22:55:12,152  INFO Controller:82 - Class TemperatureController --- SEND to Controller ...
+24 Apr 2016 22:55:12,160  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+24 Apr 2016 22:55:12,163  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+24 Apr 2016 22:55:12,163  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+24 Apr 2016 22:55:12,175  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+24 Apr 2016 22:55:12,180  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+24 Apr 2016 22:55:12,180  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+24 Apr 2016 22:55:16,158  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.70595
+24 Apr 2016 22:55:16,168  INFO Controller:64 - Class TemperatureController --- RECEIVED from Sensor --- Value: 69.70595
+24 Apr 2016 22:55:16,169  INFO Controller:82 - Class TemperatureController --- SEND to Controller ...
+24 Apr 2016 22:55:16,178  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+24 Apr 2016 22:55:16,194  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+24 Apr 2016 22:55:16,180  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+24 Apr 2016 22:55:16,196  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+24 Apr 2016 22:55:16,207  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+24 Apr 2016 22:55:16,207  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+24 Apr 2016 22:55:20,188  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.17796
+24 Apr 2016 22:55:20,193  INFO Controller:64 - Class TemperatureController --- RECEIVED from Sensor --- Value: 69.17796
+24 Apr 2016 22:55:20,194  INFO Controller:82 - Class TemperatureController --- SEND to Controller ...
+24 Apr 2016 22:55:20,207  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+24 Apr 2016 22:55:20,213  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+24 Apr 2016 22:55:20,215  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+24 Apr 2016 22:55:20,222  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+24 Apr 2016 22:55:20,227  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+24 Apr 2016 22:55:20,227  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+24 Apr 2016 22:55:24,216  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:68.96809
+24 Apr 2016 22:55:24,222  INFO Controller:64 - Class TemperatureController --- RECEIVED from Sensor --- Value: 68.96809
+24 Apr 2016 22:55:24,223  INFO Controller:82 - Class TemperatureController --- SEND to Controller ...
+24 Apr 2016 22:55:24,233  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+24 Apr 2016 22:55:24,236  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+24 Apr 2016 22:55:24,237  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+24 Apr 2016 22:55:24,260  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+24 Apr 2016 22:55:24,263  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+24 Apr 2016 22:55:24,266  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+24 Apr 2016 22:57:36,020  INFO Controller:135 - Class HumidityController --- Start Controller Humidity...
+24 Apr 2016 22:57:42,237  INFO Sensor:136 - Class HumiditysSensor --- Start Sensor Temperature...
+24 Apr 2016 22:57:42,394  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:47.215923
+24 Apr 2016 22:57:42,401  INFO Controller:65 - Class HumidityController --- RECEIVED from Sensor --- Value: 47.215923
+24 Apr 2016 22:57:42,403  INFO Controller:83 - Class HumidityController --- SEND to Controller ...
+24 Apr 2016 22:57:42,431  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H0
+24 Apr 2016 22:57:42,438  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H0
+24 Apr 2016 22:57:42,439  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:false , Deshumidity: false
+24 Apr 2016 22:57:42,456  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D1
+24 Apr 2016 22:57:42,463  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D1
+24 Apr 2016 22:57:42,464  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:false , Deshumidity: true
+24 Apr 2016 22:57:46,436  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:47.959316
+24 Apr 2016 22:57:46,447  INFO Controller:65 - Class HumidityController --- RECEIVED from Sensor --- Value: 47.959316
+24 Apr 2016 22:57:46,449  INFO Controller:83 - Class HumidityController --- SEND to Controller ...
+24 Apr 2016 22:57:46,456  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H0
+24 Apr 2016 22:57:46,459  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: H0
+24 Apr 2016 22:57:46,460  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:false , Deshumidity: true
+24 Apr 2016 22:57:46,472  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: D1
+24 Apr 2016 22:57:46,475  INFO Sensor:52 - Class Sensor --- RECEIVED From Controller --- Value: D1
+24 Apr 2016 22:57:46,476  INFO Sensor:76 - Class HumiditySensor --- NewValues Humidity:false , Deshumidity: true
+24 Apr 2016 23:06:04,176  INFO Sensor:147 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+24 Apr 2016 23:06:04,308  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:5
+24 Apr 2016 23:06:07,783  INFO Controller:124 - Class TemperatureController --- Start Controller Temperature...
+24 Apr 2016 23:06:08,332  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:6
+24 Apr 2016 23:06:08,338  INFO Controller:55 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 6
+24 Apr 2016 23:06:08,339  INFO Controller:72 - Class TemperatureController --- SEND to Controller ...
+24 Apr 2016 23:06:08,358  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: AW0
+24 Apr 2016 23:06:12,344  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:6
+24 Apr 2016 23:06:12,346  INFO Controller:55 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 6
+24 Apr 2016 23:06:12,347  INFO Controller:72 - Class TemperatureController --- SEND to Controller ...
+24 Apr 2016 23:06:12,359  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: AW0
+24 Apr 2016 23:06:16,357  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:6
+24 Apr 2016 23:06:16,364  INFO Controller:55 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 6
+24 Apr 2016 23:06:16,365  INFO Controller:72 - Class TemperatureController --- SEND to Controller ...
+24 Apr 2016 23:06:16,372  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: AW0
+24 Apr 2016 23:06:20,396  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:7
+24 Apr 2016 23:06:20,399  INFO Controller:55 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 7
+24 Apr 2016 23:06:20,401  INFO Controller:72 - Class TemperatureController --- SEND to Controller ...
+24 Apr 2016 23:06:20,407  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: AW0
+24 Apr 2016 23:06:24,410  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:7
+24 Apr 2016 23:06:24,413  INFO Controller:55 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 7
+24 Apr 2016 23:06:24,413  INFO Controller:72 - Class TemperatureController --- SEND to Controller ...
+24 Apr 2016 23:06:24,425  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: AW0
+24 Apr 2016 23:06:28,421  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:8
+24 Apr 2016 23:06:28,423  INFO Controller:55 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 8
+24 Apr 2016 23:06:28,424  INFO Controller:72 - Class TemperatureController --- SEND to Controller ...
+24 Apr 2016 23:06:28,433  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: AW0
+24 Apr 2016 23:06:32,439  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:9
+24 Apr 2016 23:06:36,457  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:10
+24 Apr 2016 23:06:40,466  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:9
+24 Apr 2016 23:06:44,486  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:9
+24 Apr 2016 23:06:48,507  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:9
+24 Apr 2016 23:06:52,526  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:9
+24 Apr 2016 23:07:26,825  INFO Controller:124 - Class TemperatureController --- Start Controller Temperature...
+24 Apr 2016 23:07:30,618  INFO Sensor:147 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+24 Apr 2016 23:07:30,767  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:4
+24 Apr 2016 23:07:30,780  INFO Controller:55 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 4
+24 Apr 2016 23:07:30,784  INFO Controller:72 - Class TemperatureController --- SEND to Controller ...
+24 Apr 2016 23:07:30,810  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: AW1
+24 Apr 2016 23:07:30,819  INFO Sensor:57 - Class ALARMWINDOWSENSOR --- RECEIVED From Controller --- Value: AW1
+24 Apr 2016 23:07:30,824  INFO Sensor:78 - Class TemperatureSensor --- NewValues Window: true
+24 Apr 2016 23:07:34,791  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:4
+24 Apr 2016 23:07:34,794  INFO Controller:55 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 4
+24 Apr 2016 23:07:34,801  INFO Controller:72 - Class TemperatureController --- SEND to Controller ...
+24 Apr 2016 23:07:34,807  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: AW1
+24 Apr 2016 23:07:38,811  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:4
+24 Apr 2016 23:07:38,819  INFO Controller:55 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 4
+24 Apr 2016 23:07:38,820  INFO Controller:72 - Class TemperatureController --- SEND to Controller ...
+24 Apr 2016 23:07:38,834  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: AW1
+24 Apr 2016 23:07:42,838  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:4
+24 Apr 2016 23:07:42,843  INFO Controller:55 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 4
+24 Apr 2016 23:07:42,844  INFO Controller:72 - Class TemperatureController --- SEND to Controller ...
+24 Apr 2016 23:07:42,859  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: AW1
+24 Apr 2016 23:17:54,176  INFO Controller:136 - Class TemperatureController --- Start Controller Temperature...
+24 Apr 2016 23:17:56,975  INFO Controller:135 - Class HumidityController --- Start Controller Humidity...
+24 Apr 2016 23:27:21,984  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:70.399185
+24 Apr 2016 23:27:21,996  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 70.399185
+24 Apr 2016 23:27:21,997  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+24 Apr 2016 23:27:22,006  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+24 Apr 2016 23:27:22,009  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+24 Apr 2016 23:27:22,010  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: false , Chiller: false
+24 Apr 2016 23:27:22,023  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+24 Apr 2016 23:27:22,025  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+24 Apr 2016 23:27:22,037  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+24 Apr 2016 23:27:26,016  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:71.13213
+24 Apr 2016 23:27:26,019  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 71.13213
+24 Apr 2016 23:27:26,023  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+24 Apr 2016 23:27:26,034  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+24 Apr 2016 23:27:26,036  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+24 Apr 2016 23:27:26,038  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+24 Apr 2016 23:27:26,044  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+24 Apr 2016 23:27:26,048  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+24 Apr 2016 23:27:26,049  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+24 Apr 2016 23:27:34,728  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.83619
+24 Apr 2016 23:27:34,743  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 69.83619
+24 Apr 2016 23:27:34,744  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+24 Apr 2016 23:27:34,766  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+24 Apr 2016 23:27:34,768  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+24 Apr 2016 23:27:34,768  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: false , Chiller: false
+24 Apr 2016 23:27:34,775  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+24 Apr 2016 23:27:34,776  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+24 Apr 2016 23:27:34,777  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+24 Apr 2016 23:27:38,764  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:70.61762
+24 Apr 2016 23:27:38,767  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 70.61762
+24 Apr 2016 23:27:38,768  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+24 Apr 2016 23:27:38,775  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+24 Apr 2016 23:27:38,778  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+24 Apr 2016 23:27:38,781  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+24 Apr 2016 23:27:38,787  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+24 Apr 2016 23:27:38,793  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+24 Apr 2016 23:27:38,794  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+24 Apr 2016 23:28:03,812  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:70.95447
+24 Apr 2016 23:28:03,820  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 70.95447
+24 Apr 2016 23:28:03,821  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+24 Apr 2016 23:28:03,832  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+24 Apr 2016 23:28:03,835  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+24 Apr 2016 23:28:03,836  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: false , Chiller: false
+24 Apr 2016 23:28:03,843  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+24 Apr 2016 23:28:03,846  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+24 Apr 2016 23:28:03,847  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+24 Apr 2016 23:28:07,846  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:70.46706
+24 Apr 2016 23:28:07,852  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 70.46706
+24 Apr 2016 23:28:07,852  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+24 Apr 2016 23:28:07,870  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+24 Apr 2016 23:28:07,873  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+24 Apr 2016 23:28:07,874  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+24 Apr 2016 23:28:07,884  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+24 Apr 2016 23:28:07,890  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+24 Apr 2016 23:28:07,895  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+24 Apr 2016 23:28:11,874  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:70.01068
+24 Apr 2016 23:28:11,880  INFO Controller:67 - Class TemperatureController --- RECEIVED from Sensor --- Value: 70.01068
+24 Apr 2016 23:28:11,881  INFO Controller:85 - Class TemperatureController --- SEND to Controller ...
+24 Apr 2016 23:28:11,890  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: C0
+24 Apr 2016 23:28:11,893  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+24 Apr 2016 23:28:11,894  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+24 Apr 2016 23:28:11,903  INFO Controller:58 - Class Controller --- SEND  to Sensor --- Value: H1
+24 Apr 2016 23:28:11,905  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+24 Apr 2016 23:28:11,905  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:11:21,206  INFO Sensor:156 - Class TemperatureSensot --- Start Sensor Temperature...
+25 Apr 2016 00:11:21,586  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.49536
+25 Apr 2016 00:11:21,669  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:11:21,671  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: false , Chiller: false
+25 Apr 2016 00:11:21,713  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:11:21,713  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:11:25,647  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:68.928276
+25 Apr 2016 00:11:25,667  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:11:25,667  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:11:25,684  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:11:25,685  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:11:29,672  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:68.20938
+25 Apr 2016 00:11:29,692  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:11:29,706  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:11:29,725  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:11:29,725  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:11:33,692  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:68.04524
+25 Apr 2016 00:11:33,707  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:11:33,708  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:11:33,721  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:11:33,722  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:11:37,702  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:68.65018
+25 Apr 2016 00:11:37,721  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:11:37,722  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:11:37,750  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:11:37,751  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:11:41,723  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.04463
+25 Apr 2016 00:11:41,746  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:11:41,747  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:11:41,762  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:11:41,762  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:11:45,770  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.7211
+25 Apr 2016 00:11:45,838  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:11:45,838  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:11:45,857  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:11:45,857  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:11:49,857  INFO Sensor:98 - Class Sensor --- SEND to Controller --- Value:69.188194
+25 Apr 2016 00:11:49,879  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: C0
+25 Apr 2016 00:11:49,881  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false
+25 Apr 2016 00:11:49,892  INFO Sensor:63 - Class Sensor --- RECEIVED From Controller --- Value: H1
+25 Apr 2016 00:11:49,893  INFO Sensor:89 - Class TemperatureSensor --- NewValues Heater: true , Chiller: false

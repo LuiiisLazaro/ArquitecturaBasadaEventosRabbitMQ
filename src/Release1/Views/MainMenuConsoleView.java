@@ -12,7 +12,6 @@ import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Consumer;
 import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
-
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 import org.apache.log4j.Logger;
@@ -38,8 +37,8 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     private static final String ID_CHANNEL_HUMIDITY_SENSOR = "-4";
     private static final String ID_CHANNEL_HUMIDITY_CONTROLLER = "4";
 
-    private static final int MAX_HUMIDITY = 45;
-    private static final int MIN_HUMIDITY = 40;
+    private static final int MAX_HUMIDITY = 55;
+    private static final int MIN_HUMIDITY = 45;
 
     private int MAX_HUMIDITY_VIEW = MAX_HUMIDITY + 5;
     private int MIN_HUMIDITY_VIEW = MIN_HUMIDITY - 5;
@@ -51,18 +50,17 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         try {
             initComponents();
             initValuesGeneral();
-
+            
             receiveTemperatureControllerMessage();
             receiveTemperatureSensorMessage();
             
             receiveHumidityControllerMessage();
             receiveHumiditySensorMessage();
 
-        } catch (IOException | TimeoutException ex) {
+        } catch ( IOException | TimeoutException ex) {
             logger.error(ex);
         }
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -244,7 +242,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         lblSetValuesHumidity.setText("Set Values");
         jPanelHumiduty.add(lblSetValuesHumidity, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, -1));
 
-        txtMinimunHumidity.setText("50");
+        txtMinimunHumidity.setText("45");
         jPanelHumiduty.add(txtMinimunHumidity, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 130, -1));
 
         txtMaximumHumidity.setText("55");
@@ -686,6 +684,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         }
         //</editor-fold>
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new MainMenuConsoleView().setVisible(true);
             }
