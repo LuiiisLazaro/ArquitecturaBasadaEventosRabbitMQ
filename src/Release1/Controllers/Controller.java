@@ -20,7 +20,7 @@ import org.apache.log4j.PropertyConfigurator;
  */
 public class Controller {
 
-    protected int delay = 2000;				// The loop delay (2 seconds)
+    protected int delay = 1000;				// The loop delay (2 seconds)
     protected boolean isDone = false;			// Loop termination flag
     private String message;
     protected static final String HOST="localhost";

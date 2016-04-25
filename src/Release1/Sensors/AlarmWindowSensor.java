@@ -15,12 +15,13 @@ import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
  * @author luiiislazaro
  */
-public class AlarmWindowSensor extends Sensor implements Runnable {
+public class AlarmWindowSensor extends Sensor {
 
     private boolean windowState = false;
 
@@ -51,11 +52,17 @@ public class AlarmWindowSensor extends Sensor implements Runnable {
         Consumer consumer = new DefaultConsumer(channel) {
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                String message = (new String(body, "UTF-8"));
-                if (!windowState) {
+                if (windowState) { //condicion para entrar 
                     setMessage(new String(body, "UTF-8"));
                     logger.info("Class ALARMWINDOWSENSOR --- RECEIVED From Controller --- Value: " + new String(body, "UTF-8"));
                     checkValuesExecute();
+                    this.notify();
+                } else {
+                    try {
+                        this.wait();
+                    } catch (InterruptedException ex) {
+                        logger.error(ex);
+                    }
                 }
             }
         };
@@ -84,7 +91,6 @@ public class AlarmWindowSensor extends Sensor implements Runnable {
      * alarma de puerta ... si el numero generado es menor que 5 entonces el
      * sistema actual normal...
      */
-    @Override
     public void run() {
         try {
             receiveMessage();
@@ -94,11 +100,10 @@ public class AlarmWindowSensor extends Sensor implements Runnable {
         currentWindowState = 5;
         while (!isDone) {
             if (coinToss()) {
-                driftValue = getRandomNumber() * (float) -1.0;
+                currentWindowState += Math.round(getRandomNumber() * (float) -1.0);
             } else {
-                driftValue = getRandomNumber();
+                currentWindowState += Math.round(getRandomNumber());
             }
-            currentWindowState += Math.round(driftValue);
             try {
                 sendMessage(ID_CHANNEL_AWINDOW_SENSOR, String.valueOf(currentWindowState));
             } catch (IOException | TimeoutException e1) {

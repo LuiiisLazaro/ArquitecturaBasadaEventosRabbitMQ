@@ -2,11 +2,18 @@
 # MUSEUM ENVIRONMENTAL CONTROL SYSTEM CONSOLE
 
 ##Presentation
+This is the repository for the evaluation of the "event-driven architecture" in the software architecture course.
+Team members are: Daniel Mendez Cruz <daniel.mendez@cimat.mx>, Faleg Alejandro Peralta Martinez <faleg.peralta@cimat.mx> and Luis Angel Lazaro Hernandez <luis.hernandez@cimat.mx>.  
+The repository is organized in three releases in the "src" folder.
 
+## Before to continue
+There are some requirements to start the install...  
+First make sure that your computer has install Java (JRE to be exactly)  [see](http://openjdk.java.net/install/)  
+Second make sure that your computer has install RabbitMQ and erlang [see](https://www.rabbitmq.com/)
 
-##Guide to run Release 1
+## Guide to run Release 1
 
-### First Make Sure ...w
+### First Make Sure ...
 Make sure that you have already all packages and files to compile the project. Check the packages:  
 1: Controllers  
 2: Sensors  

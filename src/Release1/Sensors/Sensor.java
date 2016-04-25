@@ -6,13 +6,9 @@ package Release1.Sensors;
 /**
  * 
  */
-import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.Consumer;
-import com.rabbitmq.client.DefaultConsumer;
-import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.Random;
 import java.util.concurrent.TimeoutException;
@@ -26,7 +22,7 @@ import org.apache.log4j.PropertyConfigurator;
  */
 public class Sensor {
 
-    protected int delay = 4000;         //the time to update data and send to console
+    protected int delay = 1000;         //the time to update data and send to console
     protected boolean isDone = false;   //to control de life of thred
     protected float driftValue;				// The amount of temperature gained or lost
     private String message;           //message with value to send

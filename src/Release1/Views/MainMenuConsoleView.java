@@ -14,6 +14,7 @@ import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
+import javax.swing.JOptionPane;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -27,40 +28,57 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
 
     private static final String ID_CHANNEL_TEMPERATURE_SENSOR = "-5";       //channel ID to send messages
     private static final String ID_CHANNEL_TEMPERATURE_CONTROLLER = "5";    //channel ID to receive messages
+    
+    private static final String ID_CHANNEL_CHANGE_TEMPERATURE = "CT";
+    private static final String ID_CHANNEL_CHANGE_HUMIDITY = "CH";
 
-    private static final int MAX_TEMPERATURE = 75;
-    private static final int MIN_TEMPERATURE = 70;
+    private static int MAX_TEMPERATURE = 75;
+    private static int MIN_TEMPERATURE = 70;
 
     private int MAX_TEMPERATURE_VIEW = MAX_TEMPERATURE + 5;
     private int MIN_TEMPERATURE_VIEW = MIN_TEMPERATURE - 5;
+    
 
     private static final String ID_CHANNEL_HUMIDITY_SENSOR = "-4";
     private static final String ID_CHANNEL_HUMIDITY_CONTROLLER = "4";
 
-    private static final int MAX_HUMIDITY = 55;
-    private static final int MIN_HUMIDITY = 45;
+    private static int MAX_HUMIDITY = 55;
+    private static int MIN_HUMIDITY = 45;
 
     private int MAX_HUMIDITY_VIEW = MAX_HUMIDITY + 5;
     private int MIN_HUMIDITY_VIEW = MIN_HUMIDITY - 5;
 
     private static final Logger logger = Logger.getLogger(MainMenuConsoleView.class);
+    
+    private static final String ID_CHANNEL_AWINDOW_CONTROLLER="6";
+    private static final String ID_CHANNEL_AWINDOW_SENSOR="-6";
+    
+    private static final String ID_CHANNEL_ADOOR_CONTROLLER = "7";
+    private static final String ID_CHANNEL_ADOOR_SENSOR = "-7";
+    
+    private static final String ID_CHANNEL_AMOVE_CONTROLLER = "8";
+    private static final String ID_CHANNEL_AMOVE_SENSOR = "-8";
+    
 
     public MainMenuConsoleView() {
         PropertyConfigurator.configure("log4j.properties");
         try {
             initComponents();
             initValuesGeneral();
-            
+
             receiveTemperatureControllerMessage();
             receiveTemperatureSensorMessage();
-            
+
             receiveHumidityControllerMessage();
             receiveHumiditySensorMessage();
+            
+            receiveWindowMessage();
 
-        } catch ( IOException | TimeoutException ex) {
+        } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -120,6 +138,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         jpAWindowNow = new javax.swing.JPanel();
         btnAWindowOff = new javax.swing.JToggleButton();
         jsAWindow = new javax.swing.JSeparator();
+        txtTestValueWindow = new javax.swing.JTextField();
         jpADoor = new javax.swing.JPanel();
         lblADoorTitle = new javax.swing.JLabel();
         lblADoorOff = new javax.swing.JLabel();
@@ -127,6 +146,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         jpADoorNow = new javax.swing.JPanel();
         btnADoorOff = new javax.swing.JToggleButton();
         jsADoor = new javax.swing.JSeparator();
+        txtTestValueDoor = new javax.swing.JTextField();
         jpAFire = new javax.swing.JPanel();
         lblAFireTitle = new javax.swing.JLabel();
         lblAFireOff = new javax.swing.JLabel();
@@ -134,6 +154,9 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         jpAFireNow = new javax.swing.JPanel();
         btnAFireOff = new javax.swing.JToggleButton();
         jsAFire = new javax.swing.JSeparator();
+        txtTestValueFire = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
         jProgressBar1 = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -147,26 +170,26 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         lblTemperatureTitle.setText("TEMPERATURE");
         jPanelTemperature.add(lblTemperatureTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 12, -1, -1));
         jPanelTemperature.add(lblMaxBarTemperature, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 40, -1, -1));
-        jPanelTemperature.add(lblMinBarTemperature, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 20, 20));
+        jPanelTemperature.add(lblMinBarTemperature, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 20, 20));
 
         lblMinimumTemperature.setText("Minimum:");
-        jPanelTemperature.add(lblMinimumTemperature, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
+        jPanelTemperature.add(lblMinimumTemperature, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
 
         lblMaximunTemperature.setText("Maximum:");
-        jPanelTemperature.add(lblMaximunTemperature, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
+        jPanelTemperature.add(lblMaximunTemperature, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, -1));
 
         lblTemperatureNow.setText("Now:");
-        jPanelTemperature.add(lblTemperatureNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
+        jPanelTemperature.add(lblTemperatureNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
 
         lblSetValuesTemperature.setText("Set Values");
-        jPanelTemperature.add(lblSetValuesTemperature, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, -1, -1));
+        jPanelTemperature.add(lblSetValuesTemperature, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, -1, -1));
 
         txtMinimunTemperature.setText("70");
-        jPanelTemperature.add(txtMinimunTemperature, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 130, -1));
+        jPanelTemperature.add(txtMinimunTemperature, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 130, -1));
 
         txtMaximumTemperature.setText("75");
-        jPanelTemperature.add(txtMaximumTemperature, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 130, -1));
-        jPanelTemperature.add(txtTemperatureNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 130, -1));
+        jPanelTemperature.add(txtMaximumTemperature, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 130, -1));
+        jPanelTemperature.add(txtTemperatureNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 130, -1));
 
         btnUpdateValuesTemperature.setText("Update Values");
         btnUpdateValuesTemperature.addActionListener(new java.awt.event.ActionListener() {
@@ -174,20 +197,20 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
                 btnUpdateValuesTemperatureActionPerformed(evt);
             }
         });
-        jPanelTemperature.add(btnUpdateValuesTemperature, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 130, -1));
+        jPanelTemperature.add(btnUpdateValuesTemperature, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 130, -1));
 
         jProgressBarTemperature.setMaximum(80);
         jProgressBarTemperature.setMinimum(65);
         jProgressBarTemperature.setOrientation(1);
         jProgressBarTemperature.setValue(70);
-        jPanelTemperature.add(jProgressBarTemperature, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 64, 24, 210));
+        jPanelTemperature.add(jProgressBarTemperature, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 64, 24, 240));
         jPanelTemperature.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 181, 10));
 
         lblHeaterState.setText("Heater");
-        jPanelTemperature.add(lblHeaterState, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 90, -1, -1));
+        jPanelTemperature.add(lblHeaterState, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
 
         lblChillerState.setText("Chiller");
-        jPanelTemperature.add(lblChillerState, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 90, -1, -1));
+        jPanelTemperature.add(lblChillerState, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
 
         jpChillerValueNow.setBackground(new java.awt.Color(255, 0, 0));
         jpChillerValueNow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -203,7 +226,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
             .addGap(0, 28, Short.MAX_VALUE)
         );
 
-        jPanelTemperature.add(jpChillerValueNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 40, 30));
+        jPanelTemperature.add(jpChillerValueNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 40, 30));
 
         jpHeaterValueNow.setBackground(new java.awt.Color(0, 255, 0));
         jpHeaterValueNow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -219,7 +242,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
             .addGap(0, 28, Short.MAX_VALUE)
         );
 
-        jPanelTemperature.add(jpHeaterValueNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 40, 30));
+        jPanelTemperature.add(jpHeaterValueNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 40, 30));
 
         jPanelHumiduty.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelHumiduty.setPreferredSize(new java.awt.Dimension(200, 250));
@@ -228,26 +251,26 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         lblHumidityTitle.setText("HUMIDITY");
         jPanelHumiduty.add(lblHumidityTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 10, 70, -1));
         jPanelHumiduty.add(lblMaxBarHumidity, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 40, 20, 20));
-        jPanelHumiduty.add(lblMinBarHumidity, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 20, 20));
+        jPanelHumiduty.add(lblMinBarHumidity, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 20, 20));
 
         lblMinimumHumidity.setText("Minimum:");
-        jPanelHumiduty.add(lblMinimumHumidity, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
+        jPanelHumiduty.add(lblMinimumHumidity, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
 
         lblMaximunHumidity.setText("Maximum:");
-        jPanelHumiduty.add(lblMaximunHumidity, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
+        jPanelHumiduty.add(lblMaximunHumidity, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, -1));
 
         lblHumidityNow.setText("Now:");
-        jPanelHumiduty.add(lblHumidityNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
+        jPanelHumiduty.add(lblHumidityNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
 
         lblSetValuesHumidity.setText("Set Values");
-        jPanelHumiduty.add(lblSetValuesHumidity, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, -1));
+        jPanelHumiduty.add(lblSetValuesHumidity, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
 
         txtMinimunHumidity.setText("45");
-        jPanelHumiduty.add(txtMinimunHumidity, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 130, -1));
+        jPanelHumiduty.add(txtMinimunHumidity, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 130, -1));
 
         txtMaximumHumidity.setText("55");
-        jPanelHumiduty.add(txtMaximumHumidity, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 130, -1));
-        jPanelHumiduty.add(txtHumidityNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 130, -1));
+        jPanelHumiduty.add(txtMaximumHumidity, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 130, -1));
+        jPanelHumiduty.add(txtHumidityNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 130, -1));
 
         btnUpdateValuesHumidity.setText("Update Values");
         btnUpdateValuesHumidity.addActionListener(new java.awt.event.ActionListener() {
@@ -255,13 +278,13 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
                 btnUpdateValuesHumidityActionPerformed(evt);
             }
         });
-        jPanelHumiduty.add(btnUpdateValuesHumidity, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 130, -1));
-        jPanelHumiduty.add(jProgressBarHumidity, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 64, 24, 210));
+        jPanelHumiduty.add(btnUpdateValuesHumidity, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 130, -1));
+        jPanelHumiduty.add(jProgressBarHumidity, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 64, 24, 240));
         jPanelHumiduty.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, -1, -1));
         jPanelHumiduty.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 181, 10));
 
         lblHumidityState.setText("Humidity");
-        jPanelHumiduty.add(lblHumidityState, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
+        jPanelHumiduty.add(lblHumidityState, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
 
         jpHumidityValueNow.setBackground(new java.awt.Color(0, 255, 0));
         jpHumidityValueNow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -277,7 +300,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
             .addGap(0, 28, Short.MAX_VALUE)
         );
 
-        jPanelHumiduty.add(jpHumidityValueNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 40, 30));
+        jPanelHumiduty.add(jpHumidityValueNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 40, 30));
 
         jpDeshumidityValueNow.setBackground(new java.awt.Color(255, 0, 0));
         jpDeshumidityValueNow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -293,10 +316,10 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
             .addGap(0, 28, Short.MAX_VALUE)
         );
 
-        jPanelHumiduty.add(jpDeshumidityValueNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
+        jPanelHumiduty.add(jpDeshumidityValueNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, -1, -1));
 
         lblDeshumidityState.setText("Deshumi");
-        jPanelHumiduty.add(lblDeshumidityState, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
+        jPanelHumiduty.add(lblDeshumidityState, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
 
         lblSensorControlPanelTitle.setText("SENSORS CONTROL PANEL");
 
@@ -307,13 +330,10 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
             .addGroup(jpSensorsControlPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jpSensorsControlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpSensorsControlPanelLayout.createSequentialGroup()
-                        .addComponent(jPanelTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                        .addComponent(jPanelHumiduty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpSensorsControlPanelLayout.createSequentialGroup()
-                        .addComponent(lblSensorControlPanelTitle)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(jPanelTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSensorControlPanelTitle))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(jPanelHumiduty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jpSensorsControlPanelLayout.setVerticalGroup(
@@ -323,9 +343,9 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
                 .addComponent(lblSensorControlPanelTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpSensorsControlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanelHumiduty, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanelTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanelHumiduty, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelTemperature, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jpSystemAlarm.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -336,11 +356,6 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
 
         btnStateSystemAlarm.setText("ALARMS SYSTEM ON");
         btnStateSystemAlarm.setPreferredSize(new java.awt.Dimension(152, 15));
-        btnStateSystemAlarm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStateSystemAlarmActionPerformed(evt);
-            }
-        });
 
         jpAWindow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jpAWindow.setPreferredSize(new java.awt.Dimension(200, 250));
@@ -371,8 +386,11 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         jpAWindow.add(jpAWindowNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 140, 30));
 
         btnAWindowOff.setText("OFF");
-        jpAWindow.add(btnAWindowOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
+        jpAWindow.add(btnAWindowOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 60, -1));
         jpAWindow.add(jsAWindow, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 181, 10));
+
+        txtTestValueWindow.setText("jTextField1");
+        jpAWindow.add(txtTestValueWindow, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
 
         jpADoor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jpADoor.setPreferredSize(new java.awt.Dimension(200, 250));
@@ -408,8 +426,11 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
                 btnADoorOffActionPerformed(evt);
             }
         });
-        jpADoor.add(btnADoorOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
+        jpADoor.add(btnADoorOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 60, -1));
         jpADoor.add(jsADoor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 181, 10));
+
+        txtTestValueDoor.setText("jTextField2");
+        jpADoor.add(txtTestValueDoor, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
 
         jpAFire.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jpAFire.setPreferredSize(new java.awt.Dimension(200, 250));
@@ -419,7 +440,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         jpAFire.add(lblAFireTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 90, -1));
 
         lblAFireOff.setText("Turn Off Alarm");
-        jpAFire.add(lblAFireOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
+        jpAFire.add(lblAFireOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
         lblAFireValue.setText("State Alarm Window");
         jpAFire.add(lblAFireValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
@@ -434,14 +455,26 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         );
         jpAFireNowLayout.setVerticalGroup(
             jpAFireNowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 140, Short.MAX_VALUE)
+            .addGap(0, 30, Short.MAX_VALUE)
         );
 
-        jpAFire.add(jpAFireNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 140, 140));
+        jpAFire.add(jpAFireNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 140, 30));
 
         btnAFireOff.setText("OFF");
-        jpAFire.add(btnAFireOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 140, -1));
+        jpAFire.add(btnAFireOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 60, -1));
         jpAFire.add(jsAFire, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 181, 10));
+
+        txtTestValueFire.setText("jTextField1");
+        jpAFire.add(txtTestValueFire, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jTextField1.setText("jTextField1");
 
         javax.swing.GroupLayout jpSystemAlarmLayout = new javax.swing.GroupLayout(jpSystemAlarm);
         jpSystemAlarm.setLayout(jpSystemAlarmLayout);
@@ -451,36 +484,56 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addGroup(jpSystemAlarmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpSystemAlarmLayout.createSequentialGroup()
-                        .addComponent(lblTitleAlarms)
-                        .addGap(170, 170, 170)
-                        .addComponent(lblTitleStartAlarms)
-                        .addGap(12, 12, 12)
-                        .addComponent(btnStateSystemAlarm, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jpAWindow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jpAFire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpSystemAlarmLayout.createSequentialGroup()
-                        .addGroup(jpSystemAlarmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jpAWindow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jpADoor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(237, 237, 237)
-                        .addComponent(jpAFire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(lblTitleAlarms)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblTitleStartAlarms)
+                        .addGap(4, 4, 4)
+                        .addComponent(btnStateSystemAlarm, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jpSystemAlarmLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jpADoor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jpSystemAlarmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpSystemAlarmLayout.createSequentialGroup()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1))
+                    .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(66, 66, 66))
         );
         jpSystemAlarmLayout.setVerticalGroup(
             jpSystemAlarmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpSystemAlarmLayout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addGroup(jpSystemAlarmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpSystemAlarmLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(lblTitleAlarms))
+                .addGap(10, 10, 10)
+                .addGroup(jpSystemAlarmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTitleAlarms)
                     .addComponent(lblTitleStartAlarms)
                     .addComponent(btnStateSystemAlarm, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(4, 4, 4)
+                .addGap(2, 2, 2)
                 .addGroup(jpSystemAlarmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jpAFire, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jpSystemAlarmLayout.createSequentialGroup()
-                        .addComponent(jpAWindow, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jpADoor, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(4, 4, 4)
+                        .addComponent(jpAFire, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGroup(jpSystemAlarmLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
+                        .addComponent(jpAWindow, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jpSystemAlarmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpSystemAlarmLayout.createSequentialGroup()
+                        .addComponent(jpADoor, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpSystemAlarmLayout.createSequentialGroup()
+                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addGroup(jpSystemAlarmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -489,11 +542,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jpSensorsControlPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jpSensorsControlPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jpSystemAlarm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -502,12 +551,9 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jpSensorsControlPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jpSystemAlarm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jpSystemAlarm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jpSensorsControlPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -528,19 +574,48 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         jProgressBarHumidity.setMinimum(MIN_HUMIDITY_VIEW);
     }
 
-    /**
-     * put icon private void initValuesWindow() { ImageIcon image = new
-     * ImageIcon(getClass().getResource("/images/window.png")); JLabel label =
-     * new JLabel("", image, JLabel.CENTER); jpADoorNow.setLayout(new
-     * BorderLayout()); jpADoorNow.add(label, BorderLayout.CENTER); }
-     */
+    private void sendMessage(String ID_CHANNEL_SEND, String message) throws IOException, TimeoutException {
+        ConnectionFactory factory = new ConnectionFactory();
+        factory.setHost(HOST);
+
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+
+        logger.info("Class MainMenuConsoleView --- SEND to Controller --- Value:" + message);
+
+        channel.exchangeDeclare(ID_CHANNEL_SEND, "fanout");
+        channel.basicPublish(ID_CHANNEL_SEND, "", null, message.getBytes("UTF-8"));
+
+        channel.close();
+        connection.close();
+    }
 
     private void btnUpdateValuesTemperatureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateValuesTemperatureActionPerformed
         // TODO add your handling code here:
+        if (Integer.parseInt(txtMaximumTemperature.getText()) > Integer.parseInt(txtMinimunTemperature.getText())) {
+            try {
+                logger.info("SEND NEW TEMPERATURE:" + txtMaximumTemperature.getText() + ":" + txtMinimunTemperature.getText());
+                sendMessage(ID_CHANNEL_CHANGE_TEMPERATURE, txtMaximumTemperature.getText() + ":" + txtMinimunTemperature.getText());
+            } catch (IOException | TimeoutException ex) {
+                logger.error(ex);
+            }
+        } else {
+            JOptionPane.showConfirmDialog(this, "Information", "La temperatura Máxima debe ser mayor que la temperatura mínima", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_btnUpdateValuesTemperatureActionPerformed
 
     private void btnUpdateValuesHumidityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateValuesHumidityActionPerformed
         // TODO add your handling code here:
+        if (Integer.parseInt(txtMaximumHumidity.getText()) > Integer.parseInt(txtMinimunHumidity.getText())) {
+            try {
+                logger.info("SEND NEW HUMIDITY:" + txtMaximumHumidity.getText() + ":" + txtMinimunHumidity.getText());
+                sendMessage(ID_CHANNEL_CHANGE_HUMIDITY, txtMaximumHumidity.getText() + ":" + txtMinimunHumidity.getText());
+            } catch (IOException | TimeoutException ex) {
+                logger.error(ex);
+            }
+        } else {
+            JOptionPane.showConfirmDialog(this, "Information", "La Humedad Máxima debe ser mayor que la humedad mínima", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_btnUpdateValuesHumidityActionPerformed
 
     private void btnADoorOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnADoorOffActionPerformed
@@ -548,9 +623,10 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         jpADoorNow.setBackground(new java.awt.Color(0, 0, 255));
     }//GEN-LAST:event_btnADoorOffActionPerformed
 
-    private void btnStateSystemAlarmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStateSystemAlarmActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnStateSystemAlarmActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        System.out.println(jTextField1.getText());
+        jProgressBar1.setValue(Integer.parseInt(jTextField1.getText()));        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void receiveTemperatureSensorMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
@@ -568,7 +644,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                 logger.info("Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: " + new String(body, "UTF-8"));
                 txtTemperatureNow.setText(new String(body, "UTF-8"));
-                //la barra de progreso no sirve
+                jButton1ActionPerformed(null);
             }
         };
         channel.basicConsume(queueName, true, consumer);
@@ -667,6 +743,28 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         };
         channel.basicConsume(queueName, true, consumer);
     }
+    
+    private void receiveWindowMessage() throws IOException, TimeoutException {
+        ConnectionFactory factory = new ConnectionFactory();
+        factory.setHost(HOST);
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+
+        channel.exchangeDeclare(ID_CHANNEL_AWINDOW_SENSOR, "fanout");
+        String queueName = channel.queueDeclare().getQueue();
+        channel.queueBind(queueName, ID_CHANNEL_AWINDOW_SENSOR, "");
+
+        Consumer consumer = new DefaultConsumer(channel) {
+            @Override
+            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                txtTestValueWindow.setText((new String(body, "UTF-8")));
+                logger.info("Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: " + new String(body, "UTF-8"));
+                
+            }
+        };
+        channel.basicConsume(queueName, true, consumer);
+    }
+    
 
     /**
      * @param args the command line arguments
@@ -698,6 +796,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnStateSystemAlarm;
     private javax.swing.JButton btnUpdateValuesHumidity;
     private javax.swing.JButton btnUpdateValuesTemperature;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanelHumiduty;
     private javax.swing.JPanel jPanelTemperature;
     private javax.swing.JProgressBar jProgressBar1;
@@ -706,6 +805,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel jpADoor;
     private javax.swing.JPanel jpADoorNow;
     private javax.swing.JPanel jpAFire;
@@ -757,5 +857,8 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     private javax.swing.JTextField txtMinimunHumidity;
     private javax.swing.JTextField txtMinimunTemperature;
     private javax.swing.JTextField txtTemperatureNow;
+    private javax.swing.JTextField txtTestValueDoor;
+    private javax.swing.JTextField txtTestValueFire;
+    private javax.swing.JTextField txtTestValueWindow;
     // End of variables declaration//GEN-END:variables
 }

@@ -22,15 +22,16 @@ import java.util.concurrent.TimeoutException;
  *
  * @author luiiislazaro
  */
-public class TemperatureController extends Controller implements Runnable{
+public class TemperatureController extends Controller implements Runnable {
 
     private static TemperatureController INSTANCE = new TemperatureController();
 
     private static final String ID_CHANNEL_TEMPERATURE_CONTROLLER = "5";
     private static final String ID_CHANNEL_TEMPERATURE_SENSOR = "-5";
-    
-    private static final int MAX_TEMPERATURE = 75;
-    private static final int MIN_TEMPERATURE = 70;
+    private static final String ID_CHANNEL_CHANGE_TEMPERATURE = "CT";
+
+    private int maxTemperature;
+    private int minTemperature;
 
     private static final String ID_HEATER_ON = "H1";
     private static final String ID_HEATER_OFF = "H0";
@@ -43,6 +44,48 @@ public class TemperatureController extends Controller implements Runnable{
      */
     private TemperatureController() {
         super();
+        this.maxTemperature = 75;
+        this.minTemperature = 70;
+    }
+
+    public int getMaxTemperature() {
+        return maxTemperature;
+    }
+
+    public void setMaxTemperature(int maxTemperature) {
+        this.maxTemperature = maxTemperature;
+    }
+
+    public int getMinTemperature() {
+        return minTemperature;
+    }
+
+    public void setMinTemperature(int minTemperature) {
+        this.minTemperature = minTemperature;
+    }
+
+    private void receiveChangeTemperatureMessage() throws IOException, TimeoutException {
+        ConnectionFactory factory = new ConnectionFactory();
+        factory.setHost(HOST);
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+
+        channel.exchangeDeclare(ID_CHANNEL_CHANGE_TEMPERATURE, "fanout");
+        String queueName = channel.queueDeclare().getQueue();
+        channel.queueBind(queueName, ID_CHANNEL_CHANGE_TEMPERATURE, "");
+
+        Consumer consumer = new DefaultConsumer(channel) {
+            @Override
+            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                String message = new String(body, "UTF-8");
+                String[] values = message.split(":");
+                setMaxTemperature(Integer.parseInt(values[0]));
+                setMinTemperature(Integer.parseInt(values[1]));
+                logger.info("Class TemperatureController --- RECEIVED from Sensor --- Value: " + new String(body, "UTF-8") + " --- CHANGE TEMPERATURE");
+                logger.info("Class TemperatureController --- UPDATE VALUES --- MAX="+getMaxTemperature()+" Min="+getMinTemperature());
+            }
+        };
+        channel.basicConsume(queueName, true, consumer);
     }
 
     /**
@@ -81,12 +124,11 @@ public class TemperatureController extends Controller implements Runnable{
      * @throws TimeoutException
      */
     private void checkValuesTemperature() throws IOException, TimeoutException {
-
         logger.info("Class TemperatureController --- SEND to Controller ...");
-        if (Math.round(Float.parseFloat(getMessage()))>MAX_TEMPERATURE) {
+        if (Math.round(Float.parseFloat(getMessage())) > maxTemperature) {
             sendMessage(ID_CHANNEL_TEMPERATURE_CONTROLLER, ID_CHILLER_ON);
             sendMessage(ID_CHANNEL_TEMPERATURE_CONTROLLER, ID_HEATER_OFF);
-        } else { // (75 > Math.round(Float.parseFloat(getMessage()))) {
+        } else if (Math.round(Float.parseFloat(getMessage())) < minTemperature) {
             sendMessage(ID_CHANNEL_TEMPERATURE_CONTROLLER, ID_CHILLER_OFF);
             sendMessage(ID_CHANNEL_TEMPERATURE_CONTROLLER, ID_HEATER_ON);
         }
@@ -125,6 +167,7 @@ public class TemperatureController extends Controller implements Runnable{
     public void run() {
         try {
             receiveMessage();
+            receiveChangeTemperatureMessage();
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
