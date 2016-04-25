@@ -5,10 +5,8 @@
  */
 package Release1.Controllers;
 
-/**
- *
- */
-import static Release1.Controllers.Controller.logger;
+import static Release1.Controllers.Controller.HOST;
+import Release1.Sensors.AlarmWindowSensor;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -23,48 +21,40 @@ import java.util.concurrent.TimeoutException;
  *
  * @author luiiislazaro
  */
-public class HumidityController extends Controller implements Runnable {
+public class AlarmController extends Controller implements Runnable {
 
-    private static HumidityController INSTANCE = new HumidityController();
+    private static AlarmController INSTANCE = new AlarmController();
 
-    private static final String ID_CHANNEL_HUMIDITY_CONTROLLER = "4";
-    private static final String ID_CHANNEL_HUMIDITY_SENSOR = "-4";
+    private static final String ID_CHANNEL_AWINDOW_CONTROLLER = "6";
+    private static final String ID_CHANNEL_AWINDOW_SENSOR = "-6";
 
-    private static final String ID_HUMIDITY_ON = "H1";
-    private static final String ID_HUMIDITY_OFF = "H0";
-
-    private static final String ID_DESHUMIDITY_ON = "D1";
-    private static final String ID_DESHUMIDITY_OFF = "D0";
+    private static final String ID_AWINDOW_ON = "AW1";
+    private static final String ID_AWINDOW_OFF = "AW0";
 
     /**
      *
      */
-    private HumidityController() {
+    private AlarmController() {
         super();
     }
 
-    /**
-     *
-     * @throws IOException
-     * @throws TimeoutException
-     */
-    private void receiveMessage() throws IOException, TimeoutException {
+    private void receiveWindowMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
-        channel.exchangeDeclare(ID_CHANNEL_HUMIDITY_SENSOR, "fanout");
+        channel.exchangeDeclare(ID_CHANNEL_AWINDOW_SENSOR, "fanout");
         String queueName = channel.queueDeclare().getQueue();
-        channel.queueBind(queueName, ID_CHANNEL_HUMIDITY_SENSOR, "");
+        channel.queueBind(queueName, ID_CHANNEL_AWINDOW_SENSOR, "");
 
         Consumer consumer = new DefaultConsumer(channel) {
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                 setMessage(new String(body, "UTF-8"));
-                logger.info("Class HumidityController --- RECEIVED from Sensor --- Value: " + new String(body, "UTF-8"));
+                logger.info("Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: " + new String(body, "UTF-8"));
                 try {
-                    checkValuesHumidity();
+                    checkValuesWindow();
                 } catch (TimeoutException ex) {
                     logger.error(ex);
                 }
@@ -78,16 +68,12 @@ public class HumidityController extends Controller implements Runnable {
      * @throws IOException
      * @throws TimeoutException
      */
-    private void checkValuesHumidity() throws IOException, TimeoutException {
-
-        logger.info("Class HumidityController --- SEND to Controller ...");
-
-        if (Math.round(Float.parseFloat(getMessage())) < 40) {
-            sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_HUMIDITY_ON);
-            sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_DESHUMIDITY_OFF);
-        } else { //(Math.round(Float.parseFloat(getMessage())) > 45)
-            sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_HUMIDITY_OFF);
-            sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_DESHUMIDITY_ON);
+    private void checkValuesWindow() throws IOException, TimeoutException {
+        logger.info("Class TemperatureController --- SEND to Controller ...");
+        if (5 < Math.round(Float.parseFloat(getMessage()))) {
+            sendMessage(ID_CHANNEL_AWINDOW_CONTROLLER, ID_AWINDOW_OFF);
+        } else { // (5 >= Math.round(Float.parseFloat(getMessage()))) {
+            sendMessage(ID_CHANNEL_AWINDOW_CONTROLLER, ID_AWINDOW_ON);
         }
     }
 
@@ -96,9 +82,9 @@ public class HumidityController extends Controller implements Runnable {
      */
     private static void createInstance() {
         if (INSTANCE == null) {
-            synchronized (HumidityController.class) {
+            synchronized (AlarmController.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = new HumidityController();
+                    INSTANCE = new AlarmController();
                 }
             }
         }
@@ -110,17 +96,20 @@ public class HumidityController extends Controller implements Runnable {
      *
      * @return The instance of this class.
      */
-    public static HumidityController getInstance() {
+    public static AlarmController getInstance() {
         if (INSTANCE == null) {
             createInstance();
         }
         return INSTANCE;
     }
 
+    /**
+     *
+     */
     @Override
     public void run() {
         try {
-            receiveMessage();
+            receiveWindowMessage();
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
@@ -131,8 +120,9 @@ public class HumidityController extends Controller implements Runnable {
      * @param args
      */
     public static void main(String args[]) {
-        HumidityController humidityController = HumidityController.getInstance();
-        logger.info("Class HumidityController --- Start Controller Humidity...");
-        humidityController.run();
+        AlarmController alarmWindowController = AlarmController.getInstance();
+        logger.info("Class TemperatureController --- Start Controller Temperature...");
+        alarmWindowController.run();
     }
+
 }

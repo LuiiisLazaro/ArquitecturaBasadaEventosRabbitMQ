@@ -22,7 +22,7 @@ import java.util.concurrent.TimeoutException;
  *
  * @author luiiislazaro
  */
-public class TemperatureController extends Controller {
+public class TemperatureController extends Controller implements Runnable{
 
     private static TemperatureController INSTANCE = new TemperatureController();
 
@@ -83,7 +83,7 @@ public class TemperatureController extends Controller {
         if (70 < Math.round(Float.parseFloat(getMessage()))) {
             sendMessage(ID_CHANNEL_TEMPERATURE_CONTROLLER, ID_CHILLER_ON);
             sendMessage(ID_CHANNEL_TEMPERATURE_CONTROLLER, ID_HEATER_OFF);
-        } else if (75 > Math.round(Float.parseFloat(getMessage()))) {
+        } else { // (75 > Math.round(Float.parseFloat(getMessage()))) {
             sendMessage(ID_CHANNEL_TEMPERATURE_CONTROLLER, ID_CHILLER_OFF);
             sendMessage(ID_CHANNEL_TEMPERATURE_CONTROLLER, ID_HEATER_ON);
         }
@@ -118,6 +118,7 @@ public class TemperatureController extends Controller {
     /**
      *
      */
+    @Override
     public void run() {
         try {
             receiveMessage();

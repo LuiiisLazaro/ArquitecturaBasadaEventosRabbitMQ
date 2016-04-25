@@ -15,8 +15,6 @@ import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -38,25 +36,8 @@ public class HumiditySensor extends Sensor implements Runnable {
     }
 
     public void receiveMessage() throws IOException, TimeoutException {
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost(HOST);
-        Connection connection = factory.newConnection();
-        Channel channel = connection.createChannel();
-
-        channel.exchangeDeclare(ID_CHANNEL_HUMIDITY_CONTROLLER, "fanout");
-        String queueName = channel.queueDeclare().getQueue();
-        channel.queueBind(queueName, ID_CHANNEL_HUMIDITY_CONTROLLER, "");
-
-        Consumer consumer = new DefaultConsumer(channel) {
-            @Override
-            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                setMessage(new String(body, "UTF-8"));
-                logger.info("Class HumiditySensor --- RECEIVED From Controller --- Value" + new String(body, "UTF-8"));
-                checkValuesExecute();
-
-            }
-        };
-        channel.basicConsume(queueName, true, consumer);
+        receiveMessage(ID_CHANNEL_HUMIDITY_CONTROLLER);
+        logger.info("Class HumiditySensor --- RECEIVE from Controller --- value:"+ getMessage());
     }
 
     public void checkValuesExecute() {
@@ -86,8 +67,7 @@ public class HumiditySensor extends Sensor implements Runnable {
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
-        currentHumidity = 45;
-
+        currentHumidity = 47;
         while (!isDone) {
             if (coinToss()) {
                 driftValue = getRandomNumber() * (float) -1.0;
@@ -110,7 +90,7 @@ public class HumiditySensor extends Sensor implements Runnable {
 
     private static void createInstance() {
         if (INSTANCE == null) {
-            synchronized (TemperatureSensor.class) {
+            synchronized (HumiditySensor.class) {
                 if (INSTANCE == null) {
                     INSTANCE = new HumiditySensor();
                 }

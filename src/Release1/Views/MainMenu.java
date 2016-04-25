@@ -15,7 +15,6 @@ import javax.swing.JProgressBar;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.Box;
 import javax.swing.SwingConstants;
 import javax.swing.JPanel;
 

@@ -12,16 +12,11 @@ import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Consumer;
 import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
-import java.awt.BorderLayout;
+
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JProgressBar;
-import javax.swing.SwingConstants;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
@@ -29,26 +24,43 @@ import javax.swing.SwingConstants;
  */
 public class MainMenuConsoleView extends javax.swing.JFrame {
 
+    private static final String HOST = "localhost";
+
     private static final String ID_CHANNEL_TEMPERATURE_SENSOR = "-5";       //channel ID to send messages
     private static final String ID_CHANNEL_TEMPERATURE_CONTROLLER = "5";    //channel ID to receive messages
 
     private static final int MAX_TEMPERATURE = 75;
     private static final int MIN_TEMPERATURE = 70;
 
-    private static final int MAX_HUMIDITY = 55;
-    private static final int MIN_HUMIDITY = 50;
-
     private int MAX_TEMPERATURE_VIEW = MAX_TEMPERATURE + 5;
     private int MIN_TEMPERATURE_VIEW = MIN_TEMPERATURE - 5;
+
+    private static final String ID_CHANNEL_HUMIDITY_SENSOR = "-4";
+    private static final String ID_CHANNEL_HUMIDITY_CONTROLLER = "4";
+
+    private static final int MAX_HUMIDITY = 45;
+    private static final int MIN_HUMIDITY = 40;
 
     private int MAX_HUMIDITY_VIEW = MAX_HUMIDITY + 5;
     private int MIN_HUMIDITY_VIEW = MIN_HUMIDITY - 5;
 
-    public MainMenuConsoleView() throws IOException, TimeoutException {
-        initComponents();
-        initValues();
+    private static final Logger logger = Logger.getLogger(MainMenuConsoleView.class);
+
+    public MainMenuConsoleView() {
+        PropertyConfigurator.configure("log4j.properties");
+        try {
+            initComponents();
+            initValuesGeneral();
+
             receiveTemperatureControllerMessage();
             receiveTemperatureSensorMessage();
+            
+            receiveHumidityControllerMessage();
+            receiveHumiditySensorMessage();
+
+        } catch (IOException | TimeoutException ex) {
+            logger.error(ex);
+        }
     }
 
     /**
@@ -94,8 +106,10 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         jProgressBarHumidity = new javax.swing.JProgressBar();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        jLabel1 = new javax.swing.JLabel();
+        lblHumidityState = new javax.swing.JLabel();
         jpHumidityValueNow = new javax.swing.JPanel();
+        jpDeshumidityValueNow = new javax.swing.JPanel();
+        lblDeshumidityState = new javax.swing.JLabel();
         lblSensorControlPanelTitle = new javax.swing.JLabel();
         jpSystemAlarm = new javax.swing.JPanel();
         lblTitleAlarms = new javax.swing.JLabel();
@@ -248,8 +262,8 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         jPanelHumiduty.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, -1, -1));
         jPanelHumiduty.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 181, 10));
 
-        jLabel1.setText("Humidity Device");
-        jPanelHumiduty.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 90, -1, -1));
+        lblHumidityState.setText("Humidity");
+        jPanelHumiduty.add(lblHumidityState, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
 
         jpHumidityValueNow.setBackground(new java.awt.Color(0, 255, 0));
         jpHumidityValueNow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -258,14 +272,33 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         jpHumidityValueNow.setLayout(jpHumidityValueNowLayout);
         jpHumidityValueNowLayout.setHorizontalGroup(
             jpHumidityValueNowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 98, Short.MAX_VALUE)
+            .addGap(0, 38, Short.MAX_VALUE)
         );
         jpHumidityValueNowLayout.setVerticalGroup(
             jpHumidityValueNowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 28, Short.MAX_VALUE)
         );
 
-        jPanelHumiduty.add(jpHumidityValueNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 100, 30));
+        jPanelHumiduty.add(jpHumidityValueNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 40, 30));
+
+        jpDeshumidityValueNow.setBackground(new java.awt.Color(255, 0, 0));
+        jpDeshumidityValueNow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jpDeshumidityValueNowLayout = new javax.swing.GroupLayout(jpDeshumidityValueNow);
+        jpDeshumidityValueNow.setLayout(jpDeshumidityValueNowLayout);
+        jpDeshumidityValueNowLayout.setHorizontalGroup(
+            jpDeshumidityValueNowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 38, Short.MAX_VALUE)
+        );
+        jpDeshumidityValueNowLayout.setVerticalGroup(
+            jpDeshumidityValueNowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 28, Short.MAX_VALUE)
+        );
+
+        jPanelHumiduty.add(jpDeshumidityValueNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
+
+        lblDeshumidityState.setText("Deshumi");
+        jPanelHumiduty.add(lblDeshumidityState, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
 
         lblSensorControlPanelTitle.setText("SENSORS CONTROL PANEL");
 
@@ -483,20 +516,13 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void initValues() {
-        initValuesTemperature();
-        initValuesHumidity();
-    }
-
-    private void initValuesTemperature() {
+    private void initValuesGeneral() {
         lblMaxBarTemperature.setText(String.valueOf(MAX_TEMPERATURE_VIEW));
         lblMinBarTemperature.setText(String.valueOf(MIN_TEMPERATURE_VIEW));
 
         jProgressBarTemperature.setMaximum(MIN_TEMPERATURE_VIEW);
         jProgressBarTemperature.setMinimum(MIN_TEMPERATURE_VIEW);
-    }
 
-    private void initValuesHumidity() {
         lblMaxBarHumidity.setText(String.valueOf(MAX_HUMIDITY_VIEW));
         lblMinBarHumidity.setText(String.valueOf(MIN_HUMIDITY_VIEW));
 
@@ -530,24 +556,43 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
 
     private void receiveTemperatureSensorMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("localhost");
+        factory.setHost(HOST);
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
-        
+
         channel.exchangeDeclare(ID_CHANNEL_TEMPERATURE_SENSOR, "fanout");
         String queueName = channel.queueDeclare().getQueue();
         channel.queueBind(queueName, ID_CHANNEL_TEMPERATURE_SENSOR, "");
+
         Consumer consumer;
         consumer = new DefaultConsumer(channel) {
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                int i =76;
-                String message = new String(body, "UTF-8");
-                System.out.println("ValueNOwReceived:" + message);
-                txtTemperatureNow.setText(message);
-                jProgressBarTemperature.setValue(Math.round(Float.parseFloat(txtTemperatureNow.getText())));
-                jProgressBarTemperature.setValue(i);
-                i++;
+                logger.info("Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: " + new String(body, "UTF-8"));
+                txtTemperatureNow.setText(new String(body, "UTF-8"));
+                //la barra de progreso no sirve
+            }
+        };
+        channel.basicConsume(queueName, true, consumer);
+    }
+
+    private void receiveHumiditySensorMessage() throws IOException, TimeoutException {
+        ConnectionFactory factory = new ConnectionFactory();
+        factory.setHost(HOST);
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+
+        channel.exchangeDeclare(ID_CHANNEL_HUMIDITY_SENSOR, "fanout");
+        String queueName = channel.queueDeclare().getQueue();
+        channel.queueBind(queueName, ID_CHANNEL_HUMIDITY_SENSOR, "");
+
+        Consumer consumer;
+        consumer = new DefaultConsumer(channel) {
+            @Override
+            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                logger.info("Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: " + new String(body, "UTF-8"));
+                txtHumidityNow.setText(new String(body, "UTF-8"));
+                //la barra de progreso no sirve
             }
         };
         channel.basicConsume(queueName, true, consumer);
@@ -555,18 +600,19 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
 
     private void receiveTemperatureControllerMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("localhost");
+        factory.setHost(HOST);
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
         channel.exchangeDeclare(ID_CHANNEL_TEMPERATURE_CONTROLLER, "fanout");
         String queueName = channel.queueDeclare().getQueue();
         channel.queueBind(queueName, ID_CHANNEL_TEMPERATURE_CONTROLLER, "");
+
         Consumer consumer = new DefaultConsumer(channel) {
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                 String message = new String(body, "UTF-8");
-                System.out.println("ValueNOw:" + message);
+                logger.info("Class MainMenuConsoleView --- RECEIVED from Temperature Controller --- Value: " + message);
                 switch (message) {
                     case "H1":
                         jpHeaterValueNow.setBackground(new java.awt.Color(0, 255, 0));
@@ -588,15 +634,46 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         channel.basicConsume(queueName, true, consumer);
     }
 
+    private void receiveHumidityControllerMessage() throws IOException, TimeoutException {
+        ConnectionFactory factory = new ConnectionFactory();
+        factory.setHost(HOST);
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+
+        channel.exchangeDeclare(ID_CHANNEL_HUMIDITY_CONTROLLER, "fanout");
+        String queueName = channel.queueDeclare().getQueue();
+        channel.queueBind(queueName, ID_CHANNEL_HUMIDITY_CONTROLLER, "");
+
+        Consumer consumer = new DefaultConsumer(channel) {
+            @Override
+            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                String message = new String(body, "UTF-8");
+                logger.info("Class MainMenuConsoleView --- RECEIVED from Humidity Controller --- Value: " + message);
+                switch (message) {
+                    case "H1":
+                        jpHumidityValueNow.setBackground(new java.awt.Color(0, 255, 0));
+                        break;
+                    case "H0":
+                        jpHumidityValueNow.setBackground(new java.awt.Color(255, 0, 0));
+                        break;
+                    case "D1":
+                        jpDeshumidityValueNow.setBackground(new java.awt.Color(0, 255, 0));
+                        break;
+                    case "D0":
+                        jpDeshumidityValueNow.setBackground(new java.awt.Color(255, 0, 0));
+                        break;
+                    default:
+                }
+
+            }
+        };
+        channel.basicConsume(queueName, true, consumer);
+    }
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("GTK+".equals(info.getName())) {
@@ -605,20 +682,12 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainMenuConsoleView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            logger.error(ex);
         }
         //</editor-fold>
-        
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
-                    new MainMenuConsoleView().setVisible(true);
-                } catch (IOException | TimeoutException ex) {
-                    Logger.getLogger(MainMenuConsoleView.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                new MainMenuConsoleView().setVisible(true);
             }
         });
     }
@@ -630,7 +699,6 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnStateSystemAlarm;
     private javax.swing.JButton btnUpdateValuesHumidity;
     private javax.swing.JButton btnUpdateValuesTemperature;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelHumiduty;
     private javax.swing.JPanel jPanelTemperature;
     private javax.swing.JProgressBar jProgressBar1;
@@ -646,6 +714,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     private javax.swing.JPanel jpAWindow;
     private javax.swing.JPanel jpAWindowNow;
     private javax.swing.JPanel jpChillerValueNow;
+    private javax.swing.JPanel jpDeshumidityValueNow;
     private javax.swing.JPanel jpHeaterValueNow;
     private javax.swing.JPanel jpHumidityValueNow;
     private javax.swing.JPanel jpSensorsControlPanel;
@@ -663,8 +732,10 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     private javax.swing.JLabel lblAWindowTitle;
     private javax.swing.JLabel lblAWindowValue;
     private javax.swing.JLabel lblChillerState;
+    private javax.swing.JLabel lblDeshumidityState;
     private javax.swing.JLabel lblHeaterState;
     private javax.swing.JLabel lblHumidityNow;
+    private javax.swing.JLabel lblHumidityState;
     private javax.swing.JLabel lblHumidityTitle;
     private javax.swing.JLabel lblMaxBarHumidity;
     private javax.swing.JLabel lblMaxBarTemperature;
