@@ -5,6 +5,8 @@
  */
 package Release1.Views;
 
+import Release1.Controllers.TemperatureController;
+import Release1.Sensors.TemperatureSensor;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -14,6 +16,7 @@ import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
+import java.util.logging.Level;
 import javax.swing.JOptionPane;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -28,7 +31,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
 
     private static final String ID_CHANNEL_TEMPERATURE_SENSOR = "-5";       //channel ID to send messages
     private static final String ID_CHANNEL_TEMPERATURE_CONTROLLER = "5";    //channel ID to receive messages
-    
+
     private static final String ID_CHANNEL_CHANGE_TEMPERATURE = "CT";
     private static final String ID_CHANNEL_CHANGE_HUMIDITY = "CH";
 
@@ -37,7 +40,6 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
 
     private int MAX_TEMPERATURE_VIEW = MAX_TEMPERATURE + 5;
     private int MIN_TEMPERATURE_VIEW = MIN_TEMPERATURE - 5;
-    
 
     private static final String ID_CHANNEL_HUMIDITY_SENSOR = "-4";
     private static final String ID_CHANNEL_HUMIDITY_CONTROLLER = "4";
@@ -49,16 +51,15 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     private int MIN_HUMIDITY_VIEW = MIN_HUMIDITY - 5;
 
     private static final Logger logger = Logger.getLogger(MainMenuConsoleView.class);
-    
-    private static final String ID_CHANNEL_AWINDOW_CONTROLLER="6";
-    private static final String ID_CHANNEL_AWINDOW_SENSOR="-6";
-    
+
+    private static final String ID_CHANNEL_AWINDOW_CONTROLLER = "6";
+    private static final String ID_CHANNEL_AWINDOW_SENSOR = "-6";
+
     private static final String ID_CHANNEL_ADOOR_CONTROLLER = "7";
     private static final String ID_CHANNEL_ADOOR_SENSOR = "-7";
-    
+
     private static final String ID_CHANNEL_AMOVE_CONTROLLER = "8";
     private static final String ID_CHANNEL_AMOVE_SENSOR = "-8";
-    
 
     public MainMenuConsoleView() {
         PropertyConfigurator.configure("log4j.properties");
@@ -71,10 +72,24 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
 
             receiveHumidityControllerMessage();
             receiveHumiditySensorMessage();
-            
+
             receiveWindowMessage();
 
+            runThreads();
+
         } catch (IOException | TimeoutException ex) {
+            logger.error(ex);
+        }
+    }
+
+    public void runThreads() {
+        TemperatureController temperatureController = TemperatureController.getInstance();
+        logger.info("Class TemperatureController --- Start Controller Temperature...");
+        temperatureController.start();
+        
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ex) {
             logger.error(ex);
         }
     }
@@ -625,30 +640,8 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         System.out.println(jTextField1.getText());
-        jProgressBar1.setValue(Integer.parseInt(jTextField1.getText()));        // TODO add your handling code here:
+        jProgressBar1.setValue(WIDTH);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void receiveTemperatureSensorMessage() throws IOException, TimeoutException {
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost(HOST);
-        Connection connection = factory.newConnection();
-        Channel channel = connection.createChannel();
-
-        channel.exchangeDeclare(ID_CHANNEL_TEMPERATURE_SENSOR, "fanout");
-        String queueName = channel.queueDeclare().getQueue();
-        channel.queueBind(queueName, ID_CHANNEL_TEMPERATURE_SENSOR, "");
-
-        Consumer consumer;
-        consumer = new DefaultConsumer(channel) {
-            @Override
-            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                logger.info("Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: " + new String(body, "UTF-8"));
-                txtTemperatureNow.setText(new String(body, "UTF-8"));
-                jButton1ActionPerformed(null);
-            }
-        };
-        channel.basicConsume(queueName, true, consumer);
-    }
 
     private void receiveHumiditySensorMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
@@ -743,7 +736,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         };
         channel.basicConsume(queueName, true, consumer);
     }
-    
+
     private void receiveWindowMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
@@ -759,12 +752,11 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                 txtTestValueWindow.setText((new String(body, "UTF-8")));
                 logger.info("Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: " + new String(body, "UTF-8"));
-                
+
             }
         };
         channel.basicConsume(queueName, true, consumer);
     }
-    
 
     /**
      * @param args the command line arguments
@@ -861,4 +853,32 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     private javax.swing.JTextField txtTestValueFire;
     private javax.swing.JTextField txtTestValueWindow;
     // End of variables declaration//GEN-END:variables
+    private void receiveTemperatureSensorMessage() throws IOException, TimeoutException {
+        ConnectionFactory factory = new ConnectionFactory();
+        factory.setHost(HOST);
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+
+        channel.exchangeDeclare(ID_CHANNEL_TEMPERATURE_SENSOR, "fanout");
+        String queueName = channel.queueDeclare().getQueue();
+        channel.queueBind(queueName, ID_CHANNEL_TEMPERATURE_SENSOR, "");
+
+        Consumer consumer;
+        consumer = new DefaultConsumer(channel) {
+            @Override
+            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                logger.info("Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: " + new String(body, "UTF-8"));
+                updateTemperature(new String(body, "UTF-8"));
+
+            }
+        };
+        channel.basicConsume(queueName, true, consumer);
+    }
+
+    public void updateTemperature(String message) {
+        txtTemperatureNow.setText(message);
+        jProgressBar1.setValue(Math.round(Float.valueOf(message)));
+        System.out.println(Math.round(Float.valueOf(message)));
+    }
+
 }

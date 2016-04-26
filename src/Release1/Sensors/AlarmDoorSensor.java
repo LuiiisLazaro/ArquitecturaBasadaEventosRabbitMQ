@@ -20,7 +20,7 @@ import java.util.concurrent.TimeoutException;
  *
  * @author luiiislazaro
  */
-public class AlarmDoorSensor extends Sensor implements Runnable {
+public class AlarmDoorSensor extends Sensor {
 
     private boolean doorState = false;
 
@@ -38,31 +38,8 @@ public class AlarmDoorSensor extends Sensor implements Runnable {
         super();
     }
 
-    public void receiveMessage() throws TimeoutException, IOException {
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost(HOST);
-        Connection connection = factory.newConnection();
-        Channel channel = connection.createChannel();
-
-        channel.exchangeDeclare(ID_CHANNEL_ADOOR_CONTROLLER, "fanout");
-        String queueName = channel.queueDeclare().getQueue();
-        channel.queueBind(queueName, ID_CHANNEL_ADOOR_CONTROLLER, "");
-
-        Consumer consumer = new DefaultConsumer(channel) {
-            @Override
-            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                String message = (new String(body, "UTF-8"));
-                if (!doorState) {
-                    setMessage(new String(body, "UTF-8"));
-                    logger.info("Class alarm DOOR Sensor --- RECEIVED From Controller --- Value: " + new String(body, "UTF-8"));
-                    checkValuesExecute();
-                }
-            }
-        };
-        channel.basicConsume(queueName, true, consumer);
-    }
-
-    public void checkValuesExecute() {
+    @Override
+    public void checkValues() {
         switch (getMessage()) {
             case "AW1":
                 doorState = true;
@@ -81,7 +58,7 @@ public class AlarmDoorSensor extends Sensor implements Runnable {
     @Override
     public void run() {
         try {
-            receiveMessage();
+            receiveMessage(ID_CHANNEL_ADOOR_CONTROLLER);
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
@@ -139,6 +116,6 @@ public class AlarmDoorSensor extends Sensor implements Runnable {
     public static void main(String args[]) {
         AlarmDoorSensor alarmDoorSensor = AlarmDoorSensor.getInstance();
         logger.info("Class AlarmDoorSensor --- Start ALARM DOOR ...");
-        alarmDoorSensor.run();
+        alarmDoorSensor.start();
     }
 }

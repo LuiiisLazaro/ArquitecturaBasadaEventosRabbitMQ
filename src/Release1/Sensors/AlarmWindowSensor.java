@@ -5,17 +5,8 @@
  */
 package Release1.Sensors;
 
-import static Release1.Sensors.Sensor.HOST;
-import com.rabbitmq.client.AMQP;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.Consumer;
-import com.rabbitmq.client.DefaultConsumer;
-import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
-import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
@@ -38,41 +29,12 @@ public class AlarmWindowSensor extends Sensor {
     private AlarmWindowSensor() {
         super();
     }
-
-    public void receiveMessage() throws IOException, TimeoutException {
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost(HOST);
-        Connection connection = factory.newConnection();
-        Channel channel = connection.createChannel();
-
-        channel.exchangeDeclare(ID_CHANNEL_AWINDOW_CONTROLLER, "fanout");
-        String queueName = channel.queueDeclare().getQueue();
-        channel.queueBind(queueName, ID_CHANNEL_AWINDOW_CONTROLLER, "");
-
-        Consumer consumer = new DefaultConsumer(channel) {
-            @Override
-            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                if (windowState) { //condicion para entrar 
-                    setMessage(new String(body, "UTF-8"));
-                    logger.info("Class ALARMWINDOWSENSOR --- RECEIVED From Controller --- Value: " + new String(body, "UTF-8"));
-                    checkValuesExecute();
-                    this.notify();
-                } else {
-                    try {
-                        this.wait();
-                    } catch (InterruptedException ex) {
-                        logger.error(ex);
-                    }
-                }
-            }
-        };
-        channel.basicConsume(queueName, true, consumer);
-    }
-
+    
     /**
      *
      */
-    public void checkValuesExecute() {
+    @Override
+    public void checkValues() {
         switch (getMessage()) {
             case "AW1":
                 windowState = true;
@@ -93,7 +55,7 @@ public class AlarmWindowSensor extends Sensor {
      */
     public void run() {
         try {
-            receiveMessage();
+            receiveMessage(ID_CHANNEL_AWINDOW_CONTROLLER);
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
@@ -150,7 +112,7 @@ public class AlarmWindowSensor extends Sensor {
     public static void main(String args[]) {
         AlarmWindowSensor alarmWindowSensor = AlarmWindowSensor.getInstance();
         logger.info("Class AlarmWindowSensor --- Start ALARM WINDOW ...");
-        alarmWindowSensor.run();
+        alarmWindowSensor.start();
     }
 
 }

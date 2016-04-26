@@ -6,9 +6,13 @@ package Release1.Sensors;
 /**
  * 
  */
+import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.Consumer;
+import com.rabbitmq.client.DefaultConsumer;
+import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.Random;
 import java.util.concurrent.TimeoutException;
@@ -20,9 +24,9 @@ import org.apache.log4j.PropertyConfigurator;
  *
  * @author luiiislazaro
  */
-public class Sensor {
+public class Sensor extends Thread{
 
-    protected int delay = 1000;         //the time to update data and send to console
+    protected int delay = 5000;         //the time to update data and send to console
     protected boolean isDone = false;   //to control de life of thred
     protected float driftValue;				// The amount of temperature gained or lost
     private String message;           //message with value to send
@@ -98,5 +102,30 @@ public class Sensor {
 
         channel.close();
         connection.close();
+    }
+    
+    protected void receiveMessage(String ID_CHANNEL_TEMPERATURE_CONTROLLER) throws IOException, TimeoutException {
+        ConnectionFactory factory = new ConnectionFactory();
+        factory.setHost(HOST);
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+
+        channel.exchangeDeclare(ID_CHANNEL_TEMPERATURE_CONTROLLER, "fanout");
+        String queueName = channel.queueDeclare().getQueue();
+        channel.queueBind(queueName, ID_CHANNEL_TEMPERATURE_CONTROLLER, "");
+
+        Consumer consumer = new DefaultConsumer(channel) {
+            @Override
+            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                setMessage(new String(body, "UTF-8"));
+                logger.info("Class Sensor --- RECEIVED From Controller --- Value: " + new String(body, "UTF-8"));
+                checkValues();
+            }
+        };
+        channel.basicConsume(queueName, true, consumer);
+    }
+    
+    public void checkValues(){
+        
     }
 }

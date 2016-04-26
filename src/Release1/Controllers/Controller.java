@@ -1,30 +1,32 @@
 /**
- * 
+ *
  */
 package Release1.Controllers;
 
 /**
- * 
+ *
  */
+import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.Consumer;
+import com.rabbitmq.client.DefaultConsumer;
+import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 /**
- * 
+ *
  * @author luiiislazaro
  */
-public class Controller {
+public class Controller extends Thread {
 
-    protected int delay = 1000;				// The loop delay (2 seconds)
-    protected boolean isDone = false;			// Loop termination flag
     private String message;
-    protected static final String HOST="localhost";
-    
+    protected static final String HOST = "localhost";
+
     protected static final Logger logger = Logger.getLogger(Controller.class);
 
     public String getMessage() {
@@ -55,7 +57,7 @@ public class Controller {
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
-        logger.info("Class Controller --- SEND  to Sensor --- Value: "+message);
+        logger.info("Class Controller --- SEND  to Sensor --- Value: " + message);
 
         channel.exchangeDeclare(ID_CHANNEL_SEND, "fanout");
         channel.basicPublish(ID_CHANNEL_SEND, "", null, message.getBytes("UTF-8"));
@@ -63,4 +65,30 @@ public class Controller {
         channel.close();
         connection.close();
     }
+
+    protected void receiveMessage(String ID_CHANNEL_RECEIVE) throws IOException, TimeoutException {
+        ConnectionFactory factory = new ConnectionFactory();
+        factory.setHost(HOST);
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+
+        channel.exchangeDeclare(ID_CHANNEL_RECEIVE, "fanout");
+        String queueName = channel.queueDeclare().getQueue();
+        channel.queueBind(queueName, ID_CHANNEL_RECEIVE, "");
+
+        Consumer consumer = new DefaultConsumer(channel) {
+            @Override
+            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                setMessage(new String(body, "UTF-8"));
+                logger.info("Class TemperatureController --- RECEIVED from Sensor --- Value: " + new String(body, "UTF-8"));
+                checkValues();
+            }
+        };
+        channel.basicConsume(queueName, true, consumer);
+    }
+
+    public void checkValues() {
+
+    }
+
 }

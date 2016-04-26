@@ -5,14 +5,6 @@
  */
 package Release1.Sensors;
 
-import static Release1.Sensors.Sensor.HOST;
-import com.rabbitmq.client.AMQP;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.Consumer;
-import com.rabbitmq.client.DefaultConsumer;
-import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
@@ -20,7 +12,7 @@ import java.util.concurrent.TimeoutException;
  *
  * @author luiiislazaro
  */
-public class HumiditySensor extends Sensor implements Runnable {
+public class HumiditySensor extends Sensor {
 
     private boolean humidityState = false;
     private boolean deshumidityState =false;
@@ -35,28 +27,8 @@ public class HumiditySensor extends Sensor implements Runnable {
         super();
     }
 
-    public void receiveMessage() throws IOException, TimeoutException {
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost(HOST);
-        Connection connection = factory.newConnection();
-        Channel channel = connection.createChannel();
-
-        channel.exchangeDeclare(ID_CHANNEL_HUMIDITY_CONTROLLER, "fanout");
-        String queueName = channel.queueDeclare().getQueue();
-        channel.queueBind(queueName, ID_CHANNEL_HUMIDITY_CONTROLLER, "");
-
-        Consumer consumer = new DefaultConsumer(channel) {
-            @Override
-            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                setMessage(new String(body, "UTF-8"));
-                logger.info("Class Sensor --- RECEIVED From Controller --- Value: " + new String(body, "UTF-8"));
-                checkValuesExecute();
-            }
-        };
-        channel.basicConsume(queueName, true, consumer);
-    }
-
-    public void checkValuesExecute() {
+    @Override
+    public void checkValues() {
         switch (getMessage()) {
             case "H1":
                 humidityState = true;
@@ -79,7 +51,7 @@ public class HumiditySensor extends Sensor implements Runnable {
     @Override
     public void run() {
         try {
-            receiveMessage();
+            receiveMessage(ID_CHANNEL_HUMIDITY_CONTROLLER);
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
@@ -134,7 +106,7 @@ public class HumiditySensor extends Sensor implements Runnable {
     public static void main(String args[]) {
         HumiditySensor humiditySensor = HumiditySensor.getInstance();
         logger.info("Class HumiditysSensor --- Start Sensor Temperature...");
-        humiditySensor.run();
+        humiditySensor.start();
     }
 
 }

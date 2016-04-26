@@ -9,13 +9,6 @@ package Release1.Controllers;
  *
  */
 import static Release1.Controllers.Controller.logger;
-import com.rabbitmq.client.AMQP;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.Consumer;
-import com.rabbitmq.client.DefaultConsumer;
-import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
@@ -29,8 +22,8 @@ public class HumidityController extends Controller implements Runnable {
 
     private static final String ID_CHANNEL_HUMIDITY_CONTROLLER = "4";
     private static final String ID_CHANNEL_HUMIDITY_SENSOR = "-4";
-    private static final String ID_CHANNEL_CHANGE_HUMIDITY ="CH";
-    
+    private static final String ID_CHANNEL_CHANGE_HUMIDITY = "CH";
+
     private int maxHumidity;
     private int minHumidity;
 
@@ -48,6 +41,7 @@ public class HumidityController extends Controller implements Runnable {
         this.minHumidity = 45;
         this.maxHumidity = 55;
     }
+
     public int getMaxHumidity() {
         return maxHumidity;
     }
@@ -63,76 +57,30 @@ public class HumidityController extends Controller implements Runnable {
     public void setMinHumidity(int minHumidity) {
         this.minHumidity = minHumidity;
     }
-    
-        private void receiveChangeTemperatureMessage() throws IOException, TimeoutException {
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost(HOST);
-        Connection connection = factory.newConnection();
-        Channel channel = connection.createChannel();
-
-        channel.exchangeDeclare(ID_CHANNEL_CHANGE_HUMIDITY, "fanout");
-        String queueName = channel.queueDeclare().getQueue();
-        channel.queueBind(queueName, ID_CHANNEL_CHANGE_HUMIDITY, "");
-
-        Consumer consumer = new DefaultConsumer(channel) {
-            @Override
-            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                String message = new String(body, "UTF-8");
-                String[] values = message.split(":");
-                setMaxHumidity(Integer.parseInt(values[0]));
-                setMinHumidity(Integer.parseInt(values[1]));
-                logger.info("Class HumidityController --- RECEIVED from Sensor --- Value: " + new String(body, "UTF-8") + " --- CHANGE TEMPERATURE");
-                logger.info("Class HumidityController --- UPDATE VALUES --- MAX="+getMaxHumidity()+" Min="+getMinHumidity());
-            }
-        };
-        channel.basicConsume(queueName, true, consumer);
-    }
 
     /**
      *
      * @throws IOException
      * @throws TimeoutException
      */
-    private void receiveMessage() throws IOException, TimeoutException {
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost(HOST);
-        Connection connection = factory.newConnection();
-        Channel channel = connection.createChannel();
-
-        channel.exchangeDeclare(ID_CHANNEL_HUMIDITY_SENSOR, "fanout");
-        String queueName = channel.queueDeclare().getQueue();
-        channel.queueBind(queueName, ID_CHANNEL_HUMIDITY_SENSOR, "");
-
-        Consumer consumer = new DefaultConsumer(channel) {
-            @Override
-            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                setMessage(new String(body, "UTF-8"));
-                logger.info("Class HumidityController --- RECEIVED from Sensor --- Value: " + new String(body, "UTF-8"));
-                try {
-                    checkValuesHumidity();
-                } catch (TimeoutException ex) {
-                    logger.error(ex);
-                }
-            }
-        };
-        channel.basicConsume(queueName, true, consumer);
-    }
-
-    /**
-     *
-     * @throws IOException
-     * @throws TimeoutException
-     */
-    private void checkValuesHumidity() throws IOException, TimeoutException {
-
+    @Override
+    public void checkValues() {
         logger.info("Class HumidityController --- SEND to Controller ...");
 
         if (Math.round(Float.parseFloat(getMessage())) > maxHumidity) {
-            sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_HUMIDITY_OFF);
-            sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_DESHUMIDITY_ON);
-        } else if (Math.round(Float.parseFloat(getMessage())) < minHumidity){
-            sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_HUMIDITY_ON);
-            sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_DESHUMIDITY_OFF);
+            try {
+                sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_HUMIDITY_OFF);
+                sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_DESHUMIDITY_ON);
+            } catch (IOException | TimeoutException ex) {
+                logger.error(ex);
+            }
+        } else if (Math.round(Float.parseFloat(getMessage())) < minHumidity) {
+            try {
+                sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_HUMIDITY_ON);
+                sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_DESHUMIDITY_OFF);
+            } catch (IOException | TimeoutException ex) {
+                logger.error(ex);
+            }
         }
     }
 
@@ -165,8 +113,8 @@ public class HumidityController extends Controller implements Runnable {
     @Override
     public void run() {
         try {
-            receiveMessage();
-            receiveChangeTemperatureMessage();
+            receiveMessage(ID_CHANNEL_HUMIDITY_SENSOR);
+            receiveMessage(ID_CHANNEL_CHANGE_HUMIDITY);
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
@@ -179,6 +127,6 @@ public class HumidityController extends Controller implements Runnable {
     public static void main(String args[]) {
         HumidityController humidityController = HumidityController.getInstance();
         logger.info("Class HumidityController --- Start Controller Humidity...");
-        humidityController.run();
+        humidityController.start();
     }
 }

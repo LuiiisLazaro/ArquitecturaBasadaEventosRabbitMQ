@@ -6,14 +6,6 @@ package Release1.Sensors;
 /**
  *
  */
-import static Release1.Sensors.Sensor.HOST;
-import com.rabbitmq.client.AMQP;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.Consumer;
-import com.rabbitmq.client.DefaultConsumer;
-import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
@@ -21,7 +13,7 @@ import java.util.concurrent.TimeoutException;
  *
  * @author luiiislazaro
  */
-public class TemperatureSensor extends Sensor implements Runnable {
+public class TemperatureSensor extends Sensor {
 
     private boolean heaterState = false;	// Heater state: false == off, true == on
     private boolean chillerState = false;	// Chiller state: false == off, true == on
@@ -32,45 +24,15 @@ public class TemperatureSensor extends Sensor implements Runnable {
     private static final String ID_CHANNEL_TEMPERATURE_SENSOR = "-5";       //channel ID to send messages
     private static final String ID_CHANNEL_TEMPERATURE_CONTROLLER = "5";    //channel ID to receive messages
     
-    
-
     /**
      *
      */
     private TemperatureSensor() {
         super();
     }
-
-    /**
-     *
-     * @throws IOException
-     * @throws TimeoutException
-     */
-    public void receiveMessage() throws IOException, TimeoutException {
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost(HOST);
-        Connection connection = factory.newConnection();
-        Channel channel = connection.createChannel();
-
-        channel.exchangeDeclare(ID_CHANNEL_TEMPERATURE_CONTROLLER, "fanout");
-        String queueName = channel.queueDeclare().getQueue();
-        channel.queueBind(queueName, ID_CHANNEL_TEMPERATURE_CONTROLLER, "");
-
-        Consumer consumer = new DefaultConsumer(channel) {
-            @Override
-            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                setMessage(new String(body, "UTF-8"));
-                logger.info("Class Sensor --- RECEIVED From Controller --- Value: " + new String(body, "UTF-8"));
-                checkValuesExecute();
-            }
-        };
-        channel.basicConsume(queueName, true, consumer);
-    }
-
-    /**
-     *
-     */
-    public void checkValuesExecute() {
+    
+    @Override
+    public void checkValues(){
         switch (getMessage()) {
             case "H1":
                 heaterState = true;
@@ -95,13 +57,12 @@ public class TemperatureSensor extends Sensor implements Runnable {
     @Override
     public void run() {
         try {
-            receiveMessage();
+            receiveMessage(ID_CHANNEL_TEMPERATURE_CONTROLLER);
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
         currentTemperature = (float) 70.00;
         while (!isDone) {
-
             if (coinToss()) {
                 driftValue = getRandomNumber() * (float) -1.0;
             } else {
@@ -154,7 +115,7 @@ public class TemperatureSensor extends Sensor implements Runnable {
     public static void main(String args[]) {
         TemperatureSensor temperatureSensor = TemperatureSensor.getInstance();
         logger.info("Class TemperatureSensot --- Start Sensor Temperature...");
-        temperatureSensor.run();
+        temperatureSensor.start();
     }
 
 }
