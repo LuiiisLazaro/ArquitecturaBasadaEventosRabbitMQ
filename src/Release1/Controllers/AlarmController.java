@@ -6,6 +6,8 @@
 package Release1.Controllers;
 
 import static Release1.Controllers.Controller.HOST;
+import static Release1.Controllers.Controller.logger;
+import Release1.Sensors.AlarmWindowSensor;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -15,12 +17,14 @@ import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author luiiislazaro
  */
-public class AlarmController extends Controller implements Runnable {
+public class AlarmController extends Controller {
 
     private static AlarmController INSTANCE = new AlarmController();
 
@@ -49,7 +53,7 @@ public class AlarmController extends Controller implements Runnable {
         super();
     }
 
-    private void receiveWindowMessage() throws IOException, TimeoutException {
+    private synchronized void receiveWindowMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
         Connection connection = factory.newConnection();
@@ -59,19 +63,38 @@ public class AlarmController extends Controller implements Runnable {
         String queueName = channel.queueDeclare().getQueue();
         channel.queueBind(queueName, ID_CHANNEL_AWINDOW_SENSOR, "");
 
-        Consumer consumer = new DefaultConsumer(channel) {
+        Consumer consumer;
+        consumer = new DefaultConsumer(channel) {
             @Override
-            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+            public synchronized void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                 setMessage(new String(body, "UTF-8"));
                 logger.info("Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: " + new String(body, "UTF-8"));
-                try {
-                    checkValuesWindow();
-                } catch (TimeoutException ex) {
-                    logger.error(ex);
+
+                if (Integer.parseInt(getMessage()) > 5) {
+                    try {
+                        sendMessage(ID_CHANNEL_AWINDOW_CONTROLLER, ID_AWINDOW_ON);
+                    } catch (TimeoutException ex) {
+                        logger.error(ex);
+                    }
+                } else {
+                    try {
+                        sendMessage(ID_CHANNEL_AWINDOW_CONTROLLER, ID_AWINDOW_OFF);
+                        notify();
+                    } catch (TimeoutException ex) {
+                        logger.error(ex);
+                    }
                 }
             }
         };
         channel.basicConsume(queueName, true, consumer);
+    }
+    
+    public synchronized void waitThread(){
+        try {
+            wait();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(AlarmController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void receiveDoorMessage() throws IOException, TimeoutException {
@@ -122,20 +145,6 @@ public class AlarmController extends Controller implements Runnable {
             }
         };
         channel.basicConsume(queueName, true, consumer);
-    }
-
-    /**
-     *
-     * @throws IOException
-     * @throws TimeoutException
-     */
-    private void checkValuesWindow() throws IOException, TimeoutException {
-        logger.info("Class TemperatureController --- SEND to Controller ...");
-        if (5 < Math.round(Float.parseFloat(getMessage()))) {
-            sendMessage(ID_CHANNEL_AWINDOW_CONTROLLER, ID_AWINDOW_OFF);
-        } else { // (5 >= Math.round(Float.parseFloat(getMessage()))) {
-            sendMessage(ID_CHANNEL_AWINDOW_CONTROLLER, ID_AWINDOW_ON);
-        }
     }
 
     private void checkValuesDoor() throws IOException, TimeoutException {
@@ -189,11 +198,18 @@ public class AlarmController extends Controller implements Runnable {
     public void run() {
         try {
             receiveWindowMessage();
+            /**
             receiveDoorMessage();
             receiveMoveMessage();
+            */
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
+        
+        
+        AlarmWindowSensor alarmWindowSensor = AlarmWindowSensor.getInstance();
+        logger.info("Class AlarmWindowSensor --- Start ALARM WINDOW ...");
+        alarmWindowSensor.start();
     }
 
     /**
@@ -203,7 +219,7 @@ public class AlarmController extends Controller implements Runnable {
     public static void main(String args[]) {
         AlarmController alarmWindowController = AlarmController.getInstance();
         logger.info("Class TemperatureController --- Start Controller Temperature...");
-        alarmWindowController.run();
+        alarmWindowController.start();
     }
 
 }

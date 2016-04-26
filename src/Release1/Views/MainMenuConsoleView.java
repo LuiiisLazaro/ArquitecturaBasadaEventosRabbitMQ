@@ -5,6 +5,8 @@
  */
 package Release1.Views;
 
+import Release1.Controllers.AlarmController;
+import Release1.Controllers.HumidityController;
 import Release1.Controllers.TemperatureController;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
@@ -15,6 +17,7 @@ import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
+import java.util.logging.Level;
 import javax.swing.JOptionPane;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -59,19 +62,24 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     private static final String ID_CHANNEL_AMOVE_CONTROLLER = "8";
     private static final String ID_CHANNEL_AMOVE_SENSOR = "-8";
 
+    //para probar comunicacion de alarmas
+    private AlarmController alarmWindowController = AlarmController.getInstance();
+
     public MainMenuConsoleView() {
         PropertyConfigurator.configure("log4j.properties");
         try {
             initComponents();
             initValuesGeneral();
 
-            receiveTemperatureControllerMessage();
-            receiveTemperatureSensorMessage();
+            
+             receiveTemperatureControllerMessage();
+             receiveTemperatureSensorMessage();
 
-            receiveHumidityControllerMessage();
-            receiveHumiditySensorMessage();
-
-            receiveWindowMessage();
+             receiveHumidityControllerMessage();
+             receiveHumiditySensorMessage();
+             
+            receiveAlarmWindowMessage();
+            receiveAlarmWindowStateMessage();
 
             runThreads();
 
@@ -80,10 +88,19 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         }
     }
 
-    public void runThreads() {
-        TemperatureController temperatureController = TemperatureController.getInstance();
+    public final void runThreads() {
+        
+         TemperatureController temperatureController = TemperatureController.getInstance();
+         logger.info("Class TemperatureController --- Start Controller Temperature...");
+         temperatureController.start();
+
+         HumidityController humidityController = HumidityController.getInstance();
+         logger.info("Class HumidityController --- Start Controller Humidity...");
+         humidityController.start();
+         
+
         logger.info("Class TemperatureController --- Start Controller Temperature...");
-        temperatureController.start();
+        alarmWindowController.start();
     }
 
     /**
@@ -126,13 +143,13 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         txtMaximumHumidity = new javax.swing.JTextField();
         txtHumidityNow = new javax.swing.JTextField();
         btnUpdateValuesHumidity = new javax.swing.JButton();
-        jProgressBarHumidity = new javax.swing.JProgressBar();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         lblHumidityState = new javax.swing.JLabel();
         jpHumidityValueNow = new javax.swing.JPanel();
         jpDeshumidityValueNow = new javax.swing.JPanel();
         lblDeshumidityState = new javax.swing.JLabel();
+        jProgressBarHumidity = new javax.swing.JProgressBar();
         lblSensorControlPanelTitle = new javax.swing.JLabel();
         jpSystemAlarm = new javax.swing.JPanel();
         lblTitleAlarms = new javax.swing.JLabel();
@@ -162,9 +179,6 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         btnAFireOff = new javax.swing.JToggleButton();
         jsAFire = new javax.swing.JSeparator();
         txtTestValueFire = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jProgressBar1 = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -283,7 +297,6 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
             }
         });
         jPanelHumiduty.add(btnUpdateValuesHumidity, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 130, -1));
-        jPanelHumiduty.add(jProgressBarHumidity, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 64, 24, 240));
         jPanelHumiduty.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, -1, -1));
         jPanelHumiduty.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 181, 10));
 
@@ -324,6 +337,9 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
 
         lblDeshumidityState.setText("Deshumi");
         jPanelHumiduty.add(lblDeshumidityState, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
+
+        jProgressBarHumidity.setOrientation(1);
+        jPanelHumiduty.add(jProgressBarHumidity, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 61, 30, 240));
 
         lblSensorControlPanelTitle.setText("SENSORS CONTROL PANEL");
 
@@ -471,15 +487,6 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         txtTestValueFire.setText("jTextField1");
         jpAFire.add(txtTestValueFire, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jTextField1.setText("jTextField1");
-
         javax.swing.GroupLayout jpSystemAlarmLayout = new javax.swing.GroupLayout(jpSystemAlarm);
         jpSystemAlarm.setLayout(jpSystemAlarmLayout);
         jpSystemAlarmLayout.setHorizontalGroup(
@@ -501,14 +508,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
                                 .addComponent(btnStateSystemAlarm, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jpSystemAlarmLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jpADoor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jpSystemAlarmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jpSystemAlarmLayout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton1)))))
+                        .addComponent(jpADoor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpSystemAlarmLayout.setVerticalGroup(
@@ -524,15 +524,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
                     .addComponent(jpAWindow, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
                     .addComponent(jpAFire, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jpSystemAlarmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jpSystemAlarmLayout.createSequentialGroup()
-                        .addGap(105, 105, 105)
-                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17)
-                        .addGroup(jpSystemAlarmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1)))
-                    .addComponent(jpADoor, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jpADoor, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -563,16 +555,16 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     private void initValuesGeneral() {
         lblMaxBarTemperature.setText(String.valueOf(MAX_TEMPERATURE_VIEW));
         lblMinBarTemperature.setText(String.valueOf(MIN_TEMPERATURE_VIEW));
-        
+
+        jProgressBarTemperature.setMaximum(MAX_TEMPERATURE_VIEW);
+        jProgressBarTemperature.setMinimum(MIN_TEMPERATURE_VIEW);
+
         lblMaxBarHumidity.setText(String.valueOf(MAX_HUMIDITY_VIEW));
         lblMinBarHumidity.setText(String.valueOf(MIN_HUMIDITY_VIEW));
 
         jProgressBarHumidity.setMaximum(MAX_HUMIDITY);
         jProgressBarHumidity.setMinimum(MIN_HUMIDITY_VIEW);
-        
-        jProgressBarTemperature.setMaximum(MAX_TEMPERATURE_VIEW);
-        jProgressBarTemperature.setMinimum(MIN_TEMPERATURE_VIEW);
-        
+
     }
 
     private void sendMessage(String ID_CHANNEL_SEND, String message) throws IOException, TimeoutException {
@@ -623,33 +615,6 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         // TODO add your handling code here:
         jpADoorNow.setBackground(new java.awt.Color(0, 0, 255));
     }//GEN-LAST:event_btnADoorOffActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.out.println(jTextField1.getText());
-        jProgressBar1.setValue(WIDTH);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void receiveHumiditySensorMessage() throws IOException, TimeoutException {
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost(HOST);
-        Connection connection = factory.newConnection();
-        Channel channel = connection.createChannel();
-
-        channel.exchangeDeclare(ID_CHANNEL_HUMIDITY_SENSOR, "fanout");
-        String queueName = channel.queueDeclare().getQueue();
-        channel.queueBind(queueName, ID_CHANNEL_HUMIDITY_SENSOR, "");
-
-        Consumer consumer;
-        consumer = new DefaultConsumer(channel) {
-            @Override
-            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                logger.info("Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: " + new String(body, "UTF-8"));
-                txtHumidityNow.setText(new String(body, "UTF-8"));
-                //la barra de progreso no sirve
-            }
-        };
-        channel.basicConsume(queueName, true, consumer);
-    }
 
     private void receiveTemperatureControllerMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
@@ -723,7 +688,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         channel.basicConsume(queueName, true, consumer);
     }
 
-    private void receiveWindowMessage() throws IOException, TimeoutException {
+    private void receiveAlarmWindowMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
         Connection connection = factory.newConnection();
@@ -736,9 +701,37 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         Consumer consumer = new DefaultConsumer(channel) {
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                txtTestValueWindow.setText((new String(body, "UTF-8")));
-                logger.info("Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: " + new String(body, "UTF-8"));
+                String message = new String(body, "UTF-8");
+                txtTestValueWindow.setText(message);
+            }
+        };
+        channel.basicConsume(queueName, true, consumer);
+    }
 
+    private synchronized void receiveAlarmWindowStateMessage() throws IOException, TimeoutException {
+        ConnectionFactory factory = new ConnectionFactory();
+        factory.setHost(HOST);
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+
+        channel.exchangeDeclare(ID_CHANNEL_AWINDOW_CONTROLLER, "fanout");
+        String queueName = channel.queueDeclare().getQueue();
+        channel.queueBind(queueName, ID_CHANNEL_AWINDOW_CONTROLLER, "");
+
+        Consumer consumer = new DefaultConsumer(channel) {
+            @Override
+            public synchronized void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                String message = new String(body, "UTF-8");
+                txtTestValueWindow.setText(message);
+                logger.info("Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: " + new String(body, "UTF-8"));
+                if (message.equals("AW1")) {
+                    jpAWindowNow.setBackground(new java.awt.Color(255, 0, 0));
+                    logger.info("CAMBIO DE COLOR");
+                    alarmWindowController.waitThread();
+                } else {
+                    logger.info("CAMBIO DE COLOR");
+                    jpAWindowNow.setBackground(new java.awt.Color(0, 255, 0));
+                }
             }
         };
         channel.basicConsume(queueName, true, consumer);
@@ -774,16 +767,13 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnStateSystemAlarm;
     private javax.swing.JButton btnUpdateValuesHumidity;
     private javax.swing.JButton btnUpdateValuesTemperature;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanelHumiduty;
     private javax.swing.JPanel jPanelTemperature;
-    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JProgressBar jProgressBarHumidity;
     private javax.swing.JProgressBar jProgressBarTemperature;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel jpADoor;
     private javax.swing.JPanel jpADoorNow;
     private javax.swing.JPanel jpAFire;
@@ -839,6 +829,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     private javax.swing.JTextField txtTestValueFire;
     private javax.swing.JTextField txtTestValueWindow;
     // End of variables declaration//GEN-END:variables
+
     private void receiveTemperatureSensorMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
@@ -854,17 +845,34 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                 logger.info("Class MainMenuConsoleView --- RECEIVED from Temperature Sensor --- Value: " + new String(body, "UTF-8"));
-                updateTemperature(new String(body, "UTF-8"));
+                txtTemperatureNow.setText(new String(body, "UTF-8"));
+                jProgressBarTemperature.setValue(Math.round(Float.valueOf(new String(body, "UTF-8"))));
 
             }
         };
         channel.basicConsume(queueName, true, consumer);
     }
 
-    public void updateTemperature(String message) {
-        txtTemperatureNow.setText(message);
-        jProgressBarTemperature.setValue(Math.round(Float.valueOf(message)));
-        System.out.println(Math.round(Float.valueOf(message)));
+    private void receiveHumiditySensorMessage() throws IOException, TimeoutException {
+        ConnectionFactory factory = new ConnectionFactory();
+        factory.setHost(HOST);
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+
+        channel.exchangeDeclare(ID_CHANNEL_HUMIDITY_SENSOR, "fanout");
+        String queueName = channel.queueDeclare().getQueue();
+        channel.queueBind(queueName, ID_CHANNEL_HUMIDITY_SENSOR, "");
+
+        Consumer consumer;
+        consumer = new DefaultConsumer(channel) {
+            @Override
+            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                logger.info("Class MainMenuConsoleView --- RECEIVED from Humidity Sensor --- Value: " + new String(body, "UTF-8"));
+                txtHumidityNow.setText(new String(body, "UTF-8"));
+                jProgressBarHumidity.setValue(Math.round(Float.valueOf(new String(body, "UTF-8"))));
+            }
+        };
+        channel.basicConsume(queueName, true, consumer);
     }
 
 }

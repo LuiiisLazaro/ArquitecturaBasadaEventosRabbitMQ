@@ -44,7 +44,7 @@ public class AlarmWindowSensor extends Sensor {
                 break;
             default:
         }
-        logger.info("Class TemperatureSensor --- NewValues Window: " + windowState);
+        logger.info("Class Alarm WINDOW --- NewValues WINDOW: " + windowState);
     }
 
     /**
@@ -59,7 +59,7 @@ public class AlarmWindowSensor extends Sensor {
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
-        currentWindowState = 5;
+        currentWindowState = 6;
         while (!isDone) {
             if (coinToss()) {
                 currentWindowState += Math.round(getRandomNumber() * (float) -1.0);

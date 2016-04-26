@@ -9,6 +9,10 @@ package Release1.Controllers;
  *
  */
 import static Release1.Controllers.Controller.logger;
+import Release1.Sensors.HumiditySensor;
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.ConnectionFactory;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
@@ -84,6 +88,14 @@ public class HumidityController extends Controller implements Runnable {
         }
     }
 
+    @Override
+    public void checkValuesMaxMin() {
+        String[] values = getMessage().split(":");
+        setMaxHumidity(Integer.parseInt(values[0]));
+        setMinHumidity(Integer.parseInt(values[1]));
+        logger.info("Class HumidityController  UPDATE VALUES  MAX=" + getMaxHumidity() + " Min=" + getMinHumidity());
+    }
+
     /**
      *
      */
@@ -114,10 +126,16 @@ public class HumidityController extends Controller implements Runnable {
     public void run() {
         try {
             receiveMessage(ID_CHANNEL_HUMIDITY_SENSOR);
-            receiveMessage(ID_CHANNEL_CHANGE_HUMIDITY);
+            receiveChangeMaxMinMessage(ID_CHANNEL_CHANGE_HUMIDITY);
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
+
+        //para fines de debug dejar las siguientes lineas de codigo
+        HumiditySensor humiditySensor = HumiditySensor.getInstance();
+        logger.info("Class HumiditysSensor --- Start Sensor Temperature...");
+        humiditySensor.start();
+
     }
 
     /**

@@ -9,6 +9,13 @@ package Release1.Controllers;
  *
  */
 import Release1.Sensors.TemperatureSensor;
+import com.rabbitmq.client.AMQP;
+import com.rabbitmq.client.Channel;
+import com.rabbitmq.client.Connection;
+import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.Consumer;
+import com.rabbitmq.client.DefaultConsumer;
+import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
@@ -83,6 +90,14 @@ public class TemperatureController extends Controller {
         }
     }
 
+    @Override
+    public void checkValuesMaxMin() {
+        String[] values = getMessage().split(":");
+        setMaxTemperature(Integer.parseInt(values[0]));
+        setMinTemperature(Integer.parseInt(values[1]));
+        logger.info("Class TemperatureController --- UPDATE VALUES --- MAX=" + getMaxTemperature() + " Min=" + getMinTemperature());
+    }
+
     /**
      *
      */
@@ -115,8 +130,8 @@ public class TemperatureController extends Controller {
     @Override
     public void run() {
         try {
+            receiveChangeMaxMinMessage(ID_CHANNEL_CHANGE_TEMPERATURE);
             receiveMessage(ID_CHANNEL_TEMPERATURE_SENSOR);
-            receiveMessage(ID_CHANNEL_CHANGE_TEMPERATURE);
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
@@ -125,13 +140,12 @@ public class TemperatureController extends Controller {
         } catch (InterruptedException ex) {
             logger.error(ex);
         }
-        
-        
+
         //para fines de debug dejar las siguientes lineas de codigo
         TemperatureSensor temperatureSensor = TemperatureSensor.getInstance();
-        logger.info("Class TemperatureSensot --- Start Sensor Temperature...");
+        logger.info("Class TemperatureSensot Start Sensor Temperature...");
         temperatureSensor.start();
-        
+
     }
 
     /**
@@ -139,6 +153,8 @@ public class TemperatureController extends Controller {
      * @param args
      */
     public static void main(String args[]) {
-
+        TemperatureController temperatureController = TemperatureController.getInstance();
+        logger.info("Class TemperatureController --- Start Controller Temperature...");
+        temperatureController.start();
     }
 }

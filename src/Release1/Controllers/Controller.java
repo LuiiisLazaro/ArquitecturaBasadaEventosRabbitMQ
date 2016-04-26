@@ -90,5 +90,32 @@ public class Controller extends Thread {
     public void checkValues() {
 
     }
+    
+    
+    public void receiveChangeMaxMinMessage(String ID_CHANNEL_CHANGE_RECEIVED) throws IOException, TimeoutException {
+        ConnectionFactory factory = new ConnectionFactory();
+        factory.setHost(HOST);
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+
+        channel.exchangeDeclare(ID_CHANNEL_CHANGE_RECEIVED, "fanout");
+        String queueName = channel.queueDeclare().getQueue();
+        channel.queueBind(queueName, ID_CHANNEL_CHANGE_RECEIVED, "");
+
+        Consumer consumer = new DefaultConsumer(channel) {
+            @Override
+            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                setMessage(new String(body, "UTF-8"));
+                logger.info("Class TemperatureController --- RECEIVED from Sensor --- Value: " + new String(body, "UTF-8") + " --- CHANGE TEMPERATURE");
+                checkValuesMaxMin();
+            }
+        };
+        channel.basicConsume(queueName, true, consumer);
+    }
+    
+    public void checkValuesMaxMin(){
+        
+    }
+    
 
 }
