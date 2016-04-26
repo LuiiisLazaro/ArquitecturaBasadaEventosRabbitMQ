@@ -53,7 +53,7 @@ public class AlarmController extends Controller {
         super();
     }
 
-    private synchronized void receiveWindowMessage() throws IOException, TimeoutException {
+    private synchronized void receiveAlamrWindowSensorMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
         Connection connection = factory.newConnection();
@@ -73,13 +73,13 @@ public class AlarmController extends Controller {
                 if (Integer.parseInt(getMessage()) > 5) {
                     try {
                         sendMessage(ID_CHANNEL_AWINDOW_CONTROLLER, ID_AWINDOW_ON);
+                        logger.info("HILO EN ESPERA CONTROLLER");
                     } catch (TimeoutException ex) {
                         logger.error(ex);
                     }
                 } else {
                     try {
                         sendMessage(ID_CHANNEL_AWINDOW_CONTROLLER, ID_AWINDOW_OFF);
-                        notify();
                     } catch (TimeoutException ex) {
                         logger.error(ex);
                     }
@@ -87,14 +87,6 @@ public class AlarmController extends Controller {
             }
         };
         channel.basicConsume(queueName, true, consumer);
-    }
-    
-    public synchronized void waitThread(){
-        try {
-            wait();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(AlarmController.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     private void receiveDoorMessage() throws IOException, TimeoutException {
@@ -163,6 +155,7 @@ public class AlarmController extends Controller {
         } else { // (5 >= Math.round(Float.parseFloat(getMessage()))) {
             sendMessage(ID_CHANNEL_AMOVE_CONTROLLER, ID_AMOVE_ON);
         }
+        
     }
 
     /**
@@ -197,7 +190,7 @@ public class AlarmController extends Controller {
     @Override
     public void run() {
         try {
-            receiveWindowMessage();
+            receiveAlamrWindowSensorMessage();
             /**
             receiveDoorMessage();
             receiveMoveMessage();

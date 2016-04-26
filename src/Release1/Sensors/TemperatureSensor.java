@@ -23,16 +23,16 @@ public class TemperatureSensor extends Sensor {
 
     private static final String ID_CHANNEL_TEMPERATURE_SENSOR = "-5";       //channel ID to send messages
     private static final String ID_CHANNEL_TEMPERATURE_CONTROLLER = "5";    //channel ID to receive messages
-    
+
     /**
      *
      */
     private TemperatureSensor() {
         super();
     }
-    
+
     @Override
-    public void checkValues(){
+    public void checkValues() {
         switch (getMessage()) {
             case "H1":
                 heaterState = true;
@@ -74,6 +74,16 @@ public class TemperatureSensor extends Sensor {
             } catch (IOException | TimeoutException e1) {
                 logger.error(e1);
             }
+            if (heaterState) {
+                currentTemperature += getRandomNumber();
+            } // if heater is on
+            if (!heaterState && !chillerState) {
+                currentTemperature += driftValue;
+            } // if both the heater and chiller are off
+            if (chillerState) {
+                currentTemperature -= getRandomNumber();
+            }
+            
             try {
                 Thread.sleep(delay);
             } catch (Exception e) {

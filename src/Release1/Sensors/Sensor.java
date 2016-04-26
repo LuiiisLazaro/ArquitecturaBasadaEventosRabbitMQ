@@ -26,7 +26,7 @@ import org.apache.log4j.PropertyConfigurator;
  */
 public class Sensor extends Thread{
 
-    protected int delay = 1000;         //the time to update data and send to console
+    protected int delay = 5000;         //the time to update data and send to console
     protected boolean isDone = false;   //to control de life of thred
     protected float driftValue;				// The amount of temperature gained or lost
     private String message;           //message with value to send
@@ -104,7 +104,7 @@ public class Sensor extends Thread{
         connection.close();
     }
     
-    protected void receiveMessage(String ID_CHANNEL_TEMPERATURE_CONTROLLER) throws IOException, TimeoutException {
+    protected synchronized void receiveMessage(String ID_CHANNEL_TEMPERATURE_CONTROLLER) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
         Connection connection = factory.newConnection();
@@ -125,7 +125,7 @@ public class Sensor extends Thread{
         channel.basicConsume(queueName, true, consumer);
     }
     
-    public void checkValues(){
+    public synchronized void checkValues(){
         
     }
 }

@@ -691,11 +691,14 @@
             </Container>
             <Component class="javax.swing.JToggleButton" name="btnAWindowOff">
               <Properties>
-                <Property name="text" type="java.lang.String" value="OFF"/>
+                <Property name="text" type="java.lang.String" value="RESUME"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAWindowOffActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="30" y="130" width="60" height="-1"/>
+                  <AbsoluteConstraints x="30" y="130" width="90" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -712,7 +715,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="100" y="130" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="126" y="130" width="60" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -791,14 +794,14 @@
             </Container>
             <Component class="javax.swing.JToggleButton" name="btnADoorOff">
               <Properties>
-                <Property name="text" type="java.lang.String" value="OFF"/>
+                <Property name="text" type="java.lang.String" value="RESUME"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnADoorOffActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="30" y="130" width="60" height="-1"/>
+                  <AbsoluteConstraints x="30" y="130" width="90" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -815,7 +818,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="100" y="130" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="126" y="130" width="60" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -894,11 +897,11 @@
             </Container>
             <Component class="javax.swing.JToggleButton" name="btnAFireOff">
               <Properties>
-                <Property name="text" type="java.lang.String" value="OFF"/>
+                <Property name="text" type="java.lang.String" value="RESUME"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="30" y="130" width="60" height="-1"/>
+                  <AbsoluteConstraints x="30" y="130" width="90" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -915,7 +918,7 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="100" y="130" width="-1" height="-1"/>
+                  <AbsoluteConstraints x="126" y="130" width="60" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>

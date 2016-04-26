@@ -69,16 +69,17 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         PropertyConfigurator.configure("log4j.properties");
         try {
             initComponents();
-            initValuesGeneral();
+            //initValuesGeneral();
 
-            
-             receiveTemperatureControllerMessage();
-             receiveTemperatureSensorMessage();
+            /*
+            receiveTemperatureControllerMessage();
+            receiveTemperatureSensorMessage();
 
-             receiveHumidityControllerMessage();
-             receiveHumiditySensorMessage();
-             
-            receiveAlarmWindowMessage();
+            receiveHumidityControllerMessage();
+            receiveHumiditySensorMessage();
+
+            */
+            receiveAlarmWindowMessage();//prueba para recuperar el valor generado por el sensor
             receiveAlarmWindowStateMessage();
 
             runThreads();
@@ -89,15 +90,17 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     }
 
     public final void runThreads() {
-        
-         TemperatureController temperatureController = TemperatureController.getInstance();
-         logger.info("Class TemperatureController --- Start Controller Temperature...");
-         temperatureController.start();
 
-         HumidityController humidityController = HumidityController.getInstance();
-         logger.info("Class HumidityController --- Start Controller Humidity...");
-         humidityController.start();
-         
+        /*
+        TemperatureController temperatureController = TemperatureController.getInstance();
+        logger.info("Class TemperatureController --- Start Controller Temperature...");
+        temperatureController.start();
+
+        HumidityController humidityController = HumidityController.getInstance();
+        logger.info("Class HumidityController --- Start Controller Humidity...");
+        humidityController.start();
+        
+        */
 
         logger.info("Class TemperatureController --- Start Controller Temperature...");
         alarmWindowController.start();
@@ -405,12 +408,17 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
 
         jpAWindow.add(jpAWindowNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 140, 30));
 
-        btnAWindowOff.setText("OFF");
-        jpAWindow.add(btnAWindowOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 60, -1));
+        btnAWindowOff.setText("RESUME");
+        btnAWindowOff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAWindowOffActionPerformed(evt);
+            }
+        });
+        jpAWindow.add(btnAWindowOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 90, -1));
         jpAWindow.add(jsAWindow, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 181, 10));
 
         txtTestValueWindow.setText("jTextField1");
-        jpAWindow.add(txtTestValueWindow, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
+        jpAWindow.add(txtTestValueWindow, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 130, 60, -1));
 
         jpADoor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jpADoor.setPreferredSize(new java.awt.Dimension(200, 250));
@@ -440,17 +448,17 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
 
         jpADoor.add(jpADoorNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 140, 30));
 
-        btnADoorOff.setText("OFF");
+        btnADoorOff.setText("RESUME");
         btnADoorOff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnADoorOffActionPerformed(evt);
             }
         });
-        jpADoor.add(btnADoorOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 60, -1));
+        jpADoor.add(btnADoorOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 90, -1));
         jpADoor.add(jsADoor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 181, 10));
 
         txtTestValueDoor.setText("jTextField2");
-        jpADoor.add(txtTestValueDoor, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
+        jpADoor.add(txtTestValueDoor, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 130, 60, -1));
 
         jpAFire.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jpAFire.setPreferredSize(new java.awt.Dimension(200, 250));
@@ -480,12 +488,12 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
 
         jpAFire.add(jpAFireNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 140, 30));
 
-        btnAFireOff.setText("OFF");
-        jpAFire.add(btnAFireOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 60, -1));
+        btnAFireOff.setText("RESUME");
+        jpAFire.add(btnAFireOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 90, -1));
         jpAFire.add(jsAFire, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 181, 10));
 
         txtTestValueFire.setText("jTextField1");
-        jpAFire.add(txtTestValueFire, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
+        jpAFire.add(txtTestValueFire, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 130, 60, -1));
 
         javax.swing.GroupLayout jpSystemAlarmLayout = new javax.swing.GroupLayout(jpSystemAlarm);
         jpSystemAlarm.setLayout(jpSystemAlarmLayout);
@@ -616,6 +624,16 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         jpADoorNow.setBackground(new java.awt.Color(0, 0, 255));
     }//GEN-LAST:event_btnADoorOffActionPerformed
 
+    private void btnAWindowOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAWindowOffActionPerformed
+        try {
+            // TODO add your handling code here:
+            logger.info("Enviado resumen al HILO CONTROLLER");
+            sendMessage(ID_CHANNEL_AWINDOW_SENSOR, "1");
+        } catch (IOException | TimeoutException ex) {
+            logger.error(ex);
+        }
+    }//GEN-LAST:event_btnAWindowOffActionPerformed
+
     private void receiveTemperatureControllerMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
@@ -727,7 +745,6 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
                 if (message.equals("AW1")) {
                     jpAWindowNow.setBackground(new java.awt.Color(255, 0, 0));
                     logger.info("CAMBIO DE COLOR");
-                    alarmWindowController.waitThread();
                 } else {
                     logger.info("CAMBIO DE COLOR");
                     jpAWindowNow.setBackground(new java.awt.Color(0, 255, 0));

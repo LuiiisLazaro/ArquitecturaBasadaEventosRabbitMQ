@@ -7,6 +7,8 @@ package Release1.Sensors;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -14,7 +16,23 @@ import java.util.concurrent.TimeoutException;
  */
 public class AlarmWindowSensor extends Sensor {
 
-    private boolean windowState = false;
+    private boolean windowState = true;
+
+    public boolean isWindowState() {
+        return windowState;
+    }
+
+    public void setWindowState(boolean windowState) {
+        this.windowState = windowState;
+    }
+
+    public int getCurrentWindowState() {
+        return currentWindowState;
+    }
+
+    public void setCurrentWindowState(int currentWindowState) {
+        this.currentWindowState = currentWindowState;
+    }
 
     private int currentWindowState;
 
@@ -29,18 +47,19 @@ public class AlarmWindowSensor extends Sensor {
     private AlarmWindowSensor() {
         super();
     }
-    
+
     /**
      *
      */
     @Override
-    public void checkValues() {
+    public synchronized void checkValues() {
         switch (getMessage()) {
             case "AW1":
-                windowState = true;
+                setWindowState(false);
                 break;
             case "AW0":
-                windowState = false;
+                logger.info("HILO TRABAJANDO DE VUELTA");
+                setWindowState(true);
                 break;
             default:
         }
@@ -54,27 +73,39 @@ public class AlarmWindowSensor extends Sensor {
      * sistema actual normal...
      */
     public void run() {
+        currentWindowState = 6;
         try {
             receiveMessage(ID_CHANNEL_AWINDOW_CONTROLLER);
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
-        currentWindowState = 6;
         while (!isDone) {
-            if (coinToss()) {
-                currentWindowState += Math.round(getRandomNumber() * (float) -1.0);
-            } else {
-                currentWindowState += Math.round(getRandomNumber());
-            }
-            try {
-                sendMessage(ID_CHANNEL_AWINDOW_SENSOR, String.valueOf(currentWindowState));
-            } catch (IOException | TimeoutException e1) {
-                logger.error(e1);
-            }
-            try {
-                Thread.sleep(delay);
-            } catch (Exception e) {
-                logger.error(e);
+            if (windowState) {
+                logger.info("HILO SENSOR ALARMA WINDOW ACCTIVADO");
+                if (coinToss()) {
+                    currentWindowState += Math.round(getRandomNumber() * (float) -1.0);
+                } else {
+                    currentWindowState += Math.round(getRandomNumber());
+                }
+                try {
+                    logger.info("Send current window state:" + currentWindowState);
+                    sendMessage(ID_CHANNEL_AWINDOW_SENSOR, String.valueOf(currentWindowState));
+                } catch (IOException | TimeoutException e1) {
+                    logger.error(e1);
+                }
+                try {
+                    Thread.sleep(delay);
+                } catch (Exception e) {
+                    logger.error(e);
+                }
+            }else{
+                try {
+                    Thread.sleep(9000);
+                    logger.info("SENSOR: "+ windowState+"\n WAIT HILO");
+                } catch (InterruptedException ex) {
+                    logger.error(ex);
+                }
+                
             }
         }
     }

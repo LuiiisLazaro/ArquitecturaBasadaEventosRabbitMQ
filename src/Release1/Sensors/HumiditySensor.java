@@ -68,6 +68,17 @@ public class HumiditySensor extends Sensor {
             } catch (IOException | TimeoutException e1) {
                 logger.error(e1);
             }
+            if (humidityState) {
+                    currentHumidity += getRandomNumber();
+                } // if humidifier is on
+
+                if (!humidityState && !deshumidityState) {
+                    currentHumidity += driftValue;
+                } // if both the humidifier and dehumidifier are off
+
+                if (deshumidityState) {
+                    currentHumidity -= getRandomNumber();
+                }
             try {
                 Thread.sleep(delay);
             } catch (Exception e) {
