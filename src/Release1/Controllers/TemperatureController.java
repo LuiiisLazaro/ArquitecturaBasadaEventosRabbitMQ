@@ -11,8 +11,6 @@ package Release1.Controllers;
 import Release1.Sensors.TemperatureSensor;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -127,9 +125,13 @@ public class TemperatureController extends Controller {
         } catch (InterruptedException ex) {
             logger.error(ex);
         }
+        
+        
+        //para fines de debug dejar las siguientes lineas de codigo
         TemperatureSensor temperatureSensor = TemperatureSensor.getInstance();
         logger.info("Class TemperatureSensot --- Start Sensor Temperature...");
         temperatureSensor.start();
+        
     }
 
     /**
