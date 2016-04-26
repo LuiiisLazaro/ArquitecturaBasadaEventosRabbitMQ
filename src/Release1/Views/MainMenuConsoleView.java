@@ -17,7 +17,6 @@ import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
-import java.util.logging.Level;
 import javax.swing.JOptionPane;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -70,15 +69,14 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         try {
             initComponents();
             //initValuesGeneral();
-
             /*
-            receiveTemperatureControllerMessage();
-            receiveTemperatureSensorMessage();
-
-            receiveHumidityControllerMessage();
-            receiveHumiditySensorMessage();
-
-            */
+             receiveTemperatureControllerMessage();
+             receiveTemperatureSensorMessage();
+            
+             receiveHumidityControllerMessage();
+             receiveHumiditySensorMessage();
+             
+             */
             receiveAlarmWindowMessage();//prueba para recuperar el valor generado por el sensor
             receiveAlarmWindowStateMessage();
 
@@ -95,13 +93,11 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         TemperatureController temperatureController = TemperatureController.getInstance();
         logger.info("Class TemperatureController --- Start Controller Temperature...");
         temperatureController.start();
-
-        HumidityController humidityController = HumidityController.getInstance();
-        logger.info("Class HumidityController --- Start Controller Humidity...");
-        humidityController.start();
         
-        */
-
+         HumidityController humidityController = HumidityController.getInstance();
+         logger.info("Class HumidityController --- Start Controller Humidity...");
+         humidityController.start();
+         */
         logger.info("Class TemperatureController --- Start Controller Temperature...");
         alarmWindowController.start();
     }
@@ -181,7 +177,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         jpAFireNow = new javax.swing.JPanel();
         btnAFireOff = new javax.swing.JToggleButton();
         jsAFire = new javax.swing.JSeparator();
-        txtTestValueFire = new javax.swing.JTextField();
+        txtTestValueMove = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -464,8 +460,8 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         jpAFire.setPreferredSize(new java.awt.Dimension(200, 250));
         jpAFire.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblAFireTitle.setText("ALARM FIRE");
-        jpAFire.add(lblAFireTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 90, -1));
+        lblAFireTitle.setText("ALARM MOVE");
+        jpAFire.add(lblAFireTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 100, -1));
 
         lblAFireOff.setText("Turn Off Alarm");
         jpAFire.add(lblAFireOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
@@ -492,8 +488,8 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         jpAFire.add(btnAFireOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 90, -1));
         jpAFire.add(jsAFire, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 181, 10));
 
-        txtTestValueFire.setText("jTextField1");
-        jpAFire.add(txtTestValueFire, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 130, 60, -1));
+        txtTestValueMove.setText("jTextField1");
+        jpAFire.add(txtTestValueMove, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 130, 60, -1));
 
         javax.swing.GroupLayout jpSystemAlarmLayout = new javax.swing.GroupLayout(jpSystemAlarm);
         jpSystemAlarm.setLayout(jpSystemAlarmLayout);
@@ -753,6 +749,64 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         };
         channel.basicConsume(queueName, true, consumer);
     }
+    
+    private synchronized void receiveAlarmDoorStateMessage() throws IOException, TimeoutException {
+        ConnectionFactory factory = new ConnectionFactory();
+        factory.setHost(HOST);
+        
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+
+        channel.exchangeDeclare(ID_CHANNEL_ADOOR_CONTROLLER, "fanout");
+        String queueName = channel.queueDeclare().getQueue();
+        channel.queueBind(queueName, ID_CHANNEL_ADOOR_CONTROLLER, "");
+
+        Consumer consumer = new DefaultConsumer(channel) {
+            @Override
+            public synchronized void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                String message = new String(body, "UTF-8");
+                txtTestValueDoor.setText(message);
+                logger.info("Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: " + new String(body, "UTF-8"));
+                if (message.equals("AD1")) {
+                    jpADoorNow.setBackground(new java.awt.Color(255, 0, 0));
+                    logger.info("CAMBIO DE COLOR");
+                } else {
+                    logger.info("CAMBIO DE COLOR");
+                    jpADoorNow.setBackground(new java.awt.Color(0, 255, 0));
+                }
+            }
+        };
+        channel.basicConsume(queueName, true, consumer);
+    }
+    
+    private synchronized void receiveAlarmMoveStateMessage() throws IOException, TimeoutException {
+        ConnectionFactory factory = new ConnectionFactory();
+        factory.setHost(HOST);
+        
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+
+        channel.exchangeDeclare(ID_CHANNEL_AMOVE_CONTROLLER, "fanout");
+        String queueName = channel.queueDeclare().getQueue();
+        channel.queueBind(queueName, ID_CHANNEL_AMOVE_CONTROLLER, "");
+
+        Consumer consumer = new DefaultConsumer(channel) {
+            @Override
+            public synchronized void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                String message = new String(body, "UTF-8");
+                txtTestValueMove.setText(message);
+                logger.info("Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: " + new String(body, "UTF-8"));
+                if (message.equals("AM1")) {
+                    jpAFireNow.setBackground(new java.awt.Color(255, 0, 0));
+                    logger.info("CAMBIO DE COLOR");
+                } else {
+                    logger.info("CAMBIO DE COLOR");
+                    jpAFireNow.setBackground(new java.awt.Color(0, 255, 0));
+                }
+            }
+        };
+        channel.basicConsume(queueName, true, consumer);
+    }
 
     /**
      * @param args the command line arguments
@@ -843,7 +897,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     private javax.swing.JTextField txtMinimunTemperature;
     private javax.swing.JTextField txtTemperatureNow;
     private javax.swing.JTextField txtTestValueDoor;
-    private javax.swing.JTextField txtTestValueFire;
+    private javax.swing.JTextField txtTestValueMove;
     private javax.swing.JTextField txtTestValueWindow;
     // End of variables declaration//GEN-END:variables
 

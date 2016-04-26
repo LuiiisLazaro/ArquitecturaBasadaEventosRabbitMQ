@@ -5,8 +5,11 @@
  */
 package Release1.Sensors;
 
+import java.awt.AWTEvent;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -14,7 +17,23 @@ import java.util.concurrent.TimeoutException;
  */
 public class AlarmMoveSensor extends Sensor{
 
-    private boolean moveState = false;
+    private boolean moveState = true;
+
+    public boolean isMoveState() {
+        return moveState;
+    }
+
+    public void setMoveState(boolean moveState) {
+        this.moveState = moveState;
+    }
+
+    public int getCurrentMoveState() {
+        return currentMoveState;
+    }
+
+    public void setCurrentMoveState(int currentMoveState) {
+        this.currentMoveState = currentMoveState;
+    }
 
     private int currentMoveState;
 
@@ -33,11 +52,12 @@ public class AlarmMoveSensor extends Sensor{
     @Override
     public void checkValues() {
         switch (getMessage()) {
-            case "AW1":
-                moveState = true;
+            case "AM1":
+                setMoveState(true);
                 break;
-            case "AW0":
-                moveState = false;
+            case "AM0":
+                setMoveState(false);
+                setCurrentMoveState(3);
                 break;
             default:
         }
@@ -54,23 +74,27 @@ public class AlarmMoveSensor extends Sensor{
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
-        currentMoveState = 5;
         while (!isDone) {
-            if (coinToss()) {
-                driftValue = getRandomNumber() * (float) -1.0;
-            } else {
-                driftValue = getRandomNumber();
-            }
-            currentMoveState += Math.round(driftValue);
-            try {
-                sendMessage(ID_CHANNEL_AMOVE_SENSOR, String.valueOf(currentMoveState));
-            } catch (IOException | TimeoutException e1) {
-                logger.error(e1);
-            }
-            try {
-                Thread.sleep(delay);
-            } catch (Exception e) {
-                logger.error(e);
+            if (moveState){
+                currentMoveState= getRandomNumberInt();
+                try{
+                    logger.info("Send current window state:" + currentMoveState);
+                    sendMessage(ID_CHANNEL_AMOVE_SENSOR, String.valueOf(currentMoveState));
+                } catch (IOException | TimeoutException ex) {
+                    logger.error(ex);
+                }
+                try {
+                    Thread.sleep(delay);
+                } catch (Exception e) {
+                    logger.error(e);
+                }
+            }else {
+                logger.info("ESPERANDO CLIC MOVE");
+                try {
+                    Thread.sleep(delay);
+                } catch (InterruptedException ex) {
+                    logger.error(ex);
+                }
             }
         }
     }

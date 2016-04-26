@@ -7,6 +7,8 @@ package Release1.Controllers;
 
 import static Release1.Controllers.Controller.HOST;
 import static Release1.Controllers.Controller.logger;
+import Release1.Sensors.AlarmDoorSensor;
+import Release1.Sensors.AlarmMoveSensor;
 import Release1.Sensors.AlarmWindowSensor;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
@@ -17,8 +19,6 @@ import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -56,6 +56,7 @@ public class AlarmController extends Controller {
     private synchronized void receiveAlamrWindowSensorMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
+        
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
@@ -69,11 +70,10 @@ public class AlarmController extends Controller {
             public synchronized void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                 setMessage(new String(body, "UTF-8"));
                 logger.info("Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: " + new String(body, "UTF-8"));
-
                 if (Integer.parseInt(getMessage()) > 5) {
                     try {
                         sendMessage(ID_CHANNEL_AWINDOW_CONTROLLER, ID_AWINDOW_ON);
-                        logger.info("HILO EN ESPERA CONTROLLER");
+                        logger.info("Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW");
                     } catch (TimeoutException ex) {
                         logger.error(ex);
                     }
@@ -89,7 +89,7 @@ public class AlarmController extends Controller {
         channel.basicConsume(queueName, true, consumer);
     }
 
-    private void receiveDoorMessage() throws IOException, TimeoutException {
+    private void receiveAlarmDoorMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
         Connection connection = factory.newConnection();
@@ -103,11 +103,19 @@ public class AlarmController extends Controller {
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                 setMessage(new String(body, "UTF-8"));
-                logger.info("Class ALARM DOOR Controller --- RECEIVED from Sensor --- Value: " + new String(body, "UTF-8"));
-                try {
-                    checkValuesDoor();
-                } catch (TimeoutException ex) {
-                    logger.error(ex);
+                logger.info("Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: "+ new String(body, "UTF-8"));
+                if (Integer.parseInt(getMessage())>5){
+                    try{
+                        sendMessage(ID_CHANNEL_ADOOR_CONTROLLER, ID_ADOOR_ON);
+                    } catch (TimeoutException ex) {
+                        logger.error(ex);
+                    }
+                }else{
+                    try {
+                        sendMessage(ID_CHANNEL_ADOOR_CONTROLLER, ID_ADOOR_OFF);
+                    } catch (TimeoutException ex) {
+                        logger.error(ex);
+                    }
                 }
             }
         };
@@ -117,6 +125,7 @@ public class AlarmController extends Controller {
     private void receiveMoveMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
+        
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
@@ -124,38 +133,29 @@ public class AlarmController extends Controller {
         String queueName = channel.queueDeclare().getQueue();
         channel.queueBind(queueName, ID_CHANNEL_AMOVE_SENSOR, "");
 
-        Consumer consumer = new DefaultConsumer(channel) {
+        Consumer consumer;
+        consumer = new DefaultConsumer(channel) {
             @Override
-            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+            public synchronized void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                 setMessage(new String(body, "UTF-8"));
                 logger.info("Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: " + new String(body, "UTF-8"));
-                try {
-                    checkValuesMove();
-                } catch (TimeoutException ex) {
-                    logger.error(ex);
+                if (Integer.parseInt(getMessage()) > 5) {
+                    try {
+                        sendMessage(ID_CHANNEL_AMOVE_CONTROLLER, ID_AMOVE_ON);
+                        logger.info("Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW");
+                    } catch (TimeoutException ex) {
+                        logger.error(ex);
+                    }
+                } else {
+                    try {
+                        sendMessage(ID_CHANNEL_AMOVE_CONTROLLER, ID_AMOVE_OFF);
+                    } catch (TimeoutException ex) {
+                        logger.error(ex);
+                    }
                 }
             }
         };
         channel.basicConsume(queueName, true, consumer);
-    }
-
-    private void checkValuesDoor() throws IOException, TimeoutException {
-        logger.info("Class ALARM CONTROLLER --- SEND to Controller ...");
-        if (5 < Math.round(Float.parseFloat(getMessage()))) {
-            sendMessage(ID_CHANNEL_ADOOR_CONTROLLER, ID_ADOOR_OFF);
-        } else { // (5 >= Math.round(Float.parseFloat(getMessage()))) {
-            sendMessage(ID_CHANNEL_ADOOR_CONTROLLER, ID_ADOOR_ON);
-        }
-    }
-
-    private void checkValuesMove() throws IOException, TimeoutException {
-        logger.info("Class ALARM CONTROLLER --- SEND to Controller ...");
-        if (5 < Math.round(Float.parseFloat(getMessage()))) {
-            sendMessage(ID_CHANNEL_AMOVE_CONTROLLER, ID_AMOVE_OFF);
-        } else { // (5 >= Math.round(Float.parseFloat(getMessage()))) {
-            sendMessage(ID_CHANNEL_AMOVE_CONTROLLER, ID_AMOVE_ON);
-        }
-        
     }
 
     /**
@@ -191,18 +191,24 @@ public class AlarmController extends Controller {
     public void run() {
         try {
             receiveAlamrWindowSensorMessage();
-            /**
-            receiveDoorMessage();
+            receiveAlarmDoorMessage();
             receiveMoveMessage();
-            */
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
         
-        
         AlarmWindowSensor alarmWindowSensor = AlarmWindowSensor.getInstance();
         logger.info("Class AlarmWindowSensor --- Start ALARM WINDOW ...");
         alarmWindowSensor.start();
+        
+        AlarmDoorSensor alarmDoorSensor = AlarmDoorSensor.getInstance();
+        logger.info("Class AlarmDoorSensor --- Start ALARM WINDOW ...");
+        alarmDoorSensor.start();
+        
+        AlarmMoveSensor alarmMoveSensor = AlarmMoveSensor.getInstance();
+        logger.info("Class AlarmMoveSensor --- Start ALARM WINDOW ...");
+        alarmMoveSensor.start();
+        
     }
 
     /**

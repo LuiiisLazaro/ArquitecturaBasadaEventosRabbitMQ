@@ -7,8 +7,6 @@ package Release1.Sensors;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -58,12 +56,13 @@ public class AlarmWindowSensor extends Sensor {
                 setWindowState(false);
                 break;
             case "AW0":
-                logger.info("HILO TRABAJANDO DE VUELTA");
                 setWindowState(true);
+                setCurrentWindowState(3);
                 break;
             default:
         }
-        logger.info("Class Alarm WINDOW --- NewValues WINDOW: " + windowState);
+        logger.info("Class: ALARM WINDOWS --- SET VALUES --- windowstate: " + windowState);
+
     }
 
     /**
@@ -73,7 +72,6 @@ public class AlarmWindowSensor extends Sensor {
      * sistema actual normal...
      */
     public void run() {
-        currentWindowState = 6;
         try {
             receiveMessage(ID_CHANNEL_AWINDOW_CONTROLLER);
         } catch (IOException | TimeoutException ex) {
@@ -81,12 +79,7 @@ public class AlarmWindowSensor extends Sensor {
         }
         while (!isDone) {
             if (windowState) {
-                logger.info("HILO SENSOR ALARMA WINDOW ACCTIVADO");
-                if (coinToss()) {
-                    currentWindowState += Math.round(getRandomNumber() * (float) -1.0);
-                } else {
-                    currentWindowState += Math.round(getRandomNumber());
-                }
+                currentWindowState = getRandomNumberInt();
                 try {
                     logger.info("Send current window state:" + currentWindowState);
                     sendMessage(ID_CHANNEL_AWINDOW_SENSOR, String.valueOf(currentWindowState));
@@ -98,14 +91,13 @@ public class AlarmWindowSensor extends Sensor {
                 } catch (Exception e) {
                     logger.error(e);
                 }
-            }else{
+            } else {
+                logger.info("ESPERANDO CLIC WINDOWS");
                 try {
-                    Thread.sleep(9000);
-                    logger.info("SENSOR: "+ windowState+"\n WAIT HILO");
+                    Thread.sleep(delay);
                 } catch (InterruptedException ex) {
                     logger.error(ex);
                 }
-                
             }
         }
     }

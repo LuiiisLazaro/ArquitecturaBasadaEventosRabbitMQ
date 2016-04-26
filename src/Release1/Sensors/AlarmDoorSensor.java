@@ -5,14 +5,6 @@
  */
 package Release1.Sensors;
 
-import static Release1.Sensors.Sensor.HOST;
-import com.rabbitmq.client.AMQP;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.Consumer;
-import com.rabbitmq.client.DefaultConsumer;
-import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
@@ -22,9 +14,25 @@ import java.util.concurrent.TimeoutException;
  */
 public class AlarmDoorSensor extends Sensor {
 
-    private boolean doorState = false;
+    private boolean doorState = true;
 
     private int currentDoorState;
+
+    public boolean isDoorState() {
+        return doorState;
+    }
+
+    public void setDoorState(boolean doorState) {
+        this.doorState = doorState;
+    }
+
+    public int getCurrentDoorState() {
+        return currentDoorState;
+    }
+
+    public void setCurrentDoorState(int currentDoorState) {
+        this.currentDoorState = currentDoorState;
+    }
 
     private static AlarmDoorSensor INSTANCE = new AlarmDoorSensor();
 
@@ -41,15 +49,16 @@ public class AlarmDoorSensor extends Sensor {
     @Override
     public void checkValues() {
         switch (getMessage()) {
-            case "AW1":
-                doorState = true;
+            case "AD1":
+                setDoorState(false);
                 break;
-            case "AW0":
-                doorState = false;
+            case "AD0":
+                setDoorState(true);
+                setCurrentDoorState(3);
                 break;
             default:
         }
-        logger.info("Class alarm DOOR sensor --- NewValues Door: " + doorState);
+        logger.info("Class: ALARM WINDOWS --- SET VALUES --- windowstate: " + doorState);
     }
 
     /**
@@ -62,23 +71,27 @@ public class AlarmDoorSensor extends Sensor {
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
-        currentDoorState = 5;
         while (!isDone) {
-            if (coinToss()) {
-                driftValue = getRandomNumber() * (float) -1.0;
+            if (doorState) {
+                currentDoorState = getRandomNumberInt();
+                 try {
+                    logger.info("Send current window state:" + currentDoorState);
+                    sendMessage(ID_CHANNEL_ADOOR_SENSOR, String.valueOf(currentDoorState));
+                } catch (IOException | TimeoutException e1) {
+                    logger.error(e1);
+                }
+                try {
+                    Thread.sleep(delay);
+                } catch (Exception e) {
+                    logger.error(e);
+                }
             } else {
-                driftValue = getRandomNumber();
-            }
-            currentDoorState += Math.round(driftValue);
-            try {
-                sendMessage(ID_CHANNEL_ADOOR_SENSOR, String.valueOf(currentDoorState));
-            } catch (IOException | TimeoutException e1) {
-                logger.error(e1);
-            }
-            try {
-                Thread.sleep(delay);
-            } catch (Exception e) {
-                logger.error(e);
+                logger.info("ESPERANDO CLIC DESDE VENTANA DOOR");
+                try {
+                    Thread.sleep(delay);
+                } catch (InterruptedException ex) {
+                    logger.error(ex);
+                }
             }
         }
     }

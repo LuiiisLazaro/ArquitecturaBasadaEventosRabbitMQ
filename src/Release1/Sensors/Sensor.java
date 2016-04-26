@@ -79,6 +79,11 @@ public class Sensor extends Thread{
         }
         return (val);
     }
+    
+    protected int getRandomNumberInt(){
+        Random r = new Random();
+        return r.nextInt(9 - 0 + 1) + 0;
+    }
 
     /**
      * to send the message to the console with rabbitMQ
