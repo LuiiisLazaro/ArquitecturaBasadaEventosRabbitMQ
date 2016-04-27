@@ -15,6 +15,7 @@ import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Consumer;
 import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
+import java.awt.Color;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 import javax.swing.JOptionPane;
@@ -77,8 +78,9 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
              receiveHumiditySensorMessage();
              
              */
-            receiveAlarmWindowMessage();//prueba para recuperar el valor generado por el sensor
             receiveAlarmWindowStateMessage();
+            receiveAlarmDoorStateMessage();
+            receiveAlarmMoveStateMessage();
 
             runThreads();
 
@@ -90,9 +92,9 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     public final void runThreads() {
 
         /*
-        TemperatureController temperatureController = TemperatureController.getInstance();
-        logger.info("Class TemperatureController --- Start Controller Temperature...");
-        temperatureController.start();
+         TemperatureController temperatureController = TemperatureController.getInstance();
+         logger.info("Class TemperatureController --- Start Controller Temperature...");
+         temperatureController.start();
         
          HumidityController humidityController = HumidityController.getInstance();
          logger.info("Class HumidityController --- Start Controller Humidity...");
@@ -485,6 +487,11 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         jpAFire.add(jpAFireNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 140, 30));
 
         btnAFireOff.setText("RESUME");
+        btnAFireOff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAFireOffActionPerformed(evt);
+            }
+        });
         jpAFire.add(btnAFireOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 90, -1));
         jpAFire.add(jsAFire, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 181, 10));
 
@@ -616,19 +623,35 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdateValuesHumidityActionPerformed
 
     private void btnADoorOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnADoorOffActionPerformed
-        // TODO add your handling code here:
-        jpADoorNow.setBackground(new java.awt.Color(0, 0, 255));
+        try {
+            // TODO add your handling code here:
+            logger.info("Enviado resumen al HILO AL CONTROLLER DOOR");
+            sendMessage(ID_CHANNEL_ADOOR_SENSOR, "1");
+        } catch (IOException | TimeoutException ex) {
+            logger.error(ex);
+        }
     }//GEN-LAST:event_btnADoorOffActionPerformed
 
     private void btnAWindowOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAWindowOffActionPerformed
         try {
             // TODO add your handling code here:
-            logger.info("Enviado resumen al HILO CONTROLLER");
+            logger.info("Enviado resumen al HILO CONTROLLER WINDOW");
             sendMessage(ID_CHANNEL_AWINDOW_SENSOR, "1");
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
     }//GEN-LAST:event_btnAWindowOffActionPerformed
+
+    private void btnAFireOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAFireOffActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            logger.info("Enviado resumen al HILO CONTROLLER WINDOW");
+            sendMessage(ID_CHANNEL_AMOVE_SENSOR, "1");
+        } catch (IOException | TimeoutException ex) {
+            logger.error(ex);
+        }
+    }//GEN-LAST:event_btnAFireOffActionPerformed
 
     private void receiveTemperatureControllerMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
@@ -702,26 +725,6 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         channel.basicConsume(queueName, true, consumer);
     }
 
-    private void receiveAlarmWindowMessage() throws IOException, TimeoutException {
-        ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost(HOST);
-        Connection connection = factory.newConnection();
-        Channel channel = connection.createChannel();
-
-        channel.exchangeDeclare(ID_CHANNEL_AWINDOW_SENSOR, "fanout");
-        String queueName = channel.queueDeclare().getQueue();
-        channel.queueBind(queueName, ID_CHANNEL_AWINDOW_SENSOR, "");
-
-        Consumer consumer = new DefaultConsumer(channel) {
-            @Override
-            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                String message = new String(body, "UTF-8");
-                txtTestValueWindow.setText(message);
-            }
-        };
-        channel.basicConsume(queueName, true, consumer);
-    }
-
     private synchronized void receiveAlarmWindowStateMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
@@ -742,18 +745,17 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
                     jpAWindowNow.setBackground(new java.awt.Color(255, 0, 0));
                     logger.info("CAMBIO DE COLOR");
                 } else {
-                    logger.info("CAMBIO DE COLOR");
                     jpAWindowNow.setBackground(new java.awt.Color(0, 255, 0));
                 }
             }
         };
         channel.basicConsume(queueName, true, consumer);
     }
-    
+
     private synchronized void receiveAlarmDoorStateMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
-        
+
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
@@ -771,7 +773,6 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
                     jpADoorNow.setBackground(new java.awt.Color(255, 0, 0));
                     logger.info("CAMBIO DE COLOR");
                 } else {
-                    logger.info("CAMBIO DE COLOR");
                     jpADoorNow.setBackground(new java.awt.Color(0, 255, 0));
                 }
             }
@@ -782,7 +783,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     private synchronized void receiveAlarmMoveStateMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
-        
+
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
@@ -794,13 +795,12 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
             @Override
             public synchronized void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                 String message = new String(body, "UTF-8");
-                txtTestValueMove.setText(message);
+                txtTestValueDoor.setText(message);
                 logger.info("Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: " + new String(body, "UTF-8"));
                 if (message.equals("AM1")) {
                     jpAFireNow.setBackground(new java.awt.Color(255, 0, 0));
                     logger.info("CAMBIO DE COLOR");
                 } else {
-                    logger.info("CAMBIO DE COLOR");
                     jpAFireNow.setBackground(new java.awt.Color(0, 255, 0));
                 }
             }

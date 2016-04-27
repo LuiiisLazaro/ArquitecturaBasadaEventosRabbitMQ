@@ -262,3 +262,1322 @@
 26 Apr 2016 18:41:33,274  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
 26 Apr 2016 18:41:33,398  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
 26 Apr 2016 18:41:33,404  INFO Sensor:92 - ESPERANDO CLIC MOVE
+27 Apr 2016 11:23:03,325  INFO Sensor:137 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:23:03,805  INFO Sensor:84 - Send current window state:5
+27 Apr 2016 11:23:03,848  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:5
+27 Apr 2016 11:23:08,870  INFO Sensor:84 - Send current window state:0
+27 Apr 2016 11:23:08,879  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:0
+27 Apr 2016 11:25:35,976  INFO MainMenuConsoleView:101 - Class TemperatureController --- Start Controller Temperature...
+27 Apr 2016 11:25:36,050  INFO Controller:202 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:25:36,062  INFO Controller:206 - Class AlarmDoorSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:25:36,076  INFO Controller:210 - Class AlarmMoveSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:25:36,126  INFO Sensor:84 - Send current window state:38
+27 Apr 2016 11:25:36,132  INFO Sensor:78 - Send current window state:57
+27 Apr 2016 11:25:36,146  INFO Sensor:78 - Send current window state:21
+27 Apr 2016 11:25:36,152  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:38
+27 Apr 2016 11:25:36,169  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 38
+27 Apr 2016 11:25:36,190  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:21
+27 Apr 2016 11:25:36,243  INFO Controller:142 - Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: 21
+27 Apr 2016 11:25:36,252  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 11:25:36,273  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:57
+27 Apr 2016 11:25:36,276  INFO Controller:107 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 57
+27 Apr 2016 11:25:36,279  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 11:25:36,281  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:25:36,282  INFO MainMenuConsoleView:740 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 11:25:36,286  INFO MainMenuConsoleView:745 - CAMBIO DE COLOR
+27 Apr 2016 11:25:36,302  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AM0
+27 Apr 2016 11:25:36,303  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD0
+27 Apr 2016 11:25:36,325  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD0
+27 Apr 2016 11:25:36,327  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:25:36,334  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AM0
+27 Apr 2016 11:25:36,336  INFO Sensor:61 - Class alarm MOVE sensor --- NewValues Move: false
+27 Apr 2016 11:25:41,284  INFO Sensor:84 - Send current window state:42
+27 Apr 2016 11:25:41,294  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 11:25:41,300  INFO Sensor:78 - Send current window state:64
+27 Apr 2016 11:25:41,307  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:42
+27 Apr 2016 11:25:41,324  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:64
+27 Apr 2016 11:25:41,329  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 42
+27 Apr 2016 11:25:41,332  INFO Controller:107 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 64
+27 Apr 2016 11:25:41,349  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 11:25:41,357  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD0
+27 Apr 2016 11:25:41,359  INFO MainMenuConsoleView:740 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 11:25:41,361  INFO MainMenuConsoleView:745 - CAMBIO DE COLOR
+27 Apr 2016 11:25:41,362  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 11:25:41,363  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:25:41,393  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD0
+27 Apr 2016 11:25:41,393  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:25:46,298  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 11:25:46,329  INFO Sensor:84 - Send current window state:50
+27 Apr 2016 11:25:46,337  INFO Sensor:78 - Send current window state:34
+27 Apr 2016 11:25:46,339  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:50
+27 Apr 2016 11:25:46,344  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 50
+27 Apr 2016 11:25:46,358  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:34
+27 Apr 2016 11:25:46,362  INFO Controller:107 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 34
+27 Apr 2016 11:25:46,373  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD0
+27 Apr 2016 11:25:46,377  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 11:25:46,383  INFO MainMenuConsoleView:740 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 11:25:46,384  INFO MainMenuConsoleView:745 - CAMBIO DE COLOR
+27 Apr 2016 11:25:46,385  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD0
+27 Apr 2016 11:25:46,385  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:25:46,386  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 11:25:46,386  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:25:51,299  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 11:25:51,352  INFO Sensor:84 - Send current window state:81
+27 Apr 2016 11:25:51,361  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:81
+27 Apr 2016 11:25:51,364  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 81
+27 Apr 2016 11:25:51,365  INFO Sensor:78 - Send current window state:75
+27 Apr 2016 11:25:51,376  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:75
+27 Apr 2016 11:25:51,382  INFO Controller:107 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 75
+27 Apr 2016 11:25:51,382  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 11:25:51,386  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 11:25:51,389  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:25:51,391  INFO MainMenuConsoleView:740 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 11:25:51,393  INFO MainMenuConsoleView:745 - CAMBIO DE COLOR
+27 Apr 2016 11:25:51,396  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD0
+27 Apr 2016 11:25:51,399  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD0
+27 Apr 2016 11:25:51,399  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:25:56,300  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 11:25:56,367  INFO Sensor:84 - Send current window state:27
+27 Apr 2016 11:25:56,373  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:27
+27 Apr 2016 11:25:56,378  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 27
+27 Apr 2016 11:25:56,385  INFO Sensor:78 - Send current window state:6
+27 Apr 2016 11:25:56,391  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 11:25:56,393  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:6
+27 Apr 2016 11:25:56,396  INFO Controller:107 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 6
+27 Apr 2016 11:25:56,402  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 11:25:56,402  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:25:56,402  INFO MainMenuConsoleView:740 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 11:25:56,405  INFO MainMenuConsoleView:745 - CAMBIO DE COLOR
+27 Apr 2016 11:25:56,406  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD0
+27 Apr 2016 11:25:56,413  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD0
+27 Apr 2016 11:25:56,413  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:26:01,301  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 11:26:01,385  INFO Sensor:84 - Send current window state:90
+27 Apr 2016 11:26:01,394  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:90
+27 Apr 2016 11:26:01,397  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 90
+27 Apr 2016 11:26:01,402  INFO Sensor:78 - Send current window state:26
+27 Apr 2016 11:26:01,414  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:26
+27 Apr 2016 11:26:01,416  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 11:26:01,419  INFO Controller:107 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 26
+27 Apr 2016 11:26:01,423  INFO MainMenuConsoleView:740 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 11:26:01,425  INFO MainMenuConsoleView:743 - CAMBIO DE COLOR
+27 Apr 2016 11:26:01,428  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW1
+27 Apr 2016 11:26:01,437  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 11:26:01,438  INFO Controller:77 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 11:26:01,442  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD0
+27 Apr 2016 11:26:01,446  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD0
+27 Apr 2016 11:26:01,450  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:26:06,301  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 11:26:06,401  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:26:06,438  INFO Sensor:78 - Send current window state:9
+27 Apr 2016 11:26:06,445  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:9
+27 Apr 2016 11:26:06,448  INFO Controller:107 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 9
+27 Apr 2016 11:26:06,462  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD0
+27 Apr 2016 11:26:06,464  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD0
+27 Apr 2016 11:26:06,465  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:26:11,302  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 11:26:11,402  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:26:11,455  INFO Sensor:78 - Send current window state:20
+27 Apr 2016 11:26:11,464  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:20
+27 Apr 2016 11:26:11,468  INFO Controller:107 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 20
+27 Apr 2016 11:26:11,475  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD0
+27 Apr 2016 11:26:11,478  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD0
+27 Apr 2016 11:26:11,479  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:26:16,303  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 11:26:16,403  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:26:16,472  INFO Sensor:78 - Send current window state:77
+27 Apr 2016 11:26:16,480  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:77
+27 Apr 2016 11:26:16,483  INFO Controller:107 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 77
+27 Apr 2016 11:26:16,489  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD0
+27 Apr 2016 11:26:16,492  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD0
+27 Apr 2016 11:26:16,492  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:26:21,304  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 11:26:21,404  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:26:21,483  INFO Sensor:78 - Send current window state:6
+27 Apr 2016 11:26:21,488  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:6
+27 Apr 2016 11:26:21,490  INFO Controller:107 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 6
+27 Apr 2016 11:26:21,500  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD0
+27 Apr 2016 11:26:21,508  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD0
+27 Apr 2016 11:26:21,508  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:26:26,306  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 11:26:26,404  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:26:26,498  INFO Sensor:78 - Send current window state:52
+27 Apr 2016 11:26:26,506  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:52
+27 Apr 2016 11:26:26,509  INFO Controller:107 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 52
+27 Apr 2016 11:26:26,523  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD0
+27 Apr 2016 11:26:26,525  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD0
+27 Apr 2016 11:26:26,526  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:31:17,092  INFO MainMenuConsoleView:101 - Class TemperatureController --- Start Controller Temperature...
+27 Apr 2016 11:31:17,182  INFO Controller:202 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:31:17,186  INFO Controller:205 - Class AlarmDoorSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:31:17,190  INFO Controller:208 - Class AlarmMoveSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:31:17,218  INFO Sensor:84 - Send current window state:77
+27 Apr 2016 11:31:17,233  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:77
+27 Apr 2016 11:31:17,244  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 77
+27 Apr 2016 11:31:17,306  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 11:31:17,337  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 11:31:17,343  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:31:17,339  INFO MainMenuConsoleView:740 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 11:31:17,346  INFO MainMenuConsoleView:745 - CAMBIO DE COLOR
+27 Apr 2016 11:31:22,317  INFO Sensor:84 - Send current window state:0
+27 Apr 2016 11:31:22,328  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:0
+27 Apr 2016 11:31:22,333  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 0
+27 Apr 2016 11:31:22,349  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 11:31:22,353  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 11:31:22,354  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:31:22,358  INFO MainMenuConsoleView:740 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 11:31:22,358  INFO MainMenuConsoleView:745 - CAMBIO DE COLOR
+27 Apr 2016 11:31:27,341  INFO Sensor:84 - Send current window state:69
+27 Apr 2016 11:31:27,352  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:69
+27 Apr 2016 11:31:27,359  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 69
+27 Apr 2016 11:31:27,372  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 11:31:27,376  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 11:31:27,383  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:31:27,376  INFO MainMenuConsoleView:740 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 11:31:27,386  INFO MainMenuConsoleView:745 - CAMBIO DE COLOR
+27 Apr 2016 11:31:32,367  INFO Sensor:84 - Send current window state:68
+27 Apr 2016 11:31:32,380  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:68
+27 Apr 2016 11:31:32,384  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 68
+27 Apr 2016 11:31:32,403  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 11:31:32,406  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 11:31:32,406  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:31:32,408  INFO MainMenuConsoleView:740 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 11:31:32,408  INFO MainMenuConsoleView:745 - CAMBIO DE COLOR
+27 Apr 2016 11:31:37,394  INFO Sensor:84 - Send current window state:95
+27 Apr 2016 11:31:37,405  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:95
+27 Apr 2016 11:31:37,410  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 95
+27 Apr 2016 11:31:37,427  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 11:31:37,429  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW1
+27 Apr 2016 11:31:37,430  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 11:31:37,435  INFO MainMenuConsoleView:740 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 11:31:37,436  INFO MainMenuConsoleView:743 - CAMBIO DE COLOR
+27 Apr 2016 11:31:37,438  INFO Controller:77 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 11:31:42,421  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:31:47,422  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:31:48,839  INFO MainMenuConsoleView:626 - Enviado resumen al HILO CONTROLLER
+27 Apr 2016 11:31:48,848  INFO MainMenuConsoleView:581 - Class MainMenuConsoleView --- SEND to Controller --- Value:1
+27 Apr 2016 11:31:48,853  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 1
+27 Apr 2016 11:31:48,872  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 11:31:48,875  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 11:31:48,876  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:31:48,877  INFO MainMenuConsoleView:740 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 11:31:48,886  INFO MainMenuConsoleView:745 - CAMBIO DE COLOR
+27 Apr 2016 11:31:52,423  INFO Sensor:84 - Send current window state:93
+27 Apr 2016 11:31:52,433  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:93
+27 Apr 2016 11:31:52,437  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 93
+27 Apr 2016 11:31:52,448  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 11:31:52,452  INFO Controller:77 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 11:31:52,461  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW1
+27 Apr 2016 11:31:52,463  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 11:31:52,461  INFO MainMenuConsoleView:740 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 11:31:52,467  INFO MainMenuConsoleView:743 - CAMBIO DE COLOR
+27 Apr 2016 11:31:56,767  INFO MainMenuConsoleView:626 - Enviado resumen al HILO CONTROLLER
+27 Apr 2016 11:31:56,778  INFO MainMenuConsoleView:581 - Class MainMenuConsoleView --- SEND to Controller --- Value:1
+27 Apr 2016 11:31:56,781  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 1
+27 Apr 2016 11:31:56,793  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 11:31:56,798  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 11:31:56,799  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:31:56,799  INFO MainMenuConsoleView:740 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 11:31:56,799  INFO MainMenuConsoleView:745 - CAMBIO DE COLOR
+27 Apr 2016 11:31:57,441  INFO Sensor:84 - Send current window state:5
+27 Apr 2016 11:31:57,445  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:5
+27 Apr 2016 11:31:57,448  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 5
+27 Apr 2016 11:31:57,459  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 11:31:57,460  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 11:31:57,461  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:31:57,461  INFO MainMenuConsoleView:740 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 11:31:57,462  INFO MainMenuConsoleView:745 - CAMBIO DE COLOR
+27 Apr 2016 11:32:02,453  INFO Sensor:84 - Send current window state:59
+27 Apr 2016 11:32:02,461  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:59
+27 Apr 2016 11:32:02,463  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 59
+27 Apr 2016 11:32:02,472  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 11:32:02,474  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 11:32:02,475  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:32:02,476  INFO MainMenuConsoleView:740 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 11:32:02,477  INFO MainMenuConsoleView:745 - CAMBIO DE COLOR
+27 Apr 2016 11:36:45,614  INFO MainMenuConsoleView:101 - Class TemperatureController --- Start Controller Temperature...
+27 Apr 2016 11:36:45,705  INFO Controller:202 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:36:45,709  INFO Controller:205 - Class AlarmDoorSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:36:45,715  INFO Controller:208 - Class AlarmMoveSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:36:45,757  INFO Sensor:78 - Send current window state:98
+27 Apr 2016 11:36:45,791  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:98
+27 Apr 2016 11:36:45,808  INFO Controller:107 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 98
+27 Apr 2016 11:36:45,858  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD1
+27 Apr 2016 11:36:45,873  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD1
+27 Apr 2016 11:36:45,874  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 11:36:50,854  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 11:36:55,854  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 11:39:22,523  INFO MainMenuConsoleView:101 - Class TemperatureController --- Start Controller Temperature...
+27 Apr 2016 11:39:22,651  INFO Controller:202 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:39:22,660  INFO Controller:205 - Class AlarmDoorSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:39:22,672  INFO Controller:208 - Class AlarmMoveSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:39:22,719  INFO Sensor:78 - Send current window state:76
+27 Apr 2016 11:39:22,742  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:76
+27 Apr 2016 11:39:22,754  INFO Controller:107 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 76
+27 Apr 2016 11:39:22,784  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD1
+27 Apr 2016 11:39:22,793  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD1
+27 Apr 2016 11:39:22,794  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 11:39:27,775  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 11:39:32,776  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 11:39:37,777  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 11:42:02,243  INFO MainMenuConsoleView:101 - Class TemperatureController --- Start Controller Temperature...
+27 Apr 2016 11:42:02,323  INFO Controller:202 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:42:02,338  INFO Controller:205 - Class AlarmDoorSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:42:02,341  INFO Controller:208 - Class AlarmMoveSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:42:02,375  INFO Sensor:84 - Send current window state:60
+27 Apr 2016 11:42:02,388  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:60
+27 Apr 2016 11:42:02,398  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 60
+27 Apr 2016 11:42:02,446  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 11:42:02,459  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW1
+27 Apr 2016 11:42:02,459  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 11:42:02,465  INFO Controller:77 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 11:42:02,469  INFO MainMenuConsoleView:740 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 11:42:02,471  INFO MainMenuConsoleView:743 - CAMBIO DE COLOR
+27 Apr 2016 11:42:07,422  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:42:08,119  INFO MainMenuConsoleView:626 - Enviado resumen al HILO CONTROLLER
+27 Apr 2016 11:42:08,128  INFO MainMenuConsoleView:581 - Class MainMenuConsoleView --- SEND to Controller --- Value:1
+27 Apr 2016 11:42:08,137  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 1
+27 Apr 2016 11:42:08,161  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 11:42:08,165  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 11:42:08,167  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:42:08,168  INFO MainMenuConsoleView:740 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 11:42:12,423  INFO Sensor:84 - Send current window state:41
+27 Apr 2016 11:42:12,436  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:41
+27 Apr 2016 11:42:12,440  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 41
+27 Apr 2016 11:42:12,459  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 11:42:12,462  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 11:42:12,463  INFO MainMenuConsoleView:740 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 11:42:12,466  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:42:17,445  INFO Sensor:84 - Send current window state:29
+27 Apr 2016 11:42:17,460  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:29
+27 Apr 2016 11:42:17,463  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 29
+27 Apr 2016 11:42:17,475  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 11:42:17,480  INFO MainMenuConsoleView:740 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 11:42:17,480  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 11:42:17,481  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:42:22,471  INFO Sensor:84 - Send current window state:99
+27 Apr 2016 11:42:22,482  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:99
+27 Apr 2016 11:42:22,489  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 99
+27 Apr 2016 11:42:22,502  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 11:42:22,505  INFO MainMenuConsoleView:740 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 11:42:22,506  INFO MainMenuConsoleView:743 - CAMBIO DE COLOR
+27 Apr 2016 11:42:22,507  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW1
+27 Apr 2016 11:42:22,507  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 11:42:22,510  INFO Controller:77 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 11:42:27,491  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:48:06,236  INFO MainMenuConsoleView:103 - Class TemperatureController --- Start Controller Temperature...
+27 Apr 2016 11:48:06,321  INFO Controller:202 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:48:06,326  INFO Controller:205 - Class AlarmDoorSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:48:06,333  INFO Controller:208 - Class AlarmMoveSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:48:06,362  INFO Sensor:84 - Send current window state:76
+27 Apr 2016 11:48:06,373  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:76
+27 Apr 2016 11:48:06,387  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 76
+27 Apr 2016 11:48:06,396  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 11:48:06,424  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW1
+27 Apr 2016 11:48:06,424  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 11:48:06,425  INFO MainMenuConsoleView:742 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 11:48:06,426  INFO MainMenuConsoleView:745 - CAMBIO DE COLOR
+27 Apr 2016 11:48:06,443  INFO Controller:77 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 11:49:46,400  INFO MainMenuConsoleView:103 - Class TemperatureController --- Start Controller Temperature...
+27 Apr 2016 11:49:46,438  INFO Controller:202 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:49:46,454  INFO Controller:205 - Class AlarmDoorSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:49:46,462  INFO Controller:208 - Class AlarmMoveSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:49:46,554  INFO Sensor:78 - Send current window state:0
+27 Apr 2016 11:49:46,558  INFO Sensor:84 - Send current window state:97
+27 Apr 2016 11:49:46,580  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:0
+27 Apr 2016 11:49:46,596  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:97
+27 Apr 2016 11:49:46,609  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 97
+27 Apr 2016 11:49:46,621  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 11:49:46,639  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW1
+27 Apr 2016 11:49:46,641  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 11:49:46,643  INFO Controller:77 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 11:49:46,639  INFO MainMenuConsoleView:722 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 11:49:46,646  INFO MainMenuConsoleView:725 - CAMBIO DE COLOR
+27 Apr 2016 11:49:51,596  INFO Sensor:78 - Send current window state:62
+27 Apr 2016 11:49:51,605  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:62
+27 Apr 2016 11:49:51,616  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:49:56,612  INFO Sensor:78 - Send current window state:39
+27 Apr 2016 11:49:56,616  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:49:56,620  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:39
+27 Apr 2016 11:50:01,618  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:50:01,629  INFO Sensor:78 - Send current window state:45
+27 Apr 2016 11:50:01,641  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:45
+27 Apr 2016 11:50:06,619  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:50:06,656  INFO Sensor:78 - Send current window state:51
+27 Apr 2016 11:50:06,667  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:51
+27 Apr 2016 11:50:11,620  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:50:11,678  INFO Sensor:78 - Send current window state:97
+27 Apr 2016 11:50:11,686  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:97
+27 Apr 2016 11:50:16,620  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:50:16,690  INFO Sensor:78 - Send current window state:64
+27 Apr 2016 11:50:16,698  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:64
+27 Apr 2016 11:51:17,253  INFO MainMenuConsoleView:102 - Class TemperatureController --- Start Controller Temperature...
+27 Apr 2016 11:51:17,303  INFO Controller:202 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:51:17,307  INFO Controller:205 - Class AlarmDoorSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:51:17,311  INFO Controller:208 - Class AlarmMoveSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:51:17,359  INFO Sensor:84 - Send current window state:40
+27 Apr 2016 11:51:17,363  INFO Sensor:78 - Send current window state:47
+27 Apr 2016 11:51:17,383  INFO Sensor:78 - Send current window state:34
+27 Apr 2016 11:51:17,402  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:34
+27 Apr 2016 11:51:17,409  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:47
+27 Apr 2016 11:51:17,422  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:40
+27 Apr 2016 11:51:17,441  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 40
+27 Apr 2016 11:51:17,453  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 11:51:17,465  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 11:51:17,474  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:51:17,472  INFO MainMenuConsoleView:721 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 11:51:22,424  INFO Sensor:78 - Send current window state:84
+27 Apr 2016 11:51:22,426  INFO Sensor:78 - Send current window state:12
+27 Apr 2016 11:51:22,442  INFO Sensor:84 - Send current window state:75
+27 Apr 2016 11:51:22,446  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:12
+27 Apr 2016 11:51:22,448  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:84
+27 Apr 2016 11:51:22,464  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:75
+27 Apr 2016 11:51:22,468  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 75
+27 Apr 2016 11:51:22,482  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 11:51:22,484  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW1
+27 Apr 2016 11:51:22,489  INFO Controller:77 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 11:51:22,488  INFO MainMenuConsoleView:721 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 11:51:22,491  INFO MainMenuConsoleView:724 - CAMBIO DE COLOR
+27 Apr 2016 11:51:22,489  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 11:51:27,461  INFO Sensor:78 - Send current window state:22
+27 Apr 2016 11:51:27,463  INFO Sensor:78 - Send current window state:99
+27 Apr 2016 11:51:27,477  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:51:27,478  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:22
+27 Apr 2016 11:51:27,479  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:99
+27 Apr 2016 11:51:32,478  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:51:32,487  INFO Sensor:78 - Send current window state:13
+27 Apr 2016 11:51:32,494  INFO Sensor:78 - Send current window state:18
+27 Apr 2016 11:51:32,503  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:13
+27 Apr 2016 11:51:32,511  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:18
+27 Apr 2016 11:51:37,479  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:51:37,521  INFO Sensor:78 - Send current window state:36
+27 Apr 2016 11:51:37,524  INFO Sensor:78 - Send current window state:76
+27 Apr 2016 11:51:37,536  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:36
+27 Apr 2016 11:51:37,550  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:76
+27 Apr 2016 11:51:42,480  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:51:42,545  INFO Sensor:78 - Send current window state:7
+27 Apr 2016 11:51:42,555  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:7
+27 Apr 2016 11:51:42,565  INFO Sensor:78 - Send current window state:51
+27 Apr 2016 11:51:42,570  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:51
+27 Apr 2016 11:52:14,710  INFO MainMenuConsoleView:103 - Class TemperatureController --- Start Controller Temperature...
+27 Apr 2016 11:52:14,744  INFO Controller:202 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:52:14,748  INFO Controller:205 - Class AlarmDoorSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:52:14,753  INFO Controller:208 - Class AlarmMoveSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:52:14,854  INFO Sensor:78 - Send current window state:63
+27 Apr 2016 11:52:14,861  INFO Sensor:78 - Send current window state:6
+27 Apr 2016 11:52:14,884  INFO Sensor:84 - Send current window state:89
+27 Apr 2016 11:52:14,911  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:89
+27 Apr 2016 11:52:14,911  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:63
+27 Apr 2016 11:52:14,921  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:6
+27 Apr 2016 11:52:14,945  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 89
+27 Apr 2016 11:52:14,967  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 11:52:14,987  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW1
+27 Apr 2016 11:52:14,988  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 11:52:14,993  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 11:52:15,008  INFO MainMenuConsoleView:735 - CAMBIO DE COLOR
+27 Apr 2016 11:52:15,008  INFO Controller:77 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 11:52:27,757  INFO MainMenuConsoleView:103 - Class TemperatureController --- Start Controller Temperature...
+27 Apr 2016 11:52:27,841  INFO Controller:202 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:52:27,854  INFO Controller:205 - Class AlarmDoorSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:52:27,858  INFO Controller:208 - Class AlarmMoveSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:52:27,908  INFO Sensor:84 - Send current window state:88
+27 Apr 2016 11:52:27,954  INFO Sensor:78 - Send current window state:62
+27 Apr 2016 11:52:27,961  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:62
+27 Apr 2016 11:52:27,964  INFO Sensor:78 - Send current window state:31
+27 Apr 2016 11:52:27,990  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:31
+27 Apr 2016 11:52:28,004  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:88
+27 Apr 2016 11:52:28,036  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 88
+27 Apr 2016 11:52:28,066  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 11:52:28,070  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW1
+27 Apr 2016 11:52:28,071  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 11:52:28,097  INFO Controller:77 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 11:52:28,120  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 11:52:28,124  INFO MainMenuConsoleView:735 - CAMBIO DE COLOR
+27 Apr 2016 11:52:32,998  INFO Sensor:78 - Send current window state:57
+27 Apr 2016 11:52:33,008  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:57
+27 Apr 2016 11:52:33,018  INFO Sensor:78 - Send current window state:49
+27 Apr 2016 11:52:33,026  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:49
+27 Apr 2016 11:52:33,035  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:52:38,012  INFO Sensor:78 - Send current window state:72
+27 Apr 2016 11:52:38,021  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:72
+27 Apr 2016 11:52:38,030  INFO Sensor:78 - Send current window state:12
+27 Apr 2016 11:52:38,035  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:52:38,037  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:12
+27 Apr 2016 11:52:43,027  INFO Sensor:78 - Send current window state:0
+27 Apr 2016 11:52:43,036  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:52:43,036  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:0
+27 Apr 2016 11:52:43,040  INFO Sensor:78 - Send current window state:88
+27 Apr 2016 11:52:43,057  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:88
+27 Apr 2016 11:52:48,037  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:52:48,057  INFO Sensor:78 - Send current window state:41
+27 Apr 2016 11:52:48,067  INFO Sensor:78 - Send current window state:97
+27 Apr 2016 11:52:48,074  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:41
+27 Apr 2016 11:52:48,089  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:97
+27 Apr 2016 11:54:18,805  INFO MainMenuConsoleView:103 - Class TemperatureController --- Start Controller Temperature...
+27 Apr 2016 11:54:18,849  INFO Controller:202 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:54:18,852  INFO Controller:205 - Class AlarmDoorSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:54:18,856  INFO Controller:208 - Class AlarmMoveSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:54:18,906  INFO Sensor:84 - Send current WINDOW state:8
+27 Apr 2016 11:54:18,920  INFO Sensor:78 - Send current MOVE state:33
+27 Apr 2016 11:54:18,949  INFO Sensor:78 - Send current DOOR state:9
+27 Apr 2016 11:54:18,956  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:8
+27 Apr 2016 11:54:18,977  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 8
+27 Apr 2016 11:54:18,985  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:33
+27 Apr 2016 11:54:18,996  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:9
+27 Apr 2016 11:54:19,027  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 11:54:19,038  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 11:54:19,047  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 11:54:19,051  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 11:54:24,021  INFO Sensor:84 - Send current WINDOW state:92
+27 Apr 2016 11:54:24,026  INFO Sensor:78 - Send current DOOR state:34
+27 Apr 2016 11:54:24,029  INFO Sensor:78 - Send current MOVE state:69
+27 Apr 2016 11:54:24,065  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:92
+27 Apr 2016 11:54:24,071  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 92
+27 Apr 2016 11:54:24,073  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:34
+27 Apr 2016 11:54:24,071  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:69
+27 Apr 2016 11:54:24,092  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 11:54:24,096  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 11:54:24,097  INFO MainMenuConsoleView:735 - CAMBIO DE COLOR
+27 Apr 2016 11:54:24,098  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW1
+27 Apr 2016 11:54:24,104  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 11:54:24,108  INFO Controller:77 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 11:54:29,073  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:54:29,084  INFO Sensor:78 - Send current DOOR state:89
+27 Apr 2016 11:54:29,089  INFO Sensor:78 - Send current MOVE state:67
+27 Apr 2016 11:54:29,104  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:89
+27 Apr 2016 11:54:29,104  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:67
+27 Apr 2016 11:54:34,074  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:54:34,113  INFO Sensor:78 - Send current MOVE state:97
+27 Apr 2016 11:54:34,115  INFO Sensor:78 - Send current DOOR state:65
+27 Apr 2016 11:54:34,127  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:97
+27 Apr 2016 11:54:34,130  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:65
+27 Apr 2016 11:54:39,075  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:54:39,145  INFO Sensor:78 - Send current MOVE state:72
+27 Apr 2016 11:54:39,147  INFO Sensor:78 - Send current DOOR state:3
+27 Apr 2016 11:54:39,157  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:72
+27 Apr 2016 11:54:39,158  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:3
+27 Apr 2016 11:54:44,076  INFO Sensor:95 - ESPERANDO CLIC WINDOWS
+27 Apr 2016 11:54:44,164  INFO Sensor:78 - Send current DOOR state:19
+27 Apr 2016 11:54:44,169  INFO Sensor:78 - Send current MOVE state:44
+27 Apr 2016 11:54:44,175  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:19
+27 Apr 2016 11:54:44,183  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:44
+27 Apr 2016 11:56:30,712  INFO MainMenuConsoleView:103 - Class TemperatureController --- Start Controller Temperature...
+27 Apr 2016 11:56:30,739  INFO Controller:202 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:56:30,742  INFO Controller:205 - Class AlarmDoorSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:56:30,747  INFO Controller:208 - Class AlarmMoveSensor --- Start ALARM WINDOW ...
+27 Apr 2016 11:56:30,794  INFO Sensor:84 - Send current WINDOW state:78
+27 Apr 2016 11:56:30,802  INFO Sensor:78 - Send current DOOR state:79
+27 Apr 2016 11:56:30,806  INFO Sensor:78 - Send current MOVE state:21
+27 Apr 2016 11:56:30,850  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:78
+27 Apr 2016 11:56:30,892  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:79
+27 Apr 2016 11:56:30,906  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:21
+27 Apr 2016 11:56:30,926  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 78
+27 Apr 2016 11:56:30,965  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 11:56:30,973  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW1
+27 Apr 2016 11:56:30,976  INFO Controller:77 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 11:56:30,983  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 11:56:30,986  INFO MainMenuConsoleView:735 - CAMBIO DE COLOR
+27 Apr 2016 11:56:35,940  INFO Sensor:78 - Send current DOOR state:3
+27 Apr 2016 11:56:35,942  INFO Sensor:84 - Send current WINDOW state:78
+27 Apr 2016 11:56:35,957  INFO Sensor:78 - Send current MOVE state:77
+27 Apr 2016 11:56:35,959  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:3
+27 Apr 2016 11:56:35,971  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:78
+27 Apr 2016 11:56:35,976  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 78
+27 Apr 2016 11:56:35,992  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:77
+27 Apr 2016 11:56:35,997  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 11:56:36,006  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 11:56:36,007  INFO Controller:77 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 11:56:36,007  INFO MainMenuConsoleView:735 - CAMBIO DE COLOR
+27 Apr 2016 12:01:20,305  INFO MainMenuConsoleView:103 - Class TemperatureController --- Start Controller Temperature...
+27 Apr 2016 12:01:20,409  INFO Controller:202 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:01:20,413  INFO Controller:205 - Class AlarmDoorSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:01:20,417  INFO Controller:208 - Class AlarmMoveSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:01:20,488  INFO Sensor:78 - Send current MOVE state:56
+27 Apr 2016 12:01:20,491  INFO Sensor:78 - Send current DOOR state:47
+27 Apr 2016 12:01:20,499  INFO Sensor:84 - Send current WINDOW state:12
+27 Apr 2016 12:01:20,503  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:47
+27 Apr 2016 12:01:20,521  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:56
+27 Apr 2016 12:01:20,537  INFO Controller:107 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 47
+27 Apr 2016 12:01:20,552  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:12
+27 Apr 2016 12:01:20,544  INFO Controller:142 - Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: 56
+27 Apr 2016 12:01:20,566  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 12
+27 Apr 2016 12:01:20,604  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AM1
+27 Apr 2016 12:01:20,611  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AM1
+27 Apr 2016 12:01:20,616  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD1
+27 Apr 2016 12:01:20,612  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 12:01:20,635  INFO Sensor:61 - Class alarm MOVE sensor --- NewValues Move: true
+27 Apr 2016 12:01:20,650  INFO MainMenuConsoleView:788 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: AM1
+27 Apr 2016 12:01:20,651  INFO MainMenuConsoleView:791 - CAMBIO DE COLOR
+27 Apr 2016 12:01:20,652  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD1
+27 Apr 2016 12:01:20,653  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 12:01:20,655  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 12:01:20,663  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 12:01:20,670  INFO MainMenuConsoleView:760 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD1
+27 Apr 2016 12:01:20,681  INFO MainMenuConsoleView:763 - CAMBIO DE COLOR
+27 Apr 2016 12:01:20,693  INFO Controller:146 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 12:01:25,590  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:01:25,597  INFO Sensor:78 - Send current MOVE state:19
+27 Apr 2016 12:01:25,606  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:19
+27 Apr 2016 12:01:25,608  INFO Controller:142 - Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: 19
+27 Apr 2016 12:01:25,616  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AM0
+27 Apr 2016 12:01:25,619  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AM0
+27 Apr 2016 12:01:25,619  INFO Sensor:61 - Class alarm MOVE sensor --- NewValues Move: false
+27 Apr 2016 12:01:25,620  INFO MainMenuConsoleView:788 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: AM0
+27 Apr 2016 12:01:25,666  INFO Sensor:84 - Send current WINDOW state:86
+27 Apr 2016 12:01:25,673  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:86
+27 Apr 2016 12:01:25,675  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 86
+27 Apr 2016 12:01:25,690  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 12:01:25,695  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 12:01:25,696  INFO MainMenuConsoleView:735 - CAMBIO DE COLOR
+27 Apr 2016 12:01:25,701  INFO Controller:77 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 12:01:30,590  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:01:30,611  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 12:01:30,678  INFO Sensor:84 - Send current WINDOW state:33
+27 Apr 2016 12:01:30,688  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:33
+27 Apr 2016 12:01:30,692  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 33
+27 Apr 2016 12:01:30,709  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 12:01:30,716  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 12:01:35,591  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:01:35,612  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 12:01:35,698  INFO Sensor:84 - Send current WINDOW state:58
+27 Apr 2016 12:01:35,707  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:58
+27 Apr 2016 12:01:35,711  INFO Controller:73 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 58
+27 Apr 2016 12:01:35,720  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 12:01:35,724  INFO Controller:77 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 12:01:35,724  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 12:01:35,728  INFO MainMenuConsoleView:735 - CAMBIO DE COLOR
+27 Apr 2016 12:03:24,495  INFO MainMenuConsoleView:103 - Class TemperatureController --- Start Controller Temperature...
+27 Apr 2016 12:03:24,582  INFO Controller:204 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:03:24,585  INFO Controller:207 - Class AlarmDoorSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:03:24,588  INFO Controller:210 - Class AlarmMoveSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:03:24,617  INFO Sensor:84 - Send current WINDOW state:17
+27 Apr 2016 12:03:24,663  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:17
+27 Apr 2016 12:03:24,672  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 17
+27 Apr 2016 12:03:24,686  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 12:03:24,693  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 12:03:24,696  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 12:03:25,607  INFO Sensor:78 - Send current DOOR state:84
+27 Apr 2016 12:03:25,612  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:84
+27 Apr 2016 12:03:25,614  INFO Controller:109 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 84
+27 Apr 2016 12:03:25,620  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD1
+27 Apr 2016 12:03:25,622  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD1
+27 Apr 2016 12:03:25,623  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 12:03:25,627  INFO MainMenuConsoleView:760 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD1
+27 Apr 2016 12:03:25,629  INFO MainMenuConsoleView:763 - CAMBIO DE COLOR
+27 Apr 2016 12:03:26,602  INFO Sensor:78 - Send current MOVE state:17
+27 Apr 2016 12:03:26,607  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:17
+27 Apr 2016 12:03:26,610  INFO Controller:144 - Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: 17
+27 Apr 2016 12:03:26,619  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AM0
+27 Apr 2016 12:03:26,624  INFO MainMenuConsoleView:788 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: AM0
+27 Apr 2016 12:03:26,624  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AM0
+27 Apr 2016 12:03:26,625  INFO Sensor:61 - Class alarm MOVE sensor --- NewValues Move: false
+27 Apr 2016 12:03:29,685  INFO Sensor:84 - Send current WINDOW state:6
+27 Apr 2016 12:03:29,694  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:6
+27 Apr 2016 12:03:29,697  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 6
+27 Apr 2016 12:03:29,710  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 12:03:29,714  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 12:03:30,618  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:03:31,615  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 12:03:34,699  INFO Sensor:84 - Send current WINDOW state:57
+27 Apr 2016 12:03:34,711  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:57
+27 Apr 2016 12:03:34,724  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 57
+27 Apr 2016 12:03:34,742  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 12:03:34,748  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 12:03:34,753  INFO MainMenuConsoleView:735 - CAMBIO DE COLOR
+27 Apr 2016 12:03:34,756  INFO Controller:79 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 12:03:35,618  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:03:36,616  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 12:03:39,728  INFO Sensor:84 - Send current WINDOW state:4
+27 Apr 2016 12:03:39,734  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:4
+27 Apr 2016 12:03:39,737  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 4
+27 Apr 2016 12:03:39,747  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 12:03:39,752  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 12:03:40,619  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:03:41,616  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 12:03:44,743  INFO Sensor:84 - Send current WINDOW state:76
+27 Apr 2016 12:03:44,751  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:76
+27 Apr 2016 12:03:44,756  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 76
+27 Apr 2016 12:03:44,766  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 12:03:44,774  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 12:03:44,775  INFO Controller:79 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 12:03:44,779  INFO MainMenuConsoleView:735 - CAMBIO DE COLOR
+27 Apr 2016 12:03:45,620  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:03:46,617  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 12:03:49,759  INFO Sensor:84 - Send current WINDOW state:5
+27 Apr 2016 12:03:49,771  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:5
+27 Apr 2016 12:03:49,775  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 5
+27 Apr 2016 12:03:49,788  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 12:03:49,799  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 12:03:50,621  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:03:51,618  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 12:03:54,782  INFO Sensor:84 - Send current WINDOW state:10
+27 Apr 2016 12:03:54,791  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:10
+27 Apr 2016 12:03:54,796  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 10
+27 Apr 2016 12:03:54,809  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 12:03:54,815  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 12:06:05,328  INFO MainMenuConsoleView:103 - Class TemperatureController --- Start Controller Temperature...
+27 Apr 2016 12:06:05,439  INFO Controller:204 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:06:05,442  INFO Controller:207 - Class AlarmDoorSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:06:05,445  INFO Controller:210 - Class AlarmMoveSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:06:05,487  INFO Sensor:84 - Send current WINDOW state:84
+27 Apr 2016 12:06:05,507  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:84
+27 Apr 2016 12:06:05,517  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 84
+27 Apr 2016 12:06:05,542  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 12:06:05,553  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW1
+27 Apr 2016 12:06:05,561  INFO Controller:79 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 12:06:05,565  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 12:06:05,566  INFO MainMenuConsoleView:735 - CAMBIO DE COLOR
+27 Apr 2016 12:06:06,462  INFO Sensor:78 - Send current DOOR state:24
+27 Apr 2016 12:06:06,468  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:24
+27 Apr 2016 12:06:06,471  INFO Controller:109 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 24
+27 Apr 2016 12:06:06,477  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD0
+27 Apr 2016 12:06:06,480  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD0
+27 Apr 2016 12:06:06,481  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 12:06:06,483  INFO MainMenuConsoleView:760 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD0
+27 Apr 2016 12:06:07,463  INFO Sensor:78 - Send current MOVE state:44
+27 Apr 2016 12:06:07,468  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:44
+27 Apr 2016 12:06:07,470  INFO Controller:144 - Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: 44
+27 Apr 2016 12:06:07,482  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AM0
+27 Apr 2016 12:06:07,486  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AM0
+27 Apr 2016 12:06:07,487  INFO Sensor:61 - Class alarm MOVE sensor --- NewValues Move: false
+27 Apr 2016 12:06:07,491  INFO MainMenuConsoleView:788 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: AM0
+27 Apr 2016 12:06:15,543  INFO Sensor:84 - Send current WINDOW state:41
+27 Apr 2016 12:06:15,555  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:41
+27 Apr 2016 12:06:15,559  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 41
+27 Apr 2016 12:06:15,574  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 12:06:15,581  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 12:06:16,471  INFO Sensor:78 - Send current DOOR state:74
+27 Apr 2016 12:06:16,488  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:74
+27 Apr 2016 12:06:16,492  INFO Controller:109 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 74
+27 Apr 2016 12:06:16,530  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD1
+27 Apr 2016 12:06:16,538  INFO MainMenuConsoleView:760 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD1
+27 Apr 2016 12:06:16,538  INFO MainMenuConsoleView:763 - CAMBIO DE COLOR
+27 Apr 2016 12:06:16,537  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD1
+27 Apr 2016 12:06:16,554  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 12:06:17,475  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 12:06:25,563  INFO Sensor:84 - Send current WINDOW state:59
+27 Apr 2016 12:06:25,571  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:59
+27 Apr 2016 12:06:25,574  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 59
+27 Apr 2016 12:06:25,586  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 12:06:25,590  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 12:06:25,590  INFO MainMenuConsoleView:735 - CAMBIO DE COLOR
+27 Apr 2016 12:06:25,593  INFO Controller:79 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 12:06:26,525  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:06:27,475  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 12:06:35,582  INFO Sensor:84 - Send current WINDOW state:83
+27 Apr 2016 12:06:35,596  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:83
+27 Apr 2016 12:06:35,601  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 83
+27 Apr 2016 12:06:35,615  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 12:06:35,621  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 12:06:35,622  INFO MainMenuConsoleView:735 - CAMBIO DE COLOR
+27 Apr 2016 12:06:35,628  INFO Controller:79 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 12:06:36,526  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:06:37,476  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 12:06:45,604  INFO Sensor:84 - Send current WINDOW state:87
+27 Apr 2016 12:06:45,613  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:87
+27 Apr 2016 12:06:45,620  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 87
+27 Apr 2016 12:06:45,636  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 12:06:45,644  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 12:06:45,646  INFO MainMenuConsoleView:735 - CAMBIO DE COLOR
+27 Apr 2016 12:06:45,648  INFO Controller:79 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 12:06:46,526  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:06:47,477  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 12:06:55,625  INFO Sensor:84 - Send current WINDOW state:32
+27 Apr 2016 12:06:55,630  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:32
+27 Apr 2016 12:06:55,633  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 32
+27 Apr 2016 12:06:55,639  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 12:06:55,643  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 12:06:56,527  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:06:57,478  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 12:07:05,636  INFO Sensor:84 - Send current WINDOW state:16
+27 Apr 2016 12:07:05,647  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:16
+27 Apr 2016 12:07:05,656  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 16
+27 Apr 2016 12:07:05,668  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 12:07:05,673  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 12:07:06,528  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:07:07,479  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 12:07:15,657  INFO Sensor:84 - Send current WINDOW state:31
+27 Apr 2016 12:07:15,668  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:31
+27 Apr 2016 12:07:15,673  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 31
+27 Apr 2016 12:07:15,686  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 12:07:15,690  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 12:07:16,528  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:07:17,480  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 12:07:25,678  INFO Sensor:84 - Send current WINDOW state:69
+27 Apr 2016 12:07:25,688  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:69
+27 Apr 2016 12:07:25,701  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 69
+27 Apr 2016 12:07:25,710  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 12:07:25,714  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 12:07:25,714  INFO MainMenuConsoleView:735 - CAMBIO DE COLOR
+27 Apr 2016 12:07:25,721  INFO Controller:79 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 12:07:26,529  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:07:27,480  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 12:07:35,702  INFO Sensor:84 - Send current WINDOW state:6
+27 Apr 2016 12:07:35,717  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:6
+27 Apr 2016 12:07:35,720  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 6
+27 Apr 2016 12:07:35,730  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 12:07:35,738  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 12:07:36,530  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:07:37,481  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 12:07:45,723  INFO Sensor:84 - Send current WINDOW state:47
+27 Apr 2016 12:07:45,732  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:47
+27 Apr 2016 12:07:45,734  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 47
+27 Apr 2016 12:07:45,745  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 12:07:45,748  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 12:07:46,531  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:07:47,482  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 12:07:55,742  INFO Sensor:84 - Send current WINDOW state:94
+27 Apr 2016 12:07:55,748  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:94
+27 Apr 2016 12:07:55,751  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 94
+27 Apr 2016 12:07:55,765  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 12:07:55,768  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 12:07:55,768  INFO MainMenuConsoleView:735 - CAMBIO DE COLOR
+27 Apr 2016 12:07:55,772  INFO Controller:79 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 12:07:56,532  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:07:57,482  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 12:09:31,701  INFO MainMenuConsoleView:103 - Class TemperatureController --- Start Controller Temperature...
+27 Apr 2016 12:09:31,789  INFO Controller:204 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:09:31,792  INFO Controller:207 - Class AlarmDoorSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:09:31,796  INFO Controller:210 - Class AlarmMoveSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:09:31,816  INFO Sensor:84 - Send current WINDOW state:74
+27 Apr 2016 12:09:31,860  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:74
+27 Apr 2016 12:09:31,873  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 74
+27 Apr 2016 12:09:31,885  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 12:09:31,887  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW1
+27 Apr 2016 12:09:31,888  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 12:09:31,890  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 12:09:31,891  INFO MainMenuConsoleView:735 - CAMBIO DE COLOR
+27 Apr 2016 12:09:31,893  INFO Controller:79 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 12:09:32,812  INFO Sensor:78 - Send current DOOR state:20
+27 Apr 2016 12:09:32,819  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:20
+27 Apr 2016 12:09:32,822  INFO Controller:109 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 20
+27 Apr 2016 12:09:32,829  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD0
+27 Apr 2016 12:09:32,836  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD0
+27 Apr 2016 12:09:32,837  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 12:09:32,839  INFO MainMenuConsoleView:760 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD0
+27 Apr 2016 12:09:33,813  INFO Sensor:78 - Send current MOVE state:71
+27 Apr 2016 12:09:33,818  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:71
+27 Apr 2016 12:09:33,820  INFO Controller:144 - Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: 71
+27 Apr 2016 12:09:33,831  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AM1
+27 Apr 2016 12:09:33,833  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AM1
+27 Apr 2016 12:09:33,834  INFO Sensor:61 - Class alarm MOVE sensor --- NewValues Move: true
+27 Apr 2016 12:09:33,836  INFO Controller:148 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 12:09:33,837  INFO MainMenuConsoleView:788 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: AM1
+27 Apr 2016 12:09:33,838  INFO MainMenuConsoleView:791 - CAMBIO DE COLOR
+27 Apr 2016 12:09:41,882  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:09:42,823  INFO Sensor:78 - Send current DOOR state:90
+27 Apr 2016 12:09:42,838  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:90
+27 Apr 2016 12:09:42,845  INFO Controller:109 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 90
+27 Apr 2016 12:09:42,853  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD1
+27 Apr 2016 12:09:42,862  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD1
+27 Apr 2016 12:09:42,862  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 12:09:42,868  INFO MainMenuConsoleView:760 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD1
+27 Apr 2016 12:09:42,870  INFO MainMenuConsoleView:763 - CAMBIO DE COLOR
+27 Apr 2016 12:09:43,830  INFO Sensor:78 - Send current MOVE state:39
+27 Apr 2016 12:09:43,844  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:39
+27 Apr 2016 12:09:43,849  INFO Controller:144 - Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: 39
+27 Apr 2016 12:09:43,866  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AM0
+27 Apr 2016 12:09:43,870  INFO MainMenuConsoleView:788 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: AM0
+27 Apr 2016 12:09:43,871  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AM0
+27 Apr 2016 12:09:43,871  INFO Sensor:61 - Class alarm MOVE sensor --- NewValues Move: false
+27 Apr 2016 12:09:51,882  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:09:52,844  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:09:53,857  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 12:10:01,883  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:10:02,845  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:10:03,858  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 12:14:19,999  INFO MainMenuConsoleView:103 - Class TemperatureController --- Start Controller Temperature...
+27 Apr 2016 12:14:20,102  INFO Controller:204 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:14:20,105  INFO Controller:207 - Class AlarmDoorSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:14:20,108  INFO Controller:210 - Class AlarmMoveSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:14:20,145  INFO Sensor:84 - Send current WINDOW state:54
+27 Apr 2016 12:14:20,175  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:54
+27 Apr 2016 12:14:20,189  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 54
+27 Apr 2016 12:14:20,215  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 12:14:20,229  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW1
+27 Apr 2016 12:14:20,230  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 12:14:20,246  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 12:14:20,250  INFO MainMenuConsoleView:735 - CAMBIO DE COLOR
+27 Apr 2016 12:14:20,254  INFO Controller:79 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 12:14:21,125  INFO Sensor:78 - Send current DOOR state:75
+27 Apr 2016 12:14:21,133  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:75
+27 Apr 2016 12:14:21,135  INFO Controller:109 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 75
+27 Apr 2016 12:14:21,147  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD1
+27 Apr 2016 12:14:21,153  INFO MainMenuConsoleView:760 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD1
+27 Apr 2016 12:14:21,154  INFO MainMenuConsoleView:763 - CAMBIO DE COLOR
+27 Apr 2016 12:14:21,153  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD1
+27 Apr 2016 12:14:21,164  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 12:14:22,127  INFO Sensor:78 - Send current MOVE state:48
+27 Apr 2016 12:14:22,138  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:48
+27 Apr 2016 12:14:22,145  INFO Sensor:78 - Send current MOVE state:27
+27 Apr 2016 12:14:22,148  INFO Controller:144 - Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: 48
+27 Apr 2016 12:14:22,153  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:27
+27 Apr 2016 12:14:22,155  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AM0
+27 Apr 2016 12:14:22,158  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AM0
+27 Apr 2016 12:14:22,159  INFO Sensor:61 - Class alarm MOVE sensor --- NewValues Move: false
+27 Apr 2016 12:14:22,162  INFO MainMenuConsoleView:788 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: AM0
+27 Apr 2016 12:14:22,164  INFO Controller:144 - Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: 27
+27 Apr 2016 12:14:22,168  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 12:14:22,171  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AM0
+27 Apr 2016 12:14:22,173  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AM0
+27 Apr 2016 12:14:22,174  INFO Sensor:61 - Class alarm MOVE sensor --- NewValues Move: false
+27 Apr 2016 12:14:22,176  INFO MainMenuConsoleView:788 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: AM0
+27 Apr 2016 12:14:30,223  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:14:31,136  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:14:32,168  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 12:16:48,170  INFO MainMenuConsoleView:103 - Class TemperatureController --- Start Controller Temperature...
+27 Apr 2016 12:16:48,225  INFO Controller:204 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:16:48,233  INFO Controller:207 - Class AlarmDoorSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:16:48,239  INFO Controller:210 - Class AlarmMoveSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:16:48,309  INFO Sensor:84 - Send current WINDOW state:67
+27 Apr 2016 12:16:48,348  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:67
+27 Apr 2016 12:16:48,375  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 67
+27 Apr 2016 12:16:48,429  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 12:16:48,441  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW1
+27 Apr 2016 12:16:48,442  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 12:16:48,459  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 12:16:48,474  INFO Controller:79 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 12:16:48,476  INFO MainMenuConsoleView:735 - CAMBIO DE COLOR
+27 Apr 2016 12:16:49,262  INFO Sensor:78 - Send current DOOR state:97
+27 Apr 2016 12:16:49,269  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:97
+27 Apr 2016 12:16:49,273  INFO Controller:109 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 97
+27 Apr 2016 12:16:49,283  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD1
+27 Apr 2016 12:16:49,286  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD1
+27 Apr 2016 12:16:49,287  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 12:16:49,291  INFO MainMenuConsoleView:760 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD1
+27 Apr 2016 12:16:49,292  INFO MainMenuConsoleView:763 - CAMBIO DE COLOR
+27 Apr 2016 12:16:58,397  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:16:59,275  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:17:08,397  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:17:09,276  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:17:18,398  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:17:19,277  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:17:24,400  INFO MainMenuConsoleView:633 - Enviado resumen al HILO CONTROLLER
+27 Apr 2016 12:17:24,414  INFO MainMenuConsoleView:588 - Class MainMenuConsoleView --- SEND to Controller --- Value:1
+27 Apr 2016 12:17:24,417  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 1
+27 Apr 2016 12:17:24,436  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 12:17:24,439  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 12:17:24,439  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 12:17:24,446  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 12:17:28,399  INFO Sensor:84 - Send current WINDOW state:73
+27 Apr 2016 12:17:28,413  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:73
+27 Apr 2016 12:17:28,418  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 73
+27 Apr 2016 12:17:28,431  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 12:17:28,441  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW1
+27 Apr 2016 12:17:28,443  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 12:17:28,449  INFO Controller:79 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 12:17:28,443  INFO MainMenuConsoleView:732 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 12:17:28,454  INFO MainMenuConsoleView:735 - CAMBIO DE COLOR
+27 Apr 2016 12:17:29,278  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:18:34,028  INFO MainMenuConsoleView:103 - Class TemperatureController --- Start Controller Temperature...
+27 Apr 2016 12:18:34,183  INFO Controller:204 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:18:34,187  INFO Controller:207 - Class AlarmDoorSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:18:34,194  INFO Controller:210 - Class AlarmMoveSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:18:34,217  INFO Sensor:84 - Send current WINDOW state:4
+27 Apr 2016 12:18:34,251  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:4
+27 Apr 2016 12:18:34,266  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 4
+27 Apr 2016 12:18:34,296  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 12:18:34,304  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 12:18:34,305  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 12:18:34,308  INFO MainMenuConsoleView:737 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 12:18:35,214  INFO Sensor:78 - Send current DOOR state:15
+27 Apr 2016 12:18:35,228  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:15
+27 Apr 2016 12:18:35,231  INFO Controller:109 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 15
+27 Apr 2016 12:18:35,239  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD0
+27 Apr 2016 12:18:35,241  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD0
+27 Apr 2016 12:18:35,243  INFO MainMenuConsoleView:765 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD0
+27 Apr 2016 12:18:35,250  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 12:18:44,290  INFO Sensor:84 - Send current WINDOW state:83
+27 Apr 2016 12:18:44,301  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:83
+27 Apr 2016 12:18:44,305  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 83
+27 Apr 2016 12:18:44,318  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 12:18:44,321  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW1
+27 Apr 2016 12:18:44,327  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 12:18:44,328  INFO Controller:79 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 12:18:44,330  INFO MainMenuConsoleView:737 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 12:18:44,330  INFO MainMenuConsoleView:740 - CAMBIO DE COLOR
+27 Apr 2016 12:18:45,231  INFO Sensor:78 - Send current DOOR state:49
+27 Apr 2016 12:18:45,241  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:49
+27 Apr 2016 12:18:45,246  INFO Controller:109 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 49
+27 Apr 2016 12:18:45,259  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD0
+27 Apr 2016 12:18:45,262  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD0
+27 Apr 2016 12:18:45,262  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 12:18:45,263  INFO MainMenuConsoleView:765 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD0
+27 Apr 2016 12:18:54,307  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:18:55,253  INFO Sensor:78 - Send current DOOR state:18
+27 Apr 2016 12:18:55,266  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:18
+27 Apr 2016 12:18:55,272  INFO Controller:109 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 18
+27 Apr 2016 12:18:55,293  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD0
+27 Apr 2016 12:18:55,296  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD0
+27 Apr 2016 12:18:55,297  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 12:18:55,298  INFO MainMenuConsoleView:765 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD0
+27 Apr 2016 12:19:04,308  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:19:05,276  INFO Sensor:78 - Send current DOOR state:39
+27 Apr 2016 12:19:05,283  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:39
+27 Apr 2016 12:19:05,286  INFO Controller:109 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 39
+27 Apr 2016 12:19:05,293  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD0
+27 Apr 2016 12:19:05,296  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD0
+27 Apr 2016 12:19:05,296  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 12:19:05,298  INFO MainMenuConsoleView:765 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD0
+27 Apr 2016 12:19:14,308  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:19:15,288  INFO Sensor:78 - Send current DOOR state:97
+27 Apr 2016 12:19:15,296  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:97
+27 Apr 2016 12:19:15,299  INFO Controller:109 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 97
+27 Apr 2016 12:19:15,306  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD1
+27 Apr 2016 12:19:15,313  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD1
+27 Apr 2016 12:19:15,314  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 12:19:15,313  INFO MainMenuConsoleView:765 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD1
+27 Apr 2016 12:19:15,315  INFO MainMenuConsoleView:768 - CAMBIO DE COLOR
+27 Apr 2016 12:19:24,309  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:19:25,303  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:19:26,788  INFO MainMenuConsoleView:628 - Enviado resumen al HILO AL CONTROLLER DOOR
+27 Apr 2016 12:19:26,793  INFO MainMenuConsoleView:588 - Class MainMenuConsoleView --- SEND to Controller --- Value:1
+27 Apr 2016 12:19:26,796  INFO Controller:109 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 1
+27 Apr 2016 12:19:26,805  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD0
+27 Apr 2016 12:19:26,808  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD0
+27 Apr 2016 12:19:26,809  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 12:19:26,812  INFO MainMenuConsoleView:765 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD0
+27 Apr 2016 12:19:34,310  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:19:35,304  INFO Sensor:78 - Send current DOOR state:33
+27 Apr 2016 12:19:35,314  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:33
+27 Apr 2016 12:19:35,319  INFO Controller:109 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 33
+27 Apr 2016 12:19:35,333  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD0
+27 Apr 2016 12:19:35,337  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD0
+27 Apr 2016 12:19:35,337  INFO MainMenuConsoleView:765 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD0
+27 Apr 2016 12:19:35,346  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 12:19:44,311  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:19:45,324  INFO Sensor:78 - Send current DOOR state:69
+27 Apr 2016 12:19:45,332  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:69
+27 Apr 2016 12:19:45,337  INFO Controller:109 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 69
+27 Apr 2016 12:19:45,352  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD1
+27 Apr 2016 12:19:45,356  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD1
+27 Apr 2016 12:19:45,356  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 12:19:45,356  INFO MainMenuConsoleView:765 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD1
+27 Apr 2016 12:19:45,358  INFO MainMenuConsoleView:768 - CAMBIO DE COLOR
+27 Apr 2016 12:19:54,311  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:19:55,345  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:19:56,685  INFO MainMenuConsoleView:638 - Enviado resumen al HILO CONTROLLER WINDOW
+27 Apr 2016 12:19:56,695  INFO MainMenuConsoleView:588 - Class MainMenuConsoleView --- SEND to Controller --- Value:1
+27 Apr 2016 12:19:56,698  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 1
+27 Apr 2016 12:19:56,712  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 12:19:56,717  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 12:19:56,718  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 12:19:56,719  INFO MainMenuConsoleView:737 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 12:20:04,312  INFO Sensor:84 - Send current WINDOW state:0
+27 Apr 2016 12:20:04,317  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:0
+27 Apr 2016 12:20:04,331  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 0
+27 Apr 2016 12:20:04,336  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 12:20:04,340  INFO MainMenuConsoleView:737 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 12:20:04,352  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 12:20:04,356  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 12:20:05,345  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:20:14,322  INFO Sensor:84 - Send current WINDOW state:85
+27 Apr 2016 12:20:14,334  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:85
+27 Apr 2016 12:20:14,339  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 85
+27 Apr 2016 12:20:14,352  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 12:20:14,359  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW1
+27 Apr 2016 12:20:14,360  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 12:20:14,362  INFO Controller:79 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 12:20:14,364  INFO MainMenuConsoleView:737 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 12:20:14,365  INFO MainMenuConsoleView:740 - CAMBIO DE COLOR
+27 Apr 2016 12:20:15,346  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:20:24,348  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:20:25,346  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:20:34,349  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:20:35,347  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:50:24,499  INFO MainMenuConsoleView:103 - Class TemperatureController --- Start Controller Temperature...
+27 Apr 2016 12:50:24,616  INFO Controller:204 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:50:24,620  INFO Controller:207 - Class AlarmDoorSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:50:24,623  INFO Controller:210 - Class AlarmMoveSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:50:24,645  INFO Sensor:84 - Send current WINDOW state:9
+27 Apr 2016 12:50:24,685  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:9
+27 Apr 2016 12:50:24,698  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 9
+27 Apr 2016 12:50:24,721  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 12:50:24,734  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 12:50:24,740  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 12:50:24,739  INFO MainMenuConsoleView:743 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 12:50:25,638  INFO Sensor:78 - Send current DOOR state:21
+27 Apr 2016 12:50:25,651  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:21
+27 Apr 2016 12:50:25,653  INFO Controller:109 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 21
+27 Apr 2016 12:50:25,659  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD0
+27 Apr 2016 12:50:25,664  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD0
+27 Apr 2016 12:50:25,668  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 12:50:25,668  INFO MainMenuConsoleView:771 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD0
+27 Apr 2016 12:50:34,729  INFO Sensor:84 - Send current WINDOW state:47
+27 Apr 2016 12:50:34,739  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:47
+27 Apr 2016 12:50:34,743  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 47
+27 Apr 2016 12:50:34,759  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 12:50:34,762  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 12:50:34,763  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 12:50:34,770  INFO MainMenuConsoleView:743 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 12:50:35,656  INFO Sensor:78 - Send current DOOR state:24
+27 Apr 2016 12:50:35,671  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:24
+27 Apr 2016 12:50:35,679  INFO Controller:109 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 24
+27 Apr 2016 12:50:35,696  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD0
+27 Apr 2016 12:50:35,701  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD0
+27 Apr 2016 12:50:35,702  INFO MainMenuConsoleView:771 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD0
+27 Apr 2016 12:50:35,702  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 12:50:44,744  INFO Sensor:84 - Send current WINDOW state:31
+27 Apr 2016 12:50:44,762  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:31
+27 Apr 2016 12:50:44,765  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 31
+27 Apr 2016 12:50:44,784  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 12:50:44,790  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 12:50:44,791  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 12:50:44,793  INFO MainMenuConsoleView:743 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 12:50:45,685  INFO Sensor:78 - Send current DOOR state:27
+27 Apr 2016 12:50:45,693  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:27
+27 Apr 2016 12:50:45,697  INFO Controller:109 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 27
+27 Apr 2016 12:50:45,708  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD0
+27 Apr 2016 12:50:45,711  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD0
+27 Apr 2016 12:50:45,711  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 12:50:45,713  INFO MainMenuConsoleView:771 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD0
+27 Apr 2016 12:50:54,773  INFO Sensor:84 - Send current WINDOW state:18
+27 Apr 2016 12:50:54,778  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:18
+27 Apr 2016 12:50:54,780  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 18
+27 Apr 2016 12:50:54,798  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 12:50:54,800  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 12:50:54,806  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 12:50:54,806  INFO MainMenuConsoleView:743 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 12:50:55,698  INFO Sensor:78 - Send current DOOR state:98
+27 Apr 2016 12:50:55,704  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:98
+27 Apr 2016 12:50:55,709  INFO Controller:109 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 98
+27 Apr 2016 12:50:55,716  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD1
+27 Apr 2016 12:50:55,719  INFO MainMenuConsoleView:771 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD1
+27 Apr 2016 12:50:55,720  INFO MainMenuConsoleView:774 - CAMBIO DE COLOR
+27 Apr 2016 12:50:55,725  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD1
+27 Apr 2016 12:50:55,728  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 12:51:04,783  INFO Sensor:84 - Send current WINDOW state:3
+27 Apr 2016 12:51:04,789  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:3
+27 Apr 2016 12:51:04,791  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 3
+27 Apr 2016 12:51:04,805  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 12:51:04,810  INFO MainMenuConsoleView:743 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 12:51:04,810  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 12:51:04,818  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 12:51:05,713  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:51:14,803  INFO Sensor:84 - Send current WINDOW state:0
+27 Apr 2016 12:51:14,818  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:0
+27 Apr 2016 12:51:14,822  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 0
+27 Apr 2016 12:51:14,829  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW0
+27 Apr 2016 12:51:14,833  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW0
+27 Apr 2016 12:51:14,834  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 12:51:14,852  INFO MainMenuConsoleView:743 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW0
+27 Apr 2016 12:51:15,714  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:51:24,824  INFO Sensor:84 - Send current WINDOW state:77
+27 Apr 2016 12:51:24,832  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:77
+27 Apr 2016 12:51:24,835  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 77
+27 Apr 2016 12:51:24,843  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 12:51:24,845  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW1
+27 Apr 2016 12:51:24,846  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 12:51:24,847  INFO MainMenuConsoleView:743 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 12:51:24,847  INFO Controller:79 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 12:51:24,852  INFO MainMenuConsoleView:746 - CAMBIO DE COLOR
+27 Apr 2016 12:51:25,714  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:51:34,841  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:51:35,715  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:51:44,841  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:51:45,716  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:51:54,842  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:51:55,716  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:54:12,458  INFO MainMenuConsoleView:103 - Class TemperatureController --- Start Controller Temperature...
+27 Apr 2016 12:54:12,577  INFO Controller:204 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:54:12,581  INFO Controller:207 - Class AlarmDoorSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:54:12,583  INFO Controller:210 - Class AlarmMoveSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:54:12,601  INFO Sensor:84 - Send current WINDOW state:76
+27 Apr 2016 12:54:12,628  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:76
+27 Apr 2016 12:54:12,651  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 76
+27 Apr 2016 12:54:12,673  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 12:54:12,688  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW1
+27 Apr 2016 12:54:12,689  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 12:54:12,690  INFO MainMenuConsoleView:743 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 12:54:12,691  INFO MainMenuConsoleView:746 - CAMBIO DE COLOR
+27 Apr 2016 12:54:12,693  INFO Controller:79 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 12:54:13,599  INFO Sensor:78 - Send current DOOR state:87
+27 Apr 2016 12:54:13,608  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:87
+27 Apr 2016 12:54:13,611  INFO Controller:109 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 87
+27 Apr 2016 12:54:13,622  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD1
+27 Apr 2016 12:54:13,625  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD1
+27 Apr 2016 12:54:13,626  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 12:54:13,630  INFO MainMenuConsoleView:771 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD1
+27 Apr 2016 12:54:13,630  INFO MainMenuConsoleView:774 - CAMBIO DE COLOR
+27 Apr 2016 12:54:14,600  INFO Sensor:78 - Send current MOVE state:61
+27 Apr 2016 12:54:14,607  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:61
+27 Apr 2016 12:54:14,611  INFO Controller:144 - Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: 61
+27 Apr 2016 12:54:14,618  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AM1
+27 Apr 2016 12:54:14,621  INFO MainMenuConsoleView:799 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: AM1
+27 Apr 2016 12:54:14,623  INFO MainMenuConsoleView:802 - CAMBIO DE COLOR
+27 Apr 2016 12:54:14,625  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AM1
+27 Apr 2016 12:54:14,626  INFO Controller:148 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 12:54:14,626  INFO Sensor:61 - Class alarm MOVE sensor --- NewValues Move: true
+27 Apr 2016 12:54:22,670  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:54:23,612  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:54:24,615  INFO Sensor:78 - Send current MOVE state:43
+27 Apr 2016 12:54:24,623  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:43
+27 Apr 2016 12:54:24,628  INFO Controller:144 - Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: 43
+27 Apr 2016 12:54:24,640  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AM0
+27 Apr 2016 12:54:24,642  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AM0
+27 Apr 2016 12:54:24,648  INFO Sensor:61 - Class alarm MOVE sensor --- NewValues Move: false
+27 Apr 2016 12:54:24,648  INFO MainMenuConsoleView:799 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: AM0
+27 Apr 2016 12:56:32,979  INFO MainMenuConsoleView:103 - Class TemperatureController --- Start Controller Temperature...
+27 Apr 2016 12:56:33,085  INFO Controller:204 - Class AlarmWindowSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:56:33,087  INFO Controller:207 - Class AlarmDoorSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:56:33,095  INFO Controller:210 - Class AlarmMoveSensor --- Start ALARM WINDOW ...
+27 Apr 2016 12:56:33,113  INFO Sensor:84 - Send current WINDOW state:59
+27 Apr 2016 12:56:33,139  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:59
+27 Apr 2016 12:56:33,161  INFO Controller:75 - Class ALARM WINDOW Controller --- RECEIVED from Sensor --- Value: 59
+27 Apr 2016 12:56:33,192  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AW1
+27 Apr 2016 12:56:33,202  INFO MainMenuConsoleView:743 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: AW1
+27 Apr 2016 12:56:33,204  INFO MainMenuConsoleView:746 - CAMBIO DE COLOR
+27 Apr 2016 12:56:33,206  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AW1
+27 Apr 2016 12:56:33,207  INFO Sensor:64 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 12:56:33,216  INFO Controller:79 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 12:56:34,111  INFO Sensor:78 - Send current DOOR state:96
+27 Apr 2016 12:56:34,119  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:96
+27 Apr 2016 12:56:34,122  INFO Controller:109 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 96
+27 Apr 2016 12:56:34,132  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD1
+27 Apr 2016 12:56:34,137  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD1
+27 Apr 2016 12:56:34,139  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 12:56:34,138  INFO MainMenuConsoleView:771 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD1
+27 Apr 2016 12:56:34,140  INFO MainMenuConsoleView:774 - CAMBIO DE COLOR
+27 Apr 2016 12:56:35,108  INFO Sensor:78 - Send current MOVE state:48
+27 Apr 2016 12:56:35,117  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:48
+27 Apr 2016 12:56:35,120  INFO Controller:144 - Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: 48
+27 Apr 2016 12:56:35,127  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AM0
+27 Apr 2016 12:56:35,134  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AM0
+27 Apr 2016 12:56:35,135  INFO Sensor:61 - Class alarm MOVE sensor --- NewValues Move: true
+27 Apr 2016 12:56:35,137  INFO MainMenuConsoleView:799 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: AM0
+27 Apr 2016 12:56:43,172  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:56:44,125  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:56:45,122  INFO Sensor:78 - Send current MOVE state:72
+27 Apr 2016 12:56:45,128  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:72
+27 Apr 2016 12:56:45,131  INFO Controller:144 - Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: 72
+27 Apr 2016 12:56:45,147  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AM1
+27 Apr 2016 12:56:45,151  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AM1
+27 Apr 2016 12:56:45,152  INFO Sensor:61 - Class alarm MOVE sensor --- NewValues Move: false
+27 Apr 2016 12:56:45,158  INFO Controller:148 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW
+27 Apr 2016 12:56:45,159  INFO MainMenuConsoleView:799 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: AM1
+27 Apr 2016 12:56:45,160  INFO MainMenuConsoleView:802 - CAMBIO DE COLOR
+27 Apr 2016 12:56:53,173  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:56:54,126  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:56:55,147  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 12:57:03,174  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:57:04,126  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:57:05,147  INFO Sensor:89 - ESPERANDO CLIC MOVE
+27 Apr 2016 12:57:05,210  INFO MainMenuConsoleView:649 - Enviado resumen al HILO CONTROLLER WINDOW
+27 Apr 2016 12:57:05,223  INFO MainMenuConsoleView:588 - Class MainMenuConsoleView --- SEND to Controller --- Value:1
+27 Apr 2016 12:57:05,231  INFO Controller:144 - Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: 1
+27 Apr 2016 12:57:05,253  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AM0
+27 Apr 2016 12:57:05,255  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AM0
+27 Apr 2016 12:57:05,256  INFO Sensor:61 - Class alarm MOVE sensor --- NewValues Move: true
+27 Apr 2016 12:57:05,260  INFO MainMenuConsoleView:799 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: AM0
+27 Apr 2016 12:57:13,175  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:57:14,127  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:57:15,148  INFO Sensor:78 - Send current MOVE state:7
+27 Apr 2016 12:57:15,156  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:7
+27 Apr 2016 12:57:15,160  INFO Controller:144 - Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: 7
+27 Apr 2016 12:57:15,179  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AM0
+27 Apr 2016 12:57:15,188  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AM0
+27 Apr 2016 12:57:15,189  INFO MainMenuConsoleView:799 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: AM0
+27 Apr 2016 12:57:15,191  INFO Sensor:61 - Class alarm MOVE sensor --- NewValues Move: true
+27 Apr 2016 12:57:23,176  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:57:24,128  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:57:25,173  INFO Sensor:78 - Send current MOVE state:23
+27 Apr 2016 12:57:25,181  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:23
+27 Apr 2016 12:57:25,185  INFO Controller:144 - Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: 23
+27 Apr 2016 12:57:25,193  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AM0
+27 Apr 2016 12:57:25,196  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AM0
+27 Apr 2016 12:57:25,197  INFO Sensor:61 - Class alarm MOVE sensor --- NewValues Move: true
+27 Apr 2016 12:57:25,197  INFO MainMenuConsoleView:799 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: AM0
+27 Apr 2016 12:57:33,176  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:57:34,129  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:57:35,193  INFO Sensor:78 - Send current MOVE state:47
+27 Apr 2016 12:57:35,204  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:47
+27 Apr 2016 12:57:35,209  INFO Controller:144 - Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: 47
+27 Apr 2016 12:57:35,228  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AM0
+27 Apr 2016 12:57:35,239  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AM0
+27 Apr 2016 12:57:35,241  INFO Sensor:61 - Class alarm MOVE sensor --- NewValues Move: true
+27 Apr 2016 12:57:35,245  INFO MainMenuConsoleView:799 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: AM0
+27 Apr 2016 12:57:43,177  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:57:44,129  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:57:45,213  INFO Sensor:78 - Send current MOVE state:44
+27 Apr 2016 12:57:45,219  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:44
+27 Apr 2016 12:57:45,222  INFO Controller:144 - Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: 44
+27 Apr 2016 12:57:45,235  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AM0
+27 Apr 2016 12:57:45,241  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AM0
+27 Apr 2016 12:57:45,242  INFO Sensor:61 - Class alarm MOVE sensor --- NewValues Move: true
+27 Apr 2016 12:57:45,244  INFO MainMenuConsoleView:799 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: AM0
+27 Apr 2016 12:57:53,178  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:57:54,130  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:57:55,231  INFO Sensor:78 - Send current MOVE state:10
+27 Apr 2016 12:57:55,244  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:10
+27 Apr 2016 12:57:55,246  INFO Controller:144 - Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: 10
+27 Apr 2016 12:57:55,258  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AM0
+27 Apr 2016 12:57:55,262  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AM0
+27 Apr 2016 12:57:55,263  INFO Sensor:61 - Class alarm MOVE sensor --- NewValues Move: true
+27 Apr 2016 12:57:55,263  INFO MainMenuConsoleView:799 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: AM0
+27 Apr 2016 12:58:03,179  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:58:04,130  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:58:05,256  INFO Sensor:78 - Send current MOVE state:5
+27 Apr 2016 12:58:05,264  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:5
+27 Apr 2016 12:58:05,267  INFO Controller:144 - Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: 5
+27 Apr 2016 12:58:05,279  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AM0
+27 Apr 2016 12:58:05,283  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AM0
+27 Apr 2016 12:58:05,283  INFO MainMenuConsoleView:799 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: AM0
+27 Apr 2016 12:58:05,283  INFO Sensor:61 - Class alarm MOVE sensor --- NewValues Move: true
+27 Apr 2016 12:58:13,179  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:58:14,131  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:58:15,279  INFO Sensor:78 - Send current MOVE state:16
+27 Apr 2016 12:58:15,285  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:16
+27 Apr 2016 12:58:15,289  INFO Controller:144 - Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: 16
+27 Apr 2016 12:58:15,307  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AM0
+27 Apr 2016 12:58:15,309  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AM0
+27 Apr 2016 12:58:15,310  INFO Sensor:61 - Class alarm MOVE sensor --- NewValues Move: true
+27 Apr 2016 12:58:15,310  INFO MainMenuConsoleView:799 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: AM0
+27 Apr 2016 12:58:17,964  INFO MainMenuConsoleView:628 - Enviado resumen al HILO AL CONTROLLER DOOR
+27 Apr 2016 12:58:17,979  INFO MainMenuConsoleView:588 - Class MainMenuConsoleView --- SEND to Controller --- Value:1
+27 Apr 2016 12:58:17,983  INFO Controller:109 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 1
+27 Apr 2016 12:58:17,991  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD0
+27 Apr 2016 12:58:17,994  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD0
+27 Apr 2016 12:58:17,995  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 12:58:18,004  INFO MainMenuConsoleView:771 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD0
+27 Apr 2016 12:58:23,180  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:58:24,132  INFO Sensor:78 - Send current DOOR state:40
+27 Apr 2016 12:58:24,138  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:40
+27 Apr 2016 12:58:24,145  INFO Controller:109 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 40
+27 Apr 2016 12:58:24,159  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD0
+27 Apr 2016 12:58:24,162  INFO MainMenuConsoleView:771 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD0
+27 Apr 2016 12:58:24,163  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD0
+27 Apr 2016 12:58:24,164  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: true
+27 Apr 2016 12:58:25,301  INFO Sensor:78 - Send current MOVE state:23
+27 Apr 2016 12:58:25,307  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:23
+27 Apr 2016 12:58:25,311  INFO Controller:144 - Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: 23
+27 Apr 2016 12:58:25,319  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AM0
+27 Apr 2016 12:58:25,322  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AM0
+27 Apr 2016 12:58:25,322  INFO Sensor:61 - Class alarm MOVE sensor --- NewValues Move: true
+27 Apr 2016 12:58:25,322  INFO MainMenuConsoleView:799 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: AM0
+27 Apr 2016 12:58:33,181  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:58:34,145  INFO Sensor:78 - Send current DOOR state:91
+27 Apr 2016 12:58:34,151  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:91
+27 Apr 2016 12:58:34,153  INFO Controller:109 - Class Alarm DOOR Controller --- RECEIVED from Sensor --- Value: 91
+27 Apr 2016 12:58:34,164  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AD1
+27 Apr 2016 12:58:34,166  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AD1
+27 Apr 2016 12:58:34,167  INFO Sensor:61 - Class: ALARM WINDOWS --- SET VALUES --- windowstate: false
+27 Apr 2016 12:58:34,168  INFO MainMenuConsoleView:771 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: AD1
+27 Apr 2016 12:58:34,173  INFO MainMenuConsoleView:774 - CAMBIO DE COLOR
+27 Apr 2016 12:58:35,317  INFO Sensor:78 - Send current MOVE state:28
+27 Apr 2016 12:58:35,324  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:28
+27 Apr 2016 12:58:35,326  INFO Controller:144 - Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: 28
+27 Apr 2016 12:58:35,342  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AM0
+27 Apr 2016 12:58:35,345  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AM0
+27 Apr 2016 12:58:35,348  INFO Sensor:61 - Class alarm MOVE sensor --- NewValues Move: true
+27 Apr 2016 12:58:35,345  INFO MainMenuConsoleView:799 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: AM0
+27 Apr 2016 12:58:43,182  INFO Sensor:95 - ESPERANDO CLIC WINDOWS WINDOW
+27 Apr 2016 12:58:44,157  INFO Sensor:89 - ESPERANDO CLIC DESDE VENTANA DOOR
+27 Apr 2016 12:58:45,336  INFO Sensor:78 - Send current MOVE state:63
+27 Apr 2016 12:58:45,341  INFO Sensor:103 - Class Sensor --- SEND to Controller --- Value:63
+27 Apr 2016 12:58:45,343  INFO Controller:144 - Class ALARM MOVE Controller --- RECEIVED from Sensor --- Value: 63
+27 Apr 2016 12:58:45,353  INFO Controller:60 - Class Controller --- SEND  to Sensor --- Value: AM1
+27 Apr 2016 12:58:45,356  INFO Sensor:126 - Class Sensor --- RECEIVED From Controller --- Value: AM1
+27 Apr 2016 12:58:45,356  INFO MainMenuConsoleView:799 - Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: AM1
+27 Apr 2016 12:58:45,356  INFO MainMenuConsoleView:802 - CAMBIO DE COLOR
+27 Apr 2016 12:58:45,356  INFO Sensor:61 - Class alarm MOVE sensor --- NewValues Move: false
+27 Apr 2016 12:58:45,365  INFO Controller:148 - Class: ALARM CONTROLLER --- SEND --- ACTIVE ALARM WINDOW

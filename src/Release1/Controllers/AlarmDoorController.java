@@ -19,16 +19,14 @@ import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author luiiislazaro
  */
-public class AlarmController extends Controller {
+public class AlarmDoorController extends Controller {
 
-    private static AlarmController INSTANCE = new AlarmController();
+    private static AlarmDoorController INSTANCE = new AlarmDoorController();
 
     private static final String ID_CHANNEL_AWINDOW_CONTROLLER = "6";
     private static final String ID_CHANNEL_AWINDOW_SENSOR = "-6";
@@ -52,7 +50,7 @@ public class AlarmController extends Controller {
     /**
      *
      */
-    private AlarmController() {
+    private AlarmDoorController() {
         super();
     }
 
@@ -166,9 +164,9 @@ public class AlarmController extends Controller {
      */
     private static void createInstance() {
         if (INSTANCE == null) {
-            synchronized (AlarmController.class) {
+            synchronized (AlarmDoorController.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = new AlarmController();
+                    INSTANCE = new AlarmDoorController();
                 }
             }
         }
@@ -180,7 +178,7 @@ public class AlarmController extends Controller {
      *
      * @return The instance of this class.
      */
-    public static AlarmController getInstance() {
+    public static AlarmDoorController getInstance() {
         if (INSTANCE == null) {
             createInstance();
         }
@@ -191,11 +189,11 @@ public class AlarmController extends Controller {
      *
      */
     @Override
-    public void run() {
+    public synchronized void run() {
         try {
             receiveAlamrWindowSensorMessage();
-            receiveAlarmDoorMessage();
-            receiveMoveMessage();
+            //receiveAlarmDoorMessage();
+            //receiveMoveMessage();
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
@@ -210,24 +208,8 @@ public class AlarmController extends Controller {
         logger.info("Class AlarmMoveSensor --- Start ALARM WINDOW ...");
 
         alarmWindowSensor.start();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException ex) {
-            logger.info(ex);
-        }
         alarmDoorSensor.start();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException ex) {
-            logger.info(ex);
-        }
-        
         alarmMoveSensor.start();
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException ex) {
-            logger.info(ex);
-        }
     }
 
     /**
@@ -235,7 +217,7 @@ public class AlarmController extends Controller {
      * @param args
      */
     public static void main(String args[]) {
-        AlarmController alarmWindowController = AlarmController.getInstance();
+        AlarmDoorController alarmWindowController = AlarmDoorController.getInstance();
         logger.info("Class TemperatureController --- Start Controller Temperature...");
         alarmWindowController.start();
     }

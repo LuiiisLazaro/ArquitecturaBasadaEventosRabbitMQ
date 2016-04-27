@@ -26,7 +26,7 @@ import org.apache.log4j.PropertyConfigurator;
  */
 public class Sensor extends Thread{
 
-    protected int delay = 5000;         //the time to update data and send to console
+    protected int delay = 10000;         //the time to update data and send to console
     protected boolean isDone = false;   //to control de life of thred
     protected float driftValue;				// The amount of temperature gained or lost
     private String message;           //message with value to send
@@ -82,7 +82,7 @@ public class Sensor extends Thread{
     
     protected int getRandomNumberInt(){
         Random r = new Random();
-        return r.nextInt(9 - 0 + 1) + 0;
+        return r.nextInt(99 - 0 + 1) + 0;
     }
 
     /**

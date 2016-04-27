@@ -5,11 +5,8 @@
  */
 package Release1.Sensors;
 
-import java.awt.AWTEvent;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -53,10 +50,10 @@ public class AlarmMoveSensor extends Sensor{
     public void checkValues() {
         switch (getMessage()) {
             case "AM1":
-                setMoveState(true);
+                setMoveState(false);
                 break;
             case "AM0":
-                setMoveState(false);
+                setMoveState(true);
                 setCurrentMoveState(3);
                 break;
             default:
@@ -78,7 +75,7 @@ public class AlarmMoveSensor extends Sensor{
             if (moveState){
                 currentMoveState= getRandomNumberInt();
                 try{
-                    logger.info("Send current window state:" + currentMoveState);
+                    logger.info("Send current MOVE state:" + currentMoveState);
                     sendMessage(ID_CHANNEL_AMOVE_SENSOR, String.valueOf(currentMoveState));
                 } catch (IOException | TimeoutException ex) {
                     logger.error(ex);

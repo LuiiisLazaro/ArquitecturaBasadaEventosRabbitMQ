@@ -81,7 +81,7 @@ public class AlarmWindowSensor extends Sensor {
             if (windowState) {
                 currentWindowState = getRandomNumberInt();
                 try {
-                    logger.info("Send current window state:" + currentWindowState);
+                    logger.info("Send current WINDOW state:" + currentWindowState);
                     sendMessage(ID_CHANNEL_AWINDOW_SENSOR, String.valueOf(currentWindowState));
                 } catch (IOException | TimeoutException e1) {
                     logger.error(e1);
@@ -92,7 +92,7 @@ public class AlarmWindowSensor extends Sensor {
                     logger.error(e);
                 }
             } else {
-                logger.info("ESPERANDO CLIC WINDOWS");
+                logger.info("ESPERANDO CLIC WINDOWS WINDOW");
                 try {
                     Thread.sleep(delay);
                 } catch (InterruptedException ex) {

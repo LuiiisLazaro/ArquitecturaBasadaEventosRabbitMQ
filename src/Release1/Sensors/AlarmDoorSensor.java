@@ -75,7 +75,7 @@ public class AlarmDoorSensor extends Sensor {
             if (doorState) {
                 currentDoorState = getRandomNumberInt();
                  try {
-                    logger.info("Send current window state:" + currentDoorState);
+                    logger.info("Send current DOOR state:" + currentDoorState);
                     sendMessage(ID_CHANNEL_ADOOR_SENSOR, String.valueOf(currentDoorState));
                 } catch (IOException | TimeoutException e1) {
                     logger.error(e1);
