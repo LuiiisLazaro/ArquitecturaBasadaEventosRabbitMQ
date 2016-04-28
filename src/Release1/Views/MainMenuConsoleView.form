@@ -562,9 +562,7 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="lblTitleAlarms" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="lblTitleStartAlarms" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                                   <Component id="btnStateSystemAlarm" min="-2" pref="171" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -584,10 +582,9 @@
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblTitleAlarms" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblTitleStartAlarms" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnStateSystemAlarm" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jpAWindow" pref="172" max="32767" attributes="0"/>
                       <Component id="jpAFire" pref="0" max="32767" attributes="0"/>
@@ -605,18 +602,16 @@
             <Property name="text" type="java.lang.String" value="ALARMS CONTROL PANEL"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblTitleStartAlarms">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Start Alamrs:"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JToggleButton" name="btnStateSystemAlarm">
           <Properties>
-            <Property name="text" type="java.lang.String" value="ALARMS SYSTEM ON"/>
+            <Property name="text" type="java.lang.String" value="ALARMS SYSTEM OFF"/>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[152, 15]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStateSystemAlarmActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="jpAWindow">
           <Properties>
@@ -698,7 +693,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="30" y="130" width="90" height="-1"/>
+                  <AbsoluteConstraints x="30" y="130" width="140" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -706,16 +701,6 @@
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="10" y="30" width="181" height="10"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtTestValueWindow">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="126" y="130" width="60" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -801,7 +786,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="30" y="130" width="90" height="-1"/>
+                  <AbsoluteConstraints x="30" y="130" width="140" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -809,16 +794,6 @@
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="10" y="30" width="181" height="10"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtTestValueDoor">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField2"/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="126" y="130" width="60" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -904,7 +879,7 @@
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="30" y="130" width="90" height="-1"/>
+                  <AbsoluteConstraints x="30" y="130" width="140" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -912,16 +887,6 @@
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="10" y="30" width="181" height="10"/>
-                </Constraint>
-              </Constraints>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtTestValueMove">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jTextField1"/>
-              </Properties>
-              <Constraints>
-                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="126" y="130" width="60" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>

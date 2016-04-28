@@ -5,40 +5,35 @@
  */
 package Release1.Controllers;
 
-/**
- *
- */
 import static Release1.Controllers.Controller.logger;
 import Release1.Sensors.HumiditySensor;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
- *
- * @author luiiislazaro
+ * @author Faleg, Daniel, Luis
  */
 public class HumidityController extends Controller implements Runnable {
-
-    private static HumidityController INSTANCE = new HumidityController();
-
-    private static final String ID_CHANNEL_HUMIDITY_CONTROLLER = "4";
-    private static final String ID_CHANNEL_HUMIDITY_SENSOR = "-4";
-    private static final String ID_CHANNEL_CHANGE_HUMIDITY = "CH";
 
     private int maxHumidity;
     private int minHumidity;
 
-    private static final String ID_HUMIDITY_ON = "H1";
-    private static final String ID_HUMIDITY_OFF = "H0";
+    private static HumidityController INSTANCE = new HumidityController();
 
-    private static final String ID_DESHUMIDITY_ON = "D1";
-    private static final String ID_DESHUMIDITY_OFF = "D0";
+    private static final String ID_CHANNEL_HUMIDITY_CONTROLLER = "4";//id del canal de comunicacion para el controlador de humedad
+    private static final String ID_CHANNEL_HUMIDITY_SENSOR = "-4";//id del canal de comunicacion para el sensor de humedad
+    private static final String ID_CHANNEL_CHANGE_HUMIDITY = "CH"; //id del canal de comunicacion para el cambio de valores maximo y minimo de la humedad
+    
+    private static final String ID_HUMIDITY_ON = "H1";//clave para encender el humidificador
+    private static final String ID_HUMIDITY_OFF = "H0";//clave para apagar el humidificador
+
+    private static final String ID_DESHUMIDITY_ON = "D1";//clave para encender el deshumidificador
+    private static final String ID_DESHUMIDITY_OFF = "D0";//clave para apagar el humidificador
+
 
     /**
-     *
+     *constructor
+     * inicializacion de valores
      */
     private HumidityController() {
         super();
@@ -63,22 +58,20 @@ public class HumidityController extends Controller implements Runnable {
     }
 
     /**
-     *
-     * @throws IOException
-     * @throws TimeoutException
+     *método para toamr acciones dependiendo el mensaje enviado por el controlador
+     * dependiendo de la humedad se envia la orden de encender o aapagar algun dispostivo
      */
     @Override
     public void checkValues() {
         logger.info("Class HumidityController --- SEND to Controller ...");
-
-        if (Math.round(Float.parseFloat(getMessage())) > maxHumidity) {
+        if (Math.round(Float.parseFloat(getMessage())) > maxHumidity) {//si la humedad es actual es mayor a la humedad permitida
             try {
                 sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_HUMIDITY_OFF);
                 sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_DESHUMIDITY_ON);
             } catch (IOException | TimeoutException ex) {
                 logger.error(ex);
             }
-        } else if (Math.round(Float.parseFloat(getMessage())) < minHumidity) {
+        } else if (Math.round(Float.parseFloat(getMessage())) < minHumidity) {//si la humedad actual es menor a la humedad permitida
             try {
                 sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_HUMIDITY_ON);
                 sendMessage(ID_CHANNEL_HUMIDITY_CONTROLLER, ID_DESHUMIDITY_OFF);
@@ -88,6 +81,10 @@ public class HumidityController extends Controller implements Runnable {
         }
     }
 
+    /**
+     * método para actualizar los valores  de temperatura minima y maxima 
+     * estos mensajes se reciben desde GUI
+     */
     @Override
     public void checkValuesMaxMin() {
         String[] values = getMessage().split(":");
@@ -97,14 +94,12 @@ public class HumidityController extends Controller implements Runnable {
     }
 
     /**
-     *
+     * creacion de la instancia
      */
     private static void createInstance() {
-        if (INSTANCE == null) {
-            synchronized (HumidityController.class) {
-                if (INSTANCE == null) {
-                    INSTANCE = new HumidityController();
-                }
+        synchronized (HumidityController.class) {
+            if (INSTANCE == null) {
+                INSTANCE = new HumidityController();
             }
         }
     }
@@ -122,20 +117,24 @@ public class HumidityController extends Controller implements Runnable {
         return INSTANCE;
     }
 
+    /**
+     * método para correr el hilo
+     * se inicia la recepcion de mensajes de cambio de valor de humedad desde GUI
+     * se inicia la recepcion  de mensajes de humedad desde el sensor de humedad
+     */
     @Override
     public void run() {
         try {
-            receiveMessage(ID_CHANNEL_HUMIDITY_SENSOR);
-            receiveChangeMaxMinMessage(ID_CHANNEL_CHANGE_HUMIDITY);
+            receiveMessage(ID_CHANNEL_HUMIDITY_SENSOR);//recepcion de menajes de valores de humedad
+            receiveChangeMaxMinMessage(ID_CHANNEL_CHANGE_HUMIDITY);//recepcion de mensajes de cambio de maximo y minimo de humedad
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
-
-        //para fines de debug dejar las siguientes lineas de codigo
+        
+        //inicio del hilo del sensor de humedad
         HumiditySensor humiditySensor = HumiditySensor.getInstance();
         logger.info("Class HumiditysSensor --- Start Sensor Temperature...");
         humiditySensor.start();
-
     }
 
     /**

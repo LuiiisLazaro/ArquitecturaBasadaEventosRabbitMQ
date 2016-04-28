@@ -9,12 +9,26 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
- *
- * @author luiiislazaro
+ * @author Faleg, Daniel, Luis
  */
 public class AlarmWindowSensor extends Sensor {
 
-    private boolean windowState = true;
+    private boolean windowState;
+    private int currentWindowState;
+
+    private static AlarmWindowSensor INSTANCE = new AlarmWindowSensor();
+
+    private static final String ID_CHANNEL_AWINDOW_SENSOR = "-6"; //id para el canal de comunicacion del sensor de alarmas de ventana
+    private static final String ID_CHANNEL_AWINDOW_CONTROLLER = "6"; //id para el canal de comunicacion del controlador de alarmas de ventana
+
+    /**
+     *constructor
+     * inicializacion de valores
+     */
+    private AlarmWindowSensor() {
+        super();
+        this.windowState = true;
+    }
 
     public boolean isWindowState() {
         return windowState;
@@ -32,22 +46,10 @@ public class AlarmWindowSensor extends Sensor {
         this.currentWindowState = currentWindowState;
     }
 
-    private int currentWindowState;
-
-    private static AlarmWindowSensor INSTANCE = new AlarmWindowSensor();
-
-    private static final String ID_CHANNEL_AWINDOW_SENSOR = "-6";
-    private static final String ID_CHANNEL_AWINDOW_CONTROLLER = "6";
-
     /**
-     *
-     */
-    private AlarmWindowSensor() {
-        super();
-    }
-
-    /**
-     *
+     * método para tomar acciones dependiendo del mensaje recibido desde el controlador
+     * si todo esta normal se representa por AW0
+     * si la alarma se activa se represeta por AW1
      */
     @Override
     public synchronized void checkValues() {
@@ -66,33 +68,43 @@ public class AlarmWindowSensor extends Sensor {
     }
 
     /**
-     * los valores para la simulación son los siguientes: En un rango de 0 a 9
-     * ... si el número generado por random es mayor que 5 entonces se genera la
-     * alarma de puerta ... si el numero generado es menor que 5 entonces el
-     * sistema actual normal...
+     * método para correr el hilo de alarma de ventanad
+     * receibe mensajes del controlador de alarmas
+     * envia estado de la alarma de ventanas al controlador
+     * para la simulacion se crean numeros aleatorios entre 0 y 99 si el numero es mayor a 85 se activa la alarma
      */
     public void run() {
         try {
-            receiveMessage(ID_CHANNEL_AWINDOW_CONTROLLER);
+            receiveMessage(ID_CHANNEL_AWINDOW_CONTROLLER);//recepcion de mensajes
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
         while (!isDone) {
-            if (windowState) {
-                currentWindowState = getRandomNumberInt();
-                try {
-                    logger.info("Send current WINDOW state:" + currentWindowState);
-                    sendMessage(ID_CHANNEL_AWINDOW_SENSOR, String.valueOf(currentWindowState));
-                } catch (IOException | TimeoutException e1) {
-                    logger.error(e1);
+            logger.info(isActive());
+            if (isActive()) {//si el sistema de alarmas esta activado
+                if (windowState) {//si la alarma esta trabajando normal 
+                    currentWindowState = getRandomNumberInt();
+                    try {
+                        logger.info("Send current WINDOW state:" + currentWindowState);
+                        sendMessage(ID_CHANNEL_AWINDOW_SENSOR, String.valueOf(currentWindowState));//envio de mensajes
+                    } catch (IOException | TimeoutException e1) {
+                        logger.error(e1);
+                    }
+                    try {
+                        Thread.sleep(delay);
+                    } catch (Exception e) {
+                        logger.error(e);
+                    }
+                } else {//si la alarma esta activada de un evento de instruso
+                    logger.info("ESPERANDO CLIC WINDOWS WINDOW");
+                    try {
+                        Thread.sleep(delay);
+                    } catch (InterruptedException ex) {
+                        logger.error(ex);
+                    }
                 }
-                try {
-                    Thread.sleep(delay);
-                } catch (Exception e) {
-                    logger.error(e);
-                }
-            } else {
-                logger.info("ESPERANDO CLIC WINDOWS WINDOW");
+            } else {// si el sistema de alarmas esta apagado
+                logger.info("ESPERANDO CLIC MOVE SYSTEM OFF");
                 try {
                     Thread.sleep(delay);
                 } catch (InterruptedException ex) {
@@ -103,14 +115,12 @@ public class AlarmWindowSensor extends Sensor {
     }
 
     /**
-     *
+     * creacion de la instacia
      */
     private static void createInstance() {
-        if (INSTANCE == null) {
-            synchronized (AlarmWindowSensor.class) {
-                if (INSTANCE == null) {
-                    INSTANCE = new AlarmWindowSensor();
-                }
+        synchronized (AlarmWindowSensor.class) {
+            if (INSTANCE == null) {
+                INSTANCE = new AlarmWindowSensor();
             }
         }
     }
@@ -128,14 +138,9 @@ public class AlarmWindowSensor extends Sensor {
         return INSTANCE;
     }
 
-    /**
-     *
-     * @param args
-     */
     public static void main(String args[]) {
         AlarmWindowSensor alarmWindowSensor = AlarmWindowSensor.getInstance();
         logger.info("Class AlarmWindowSensor --- Start ALARM WINDOW ...");
         alarmWindowSensor.start();
     }
-
 }

@@ -1,7 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**MAIN MENU 
+ * GUI para verificar los eventos generadoss por los sensores
  */
 package Release1.Views;
 
@@ -15,7 +13,6 @@ import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Consumer;
 import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
-import java.awt.Color;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 import javax.swing.JOptionPane;
@@ -23,83 +20,88 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 /**
- *
- * @author luiiislazaro
+ * @author Faleg, Daniel, Luis
  */
 public class MainMenuConsoleView extends javax.swing.JFrame {
 
+    private int MAX_TEMPERATURE_VIEW;
+    private int MIN_TEMPERATURE_VIEW;
+    
+    private int MAX_HUMIDITY_VIEW;
+    private int MIN_HUMIDITY_VIEW;
+    
+    private AlarmController alarmWindowController;
+        
     private static final String HOST = "localhost";
 
-    private static final String ID_CHANNEL_TEMPERATURE_SENSOR = "-5";       //channel ID to send messages
-    private static final String ID_CHANNEL_TEMPERATURE_CONTROLLER = "5";    //channel ID to receive messages
+    private static final String ID_CHANNEL_TEMPERATURE_SENSOR = "-5";       //canal de comunicacion para mandar y recibir mensajes al sensor de temperatura
+    private static final String ID_CHANNEL_TEMPERATURE_CONTROLLER = "5";    //canal de comunicacion para mandar y recibir mensajes al controlador de temperatura
 
-    private static final String ID_CHANNEL_CHANGE_TEMPERATURE = "CT";
-    private static final String ID_CHANNEL_CHANGE_HUMIDITY = "CH";
+    private static final String ID_CHANNEL_CHANGE_TEMPERATURE = "CT";       //canal de comunicacion para mandar y recibir mensajes al controlador de temperatura para cambios de valor
+    private static final String ID_CHANNEL_CHANGE_HUMIDITY = "CH";          //canal de comunicacion para mandar y recibir mensajes al controlador de humedad para cambios de valor
 
-    private static int MAX_TEMPERATURE = 75;
-    private static int MIN_TEMPERATURE = 70;
+    private static final int MAX_TEMPERATURE = 75;
+    private static final int MIN_TEMPERATURE = 70;
 
-    private int MAX_TEMPERATURE_VIEW = MAX_TEMPERATURE + 5;
-    private int MIN_TEMPERATURE_VIEW = MIN_TEMPERATURE - 5;
+    private static final String ID_CHANNEL_HUMIDITY_SENSOR = "-4";          //canal de comunicacion para mandar y recibir mensajes al sensor de humedad
+    private static final String ID_CHANNEL_HUMIDITY_CONTROLLER = "4";       //canal de comunicacion para mandar y recibir mensajes al controlador de humedad
 
-    private static final String ID_CHANNEL_HUMIDITY_SENSOR = "-4";
-    private static final String ID_CHANNEL_HUMIDITY_CONTROLLER = "4";
+    private static final int MAX_HUMIDITY = 55;
+    private static final int MIN_HUMIDITY = 45;
 
-    private static int MAX_HUMIDITY = 55;
-    private static int MIN_HUMIDITY = 45;
+    private static final String ID_CHANNEL_AWINDOW_CONTROLLER = "6";        //canal de comunicacion para mandar y recibir mensajes al controlador de alarma de ventana
+    private static final String ID_CHANNEL_AWINDOW_SENSOR = "-6";           //canal de comunicacion para mandar y recibir mensajes al sensor de alarma de ventana
 
-    private int MAX_HUMIDITY_VIEW = MAX_HUMIDITY + 5;
-    private int MIN_HUMIDITY_VIEW = MIN_HUMIDITY - 5;
+    private static final String ID_CHANNEL_ADOOR_CONTROLLER = "7";          //canal de comunicacion para mandar y recibir mensajes al controlador de alarma de puerta
+    private static final String ID_CHANNEL_ADOOR_SENSOR = "-7";             //canal de comunicacion para mandar y recibir mensajes al sensor de alarma de puerta
 
-    private static final Logger logger = Logger.getLogger(MainMenuConsoleView.class);
+    private static final String ID_CHANNEL_AMOVE_CONTROLLER = "8";          //canal de comunicacion para mandar y recibir mensajes al controlador de alarma de movimiento
+    private static final String ID_CHANNEL_AMOVE_SENSOR = "-8";             //canal de comunicacion para mandar y recibir mensajes al sensor de alarma de movimiento
+    
+    private static final Logger logger = Logger.getLogger(MainMenuConsoleView.class);   //logger para eventos del sistema
 
-    private static final String ID_CHANNEL_AWINDOW_CONTROLLER = "6";
-    private static final String ID_CHANNEL_AWINDOW_SENSOR = "-6";
-
-    private static final String ID_CHANNEL_ADOOR_CONTROLLER = "7";
-    private static final String ID_CHANNEL_ADOOR_SENSOR = "-7";
-
-    private static final String ID_CHANNEL_AMOVE_CONTROLLER = "8";
-    private static final String ID_CHANNEL_AMOVE_SENSOR = "-8";
-
-    //para probar comunicacion de alarmas
-    private AlarmController alarmWindowController = AlarmController.getInstance();
-
+    /**
+     * constructor que inicializa los componentes GUI y los controladores 
+     */
     public MainMenuConsoleView() {
+        this.alarmWindowController = AlarmController.getInstance();
+        this.MIN_HUMIDITY_VIEW = MIN_HUMIDITY - 5;
+        this.MAX_HUMIDITY_VIEW = MAX_HUMIDITY + 5;
+        this.MIN_TEMPERATURE_VIEW = MIN_TEMPERATURE - 5;
+        this.MAX_TEMPERATURE_VIEW = MAX_TEMPERATURE + 5;
         PropertyConfigurator.configure("log4j.properties");
         try {
             initComponents();
-            //initValuesGeneral();
-            /*
-             receiveTemperatureControllerMessage();
-             receiveTemperatureSensorMessage();
-            
-             receiveHumidityControllerMessage();
-             receiveHumiditySensorMessage();
-             
-             */
+            initValuesGeneral();
+
+            receiveTemperatureControllerMessage();
+            receiveTemperatureSensorMessage();
+
+            receiveHumidityControllerMessage();
+            receiveHumiditySensorMessage();
+
             receiveAlarmWindowStateMessage();
             receiveAlarmDoorStateMessage();
             receiveAlarmMoveStateMessage();
 
-            runThreads();
-
+            runThreadsControllers();
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
     }
 
-    public final void runThreads() {
+    /**
+     * método para iniciar los hilos de temperatura, humedad y alarmas
+     */
+    public final void runThreadsControllers() {
+        TemperatureController temperatureController = TemperatureController.getInstance();
+        logger.info("Class TemperatureController --- Start Controller Temperature...");
+        temperatureController.start();
 
-        /*
-         TemperatureController temperatureController = TemperatureController.getInstance();
-         logger.info("Class TemperatureController --- Start Controller Temperature...");
-         temperatureController.start();
-        
-         HumidityController humidityController = HumidityController.getInstance();
-         logger.info("Class HumidityController --- Start Controller Humidity...");
-         humidityController.start();
-         */
+        HumidityController humidityController = HumidityController.getInstance();
+        logger.info("Class HumidityController --- Start Controller Humidity...");
+        humidityController.start();
+
         logger.info("Class TemperatureController --- Start Controller Temperature...");
         alarmWindowController.start();
     }
@@ -154,7 +156,6 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         lblSensorControlPanelTitle = new javax.swing.JLabel();
         jpSystemAlarm = new javax.swing.JPanel();
         lblTitleAlarms = new javax.swing.JLabel();
-        lblTitleStartAlarms = new javax.swing.JLabel();
         btnStateSystemAlarm = new javax.swing.JToggleButton();
         jpAWindow = new javax.swing.JPanel();
         lblAWindowTitle = new javax.swing.JLabel();
@@ -163,7 +164,6 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         jpAWindowNow = new javax.swing.JPanel();
         btnAWindowOff = new javax.swing.JToggleButton();
         jsAWindow = new javax.swing.JSeparator();
-        txtTestValueWindow = new javax.swing.JTextField();
         jpADoor = new javax.swing.JPanel();
         lblADoorTitle = new javax.swing.JLabel();
         lblADoorOff = new javax.swing.JLabel();
@@ -171,7 +171,6 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         jpADoorNow = new javax.swing.JPanel();
         btnADoorOff = new javax.swing.JToggleButton();
         jsADoor = new javax.swing.JSeparator();
-        txtTestValueDoor = new javax.swing.JTextField();
         jpAFire = new javax.swing.JPanel();
         lblAFireTitle = new javax.swing.JLabel();
         lblAFireOff = new javax.swing.JLabel();
@@ -179,7 +178,6 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         jpAFireNow = new javax.swing.JPanel();
         btnAFireOff = new javax.swing.JToggleButton();
         jsAFire = new javax.swing.JSeparator();
-        txtTestValueMove = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -373,10 +371,13 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
 
         lblTitleAlarms.setText("ALARMS CONTROL PANEL");
 
-        lblTitleStartAlarms.setText("Start Alamrs:");
-
-        btnStateSystemAlarm.setText("ALARMS SYSTEM ON");
+        btnStateSystemAlarm.setText("ALARMS SYSTEM OFF");
         btnStateSystemAlarm.setPreferredSize(new java.awt.Dimension(152, 15));
+        btnStateSystemAlarm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStateSystemAlarmActionPerformed(evt);
+            }
+        });
 
         jpAWindow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jpAWindow.setPreferredSize(new java.awt.Dimension(200, 250));
@@ -412,11 +413,8 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
                 btnAWindowOffActionPerformed(evt);
             }
         });
-        jpAWindow.add(btnAWindowOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 90, -1));
+        jpAWindow.add(btnAWindowOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
         jpAWindow.add(jsAWindow, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 181, 10));
-
-        txtTestValueWindow.setText("jTextField1");
-        jpAWindow.add(txtTestValueWindow, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 130, 60, -1));
 
         jpADoor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jpADoor.setPreferredSize(new java.awt.Dimension(200, 250));
@@ -452,11 +450,8 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
                 btnADoorOffActionPerformed(evt);
             }
         });
-        jpADoor.add(btnADoorOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 90, -1));
+        jpADoor.add(btnADoorOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
         jpADoor.add(jsADoor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 181, 10));
-
-        txtTestValueDoor.setText("jTextField2");
-        jpADoor.add(txtTestValueDoor, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 130, 60, -1));
 
         jpAFire.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jpAFire.setPreferredSize(new java.awt.Dimension(200, 250));
@@ -492,11 +487,8 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
                 btnAFireOffActionPerformed(evt);
             }
         });
-        jpAFire.add(btnAFireOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 90, -1));
+        jpAFire.add(btnAFireOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
         jpAFire.add(jsAFire, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 181, 10));
-
-        txtTestValueMove.setText("jTextField1");
-        jpAFire.add(txtTestValueMove, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 130, 60, -1));
 
         javax.swing.GroupLayout jpSystemAlarmLayout = new javax.swing.GroupLayout(jpSystemAlarm);
         jpSystemAlarm.setLayout(jpSystemAlarmLayout);
@@ -513,9 +505,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
                                 .addComponent(jpAFire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jpSystemAlarmLayout.createSequentialGroup()
                                 .addComponent(lblTitleAlarms)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblTitleStartAlarms)
-                                .addGap(4, 4, 4)
+                                .addGap(58, 58, 58)
                                 .addComponent(btnStateSystemAlarm, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jpSystemAlarmLayout.createSequentialGroup()
                         .addContainerGap()
@@ -528,9 +518,8 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addGroup(jpSystemAlarmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTitleAlarms)
-                    .addComponent(lblTitleStartAlarms)
                     .addComponent(btnStateSystemAlarm, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(6, 6, 6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpSystemAlarmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jpAWindow, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
                     .addComponent(jpAFire, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
@@ -563,6 +552,9 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * inicalizacion de valores en elementos de GUI
+     */
     private void initValuesGeneral() {
         lblMaxBarTemperature.setText(String.valueOf(MAX_TEMPERATURE_VIEW));
         lblMinBarTemperature.setText(String.valueOf(MIN_TEMPERATURE_VIEW));
@@ -575,10 +567,16 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
 
         jProgressBarHumidity.setMaximum(MAX_HUMIDITY);
         jProgressBarHumidity.setMinimum(MIN_HUMIDITY_VIEW);
-
     }
 
-    private void sendMessage(String ID_CHANNEL_SEND, String message) throws IOException, TimeoutException {
+    /**
+     * Método para enviar mensajes a los controladores
+     * @param ID_CHANNEL_SEND --- identificador del canal de comunicacion del controlador
+     * @param message --- mensaje enviado
+     * @throws IOException
+     * @throws TimeoutException 
+     */
+    private void sendMessageComponents(String ID_CHANNEL_SEND, String message) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
 
@@ -594,12 +592,19 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         connection.close();
     }
 
+    /**
+     * Método para actualizar los valores de la temperatura en el controlador
+     * @param evt 
+     */
     private void btnUpdateValuesTemperatureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateValuesTemperatureActionPerformed
-        // TODO add your handling code here:
         if (Integer.parseInt(txtMaximumTemperature.getText()) > Integer.parseInt(txtMinimunTemperature.getText())) {
             try {
                 logger.info("SEND NEW TEMPERATURE:" + txtMaximumTemperature.getText() + ":" + txtMinimunTemperature.getText());
-                sendMessage(ID_CHANNEL_CHANGE_TEMPERATURE, txtMaximumTemperature.getText() + ":" + txtMinimunTemperature.getText());
+                sendMessageComponents(ID_CHANNEL_CHANGE_TEMPERATURE, txtMaximumTemperature.getText() + ":" + txtMinimunTemperature.getText());
+                jProgressBarTemperature.setMaximum(Integer.parseInt(txtMaximumTemperature.getText()) + 5);
+                jProgressBarTemperature.setMinimum(Integer.parseInt(txtMinimunTemperature.getText()) - 5);
+                lblMaxBarTemperature.setText(String.valueOf(Integer.parseInt(txtMaximumTemperature.getText()) + 5));
+                lblMinBarTemperature.setText(String.valueOf(Integer.parseInt(txtMinimunTemperature.getText()) - 5));
             } catch (IOException | TimeoutException ex) {
                 logger.error(ex);
             }
@@ -608,12 +613,19 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnUpdateValuesTemperatureActionPerformed
 
+    /**
+     * Método para actualizar los valores de la humedad en el controlador
+     * @param evt 
+     */
     private void btnUpdateValuesHumidityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateValuesHumidityActionPerformed
-        // TODO add your handling code here:
         if (Integer.parseInt(txtMaximumHumidity.getText()) > Integer.parseInt(txtMinimunHumidity.getText())) {
             try {
                 logger.info("SEND NEW HUMIDITY:" + txtMaximumHumidity.getText() + ":" + txtMinimunHumidity.getText());
-                sendMessage(ID_CHANNEL_CHANGE_HUMIDITY, txtMaximumHumidity.getText() + ":" + txtMinimunHumidity.getText());
+                sendMessageComponents(ID_CHANNEL_CHANGE_HUMIDITY, txtMaximumHumidity.getText() + ":" + txtMinimunHumidity.getText());
+                jProgressBarHumidity.setMaximum(Integer.parseInt(txtMaximumHumidity.getText()) + 5);
+                jProgressBarHumidity.setMinimum(Integer.parseInt(txtMinimunHumidity.getText()) - 5);
+                lblMaxBarHumidity.setText(String.valueOf(Integer.parseInt(txtMaximumHumidity.getText()) + 5));
+                lblMinBarHumidity.setText(String.valueOf(Integer.parseInt(txtMinimunHumidity.getText()) - 5));
             } catch (IOException | TimeoutException ex) {
                 logger.error(ex);
             }
@@ -622,40 +634,67 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnUpdateValuesHumidityActionPerformed
 
+    /**
+     * método para reanudar la actividad de la alarma de puerta, es decir que vuelva a generar mensajes el sensor 
+     * @param evt 
+     */
     private void btnADoorOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnADoorOffActionPerformed
         try {
-            // TODO add your handling code here:
             logger.info("Enviado resumen al HILO AL CONTROLLER DOOR");
-            sendMessage(ID_CHANNEL_ADOOR_SENSOR, "1");
+            sendMessageComponents(ID_CHANNEL_ADOOR_SENSOR, "1");
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
     }//GEN-LAST:event_btnADoorOffActionPerformed
 
+    /**
+     * método para reanudar la actividad de la alarma de ventana, es decir que vuelva a generar mensajes el sensor 
+     * @param evt 
+     */
     private void btnAWindowOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAWindowOffActionPerformed
         try {
-            // TODO add your handling code here:
             logger.info("Enviado resumen al HILO CONTROLLER WINDOW");
-            sendMessage(ID_CHANNEL_AWINDOW_SENSOR, "1");
+            sendMessageComponents(ID_CHANNEL_AWINDOW_SENSOR, "1");
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
     }//GEN-LAST:event_btnAWindowOffActionPerformed
 
+    /**
+     * método para reanudar la actividad de la alarma de movimiento, es decir que vuelva a generar mensajes el sensor 
+     * @param evt 
+     */
     private void btnAFireOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAFireOffActionPerformed
-        // TODO add your handling code here:
         try {
-            // TODO add your handling code here:
             logger.info("Enviado resumen al HILO CONTROLLER WINDOW");
-            sendMessage(ID_CHANNEL_AMOVE_SENSOR, "1");
+            sendMessageComponents(ID_CHANNEL_AMOVE_SENSOR, "1");
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
     }//GEN-LAST:event_btnAFireOffActionPerformed
 
+    /**
+     * método para activar/desactivar de eventos de los controladores y sensores
+     * @param evt 
+     */
+    private void btnStateSystemAlarmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStateSystemAlarmActionPerformed
+        alarmWindowController.resumeThread();
+        if (alarmWindowController.isActive()) {
+            btnStateSystemAlarm.setText("ALARMS SYSTEM ON");
+        } else {
+            btnStateSystemAlarm.setText("ALARMS SYSTEM OFF");
+        }
+    }//GEN-LAST:event_btnStateSystemAlarmActionPerformed
+
+    /**
+     * método para recibir mensajes del controlador de temperatura para mostrar el estado de los dispositivos de heater y chiller
+     * @throws IOException
+     * @throws TimeoutException 
+     */
     private void receiveTemperatureControllerMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
+
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
@@ -689,9 +728,15 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         channel.basicConsume(queueName, true, consumer);
     }
 
+    /**
+     * método para recibir mensajes del controlador de Humedad para mostrar el estado de los dispositivos humidity y deshumidity
+     * @throws IOException
+     * @throws TimeoutException 
+     */
     private void receiveHumidityControllerMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
+        
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
@@ -725,9 +770,15 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         channel.basicConsume(queueName, true, consumer);
     }
 
+    /**
+     * método para recibir mensajes del controlador de alarma de ventana, para mostrar el estado de la alarma
+     * @throws IOException
+     * @throws TimeoutException 
+     */
     private synchronized void receiveAlarmWindowStateMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
+        
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
@@ -739,7 +790,6 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
             @Override
             public synchronized void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                 String message = new String(body, "UTF-8");
-                txtTestValueWindow.setText(message);
                 logger.info("Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM WINDOW --- Value: " + new String(body, "UTF-8"));
                 if (message.equals("AW1")) {
                     jpAWindowNow.setBackground(new java.awt.Color(255, 0, 0));
@@ -752,6 +802,11 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         channel.basicConsume(queueName, true, consumer);
     }
 
+    /**
+     * método para recibir mensajes del controlador de alarma de puerta, para mostrar el estado de la alarma
+     * @throws IOException
+     * @throws TimeoutException 
+     */
     private synchronized void receiveAlarmDoorStateMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
@@ -767,7 +822,6 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
             @Override
             public synchronized void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                 String message = new String(body, "UTF-8");
-                txtTestValueDoor.setText(message);
                 logger.info("Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM DOOR --- Value: " + new String(body, "UTF-8"));
                 if (message.equals("AD1")) {
                     jpADoorNow.setBackground(new java.awt.Color(255, 0, 0));
@@ -779,7 +833,12 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         };
         channel.basicConsume(queueName, true, consumer);
     }
-    
+
+    /**
+     * método para recibir mensajes del controlador de alarma de movimiento, para mostrar el estado de la alarma
+     * @throws IOException
+     * @throws TimeoutException 
+     */
     private synchronized void receiveAlarmMoveStateMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
@@ -795,7 +854,6 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
             @Override
             public synchronized void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                 String message = new String(body, "UTF-8");
-                txtTestValueDoor.setText(message);
                 logger.info("Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: " + new String(body, "UTF-8"));
                 if (message.equals("AM1")) {
                     jpAFireNow.setBackground(new java.awt.Color(255, 0, 0));
@@ -822,7 +880,6 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             logger.error(ex);
         }
-        //</editor-fold>
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -889,21 +946,23 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     private javax.swing.JLabel lblTemperatureNow;
     private javax.swing.JLabel lblTemperatureTitle;
     private javax.swing.JLabel lblTitleAlarms;
-    private javax.swing.JLabel lblTitleStartAlarms;
     private javax.swing.JTextField txtHumidityNow;
     private javax.swing.JTextField txtMaximumHumidity;
     private javax.swing.JTextField txtMaximumTemperature;
     private javax.swing.JTextField txtMinimunHumidity;
     private javax.swing.JTextField txtMinimunTemperature;
     private javax.swing.JTextField txtTemperatureNow;
-    private javax.swing.JTextField txtTestValueDoor;
-    private javax.swing.JTextField txtTestValueMove;
-    private javax.swing.JTextField txtTestValueWindow;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * método para recibir mensajes del sensor de temperatura, para mostrar en la barra de progreso
+     * @throws IOException
+     * @throws TimeoutException 
+     */
     private void receiveTemperatureSensorMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
+
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
@@ -924,9 +983,15 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         channel.basicConsume(queueName, true, consumer);
     }
 
+    /**
+     * método para recibir mensajes del sensor de humedad, para mostrar en la barra de progreso
+     * @throws IOException
+     * @throws TimeoutException 
+     */
     private void receiveHumiditySensorMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
+        
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
@@ -945,5 +1010,4 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         };
         channel.basicConsume(queueName, true, consumer);
     }
-
 }

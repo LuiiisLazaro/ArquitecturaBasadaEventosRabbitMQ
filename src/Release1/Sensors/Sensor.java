@@ -1,11 +1,8 @@
 /**
- * 
+ * sensor generico para las demas clases
  */
 package Release1.Sensors;
 
-/**
- * 
- */
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -22,44 +19,48 @@ import org.apache.log4j.PropertyConfigurator;
 /**
  * class sensor to simulate the real sensor in this program
  *
- * @author luiiislazaro
+ * @author Faleg, Daniel, Luis
  */
-public class Sensor extends Thread{
+public class Sensor extends Thread {
 
-    protected int delay = 10000;         //the time to update data and send to console
-    protected boolean isDone = false;   //to control de life of thred
-    protected float driftValue;				// The amount of temperature gained or lost
-    private String message;           //message with value to send
-    
-    protected static final String HOST  = "localhost";
-    
-    protected final static Logger logger = Logger.getLogger(Sensor.class);
+    private String message;         //message with value to send
+    protected int delay;            //tiempo para enviar mensajes al controlador
+    protected boolean active;       //avirable para saber si esta activado el sistema de alarmas
+    protected boolean isDone;       //para correr el hilo en el método run
+    protected float driftValue;     // The amount of temperature gained or lost
 
+    protected static final String HOST = "localhost";   //
+    protected static final Logger logger = Logger.getLogger(Sensor.class);
+
+    /**
+     *constructor
+     * inicializacion de valores 
+     * configuracion de logger
+     */
     protected Sensor() {
         super();
+        this.isDone = false;
+        this.active = true;
+        this.delay = 10000;
         PropertyConfigurator.configure("log4j.properties");
     }
-    
-    /**
-     * 
-     * @return 
-     */
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
     public String getMessage() {
         return message;
     }
 
-    /**
-     * 
-     * @param message 
-     */
     public void setMessage(String message) {
         this.message = message;
     }
 
-    /**
-     * 
-     * @return 
-     */
     protected boolean coinToss() {
         Random r = new Random();
         return (r.nextBoolean());
@@ -67,7 +68,6 @@ public class Sensor extends Thread{
 
     /**
      * to create numbers and simulate the temperature
-     *
      * @return
      */
     protected float getRandomNumber() {
@@ -79,17 +79,20 @@ public class Sensor extends Thread{
         }
         return (val);
     }
-    
-    protected int getRandomNumberInt(){
+
+    /**
+     *para generar numeros y simular las alarmas
+     * @return
+     */
+    protected int getRandomNumberInt() {
         Random r = new Random();
         return r.nextInt(99 - 0 + 1) + 0;
     }
 
     /**
-     * to send the message to the console with rabbitMQ
-     *
-     * @param ID_CHANNEL_SEND
-     * @param message
+     * método para enviar mensajes a los controladores
+     * @param ID_CHANNEL_SEND --- canal de comunicacion
+     * @param message --- mensaje
      * @throws IOException
      * @throws TimeoutException
      */
@@ -100,7 +103,7 @@ public class Sensor extends Thread{
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
-        logger.info("Class Sensor --- SEND to Controller --- Value:"+message);
+        logger.info("Class Sensor --- SEND to Controller --- Value:" + message);
 
         channel.exchangeDeclare(ID_CHANNEL_SEND, "fanout");
         channel.basicPublish(ID_CHANNEL_SEND, "", null, message.getBytes("UTF-8"));
@@ -108,10 +111,17 @@ public class Sensor extends Thread{
         channel.close();
         connection.close();
     }
-    
+
+    /**
+     * método para recibir mensajes de los controladores
+     * @param ID_CHANNEL_TEMPERATURE_CONTROLLER --- canal de comunicacion
+     * @throws IOException
+     * @throws TimeoutException
+     */
     protected synchronized void receiveMessage(String ID_CHANNEL_TEMPERATURE_CONTROLLER) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
+
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
@@ -129,8 +139,12 @@ public class Sensor extends Thread{
         };
         channel.basicConsume(queueName, true, consumer);
     }
-    
-    public synchronized void checkValues(){
-        
+
+    /**
+     * metodo para decidir acciones despues de recibir un mensaje de los controladores
+     * cada sensor lo sobre escribe 
+     */
+    public synchronized void checkValues() {
+
     }
 }

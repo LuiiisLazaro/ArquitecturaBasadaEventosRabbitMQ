@@ -1,11 +1,5 @@
-/**
- *
- */
 package Release1.Controllers;
 
-/**
- *
- */
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -19,16 +13,24 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 /**
- *
- * @author luiiislazaro
+ * @author Faleg, Daniel, Luis
  */
 public class Controller extends Thread {
 
     private String message;
+    
     protected static final String HOST = "localhost";
+    protected static final Logger logger = Logger.getLogger(Controller.class);//logger para el registro de eventos
 
-    protected static final Logger logger = Logger.getLogger(Controller.class);
-
+    /**
+     * constructor 
+     * configuraciones para el logger
+     */
+    protected Controller() {
+        super();
+        PropertyConfigurator.configure("log4j.properties");
+    }
+    
     public String getMessage() {
         return message;
     }
@@ -37,16 +39,11 @@ public class Controller extends Thread {
         this.message = message;
     }
 
-    protected Controller() {
-        super();
-        PropertyConfigurator.configure("log4j.properties");
-    }
-
     /**
-     * to send the message to the console with rabbitMQ
+     * method to send the message to the console with rabbitMQ
      *
-     * @param ID_CHANNEL_SEND
-     * @param message
+     * @param ID_CHANNEL_SEND id channel 
+     * @param message message to send
      * @throws IOException
      * @throws TimeoutException
      */
@@ -66,9 +63,16 @@ public class Controller extends Thread {
         connection.close();
     }
 
+    /**
+     * method to receive messages from sensors
+     * @param ID_CHANNEL_RECEIVE id channel to listen
+     * @throws IOException
+     * @throws TimeoutException 
+     */
     protected void receiveMessage(String ID_CHANNEL_RECEIVE) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
+        
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
@@ -87,14 +91,24 @@ public class Controller extends Thread {
         channel.basicConsume(queueName, true, consumer);
     }
 
+    /**
+     * metodo para tomar acciones dependiendo del mensaje recibido desde el sensor
+     * este método se va a sobre escribir por cada controlador
+     */
     public void checkValues() {
 
     }
     
-    
+    /**
+     * métedo para recibir los cambio de valores de maximo y minimo de temperatura y humeada
+     * @param ID_CHANNEL_CHANGE_RECEIVED id del canal de conunicación para recibir mensajes
+     * @throws IOException
+     * @throws TimeoutException 
+     */
     public void receiveChangeMaxMinMessage(String ID_CHANNEL_CHANGE_RECEIVED) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
+        
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
@@ -113,9 +127,11 @@ public class Controller extends Thread {
         channel.basicConsume(queueName, true, consumer);
     }
     
+    /**
+     * metodo para tomar acciones dependiendo del mensaje recibido desde GUI para valores max y min
+     * este método se va a sobre escribir por cada controlador
+     */
     public void checkValuesMaxMin(){
         
     }
-    
-
 }

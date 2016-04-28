@@ -9,14 +9,26 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
- *
- * @author luiiislazaro
+ * @author Faleg, Daniel, Luis
  */
 public class AlarmDoorSensor extends Sensor {
 
-    private boolean doorState = true;
-
+    private boolean doorState;
     private int currentDoorState;
+
+    private static AlarmDoorSensor INSTANCE = new AlarmDoorSensor();
+
+    private static final String ID_CHANNEL_ADOOR_SENSOR = "-7"; // id para el canal de comunicacion del sensor de alarmas de puerta
+    private static final String ID_CHANNEL_ADOOR_CONTROLLER = "7"; //id para el canal de comunicacion del controlador de alarmas de puerta
+
+    /**
+     *constructor
+     * inicializacion de valores
+     */
+    private AlarmDoorSensor() {
+        super();
+        this.doorState = true;
+    }
 
     public boolean isDoorState() {
         return doorState;
@@ -34,18 +46,11 @@ public class AlarmDoorSensor extends Sensor {
         this.currentDoorState = currentDoorState;
     }
 
-    private static AlarmDoorSensor INSTANCE = new AlarmDoorSensor();
-
-    private static final String ID_CHANNEL_ADOOR_SENSOR = "-7";
-    private static final String ID_CHANNEL_ADOOR_CONTROLLER = "7";
-
     /**
-     *
+     * método para tomar acciones dependiendo del mensajes recibido desde el controlador
+     * si todo esta normla se represetna por AD0
+     * si la alarma se activa se represeta por AD1
      */
-    private AlarmDoorSensor() {
-        super();
-    }
-
     @Override
     public void checkValues() {
         switch (getMessage()) {
@@ -62,31 +67,44 @@ public class AlarmDoorSensor extends Sensor {
     }
 
     /**
-     *
+     * método para correr el hilo de la alarma de puerta 
+     * recibe mensjaes del controlador de alarmas
+     * envia estado de la alarma de puertas al controlador
+     * para la simulacion se crean numeros aleatorios entre 0 y 99 si el numero es mayor a 85 se activa la alarma
      */
     @Override
     public void run() {
         try {
-            receiveMessage(ID_CHANNEL_ADOOR_CONTROLLER);
+            receiveMessage(ID_CHANNEL_ADOOR_CONTROLLER);//recepcion de mensajes
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
         while (!isDone) {
-            if (doorState) {
-                currentDoorState = getRandomNumberInt();
-                 try {
-                    logger.info("Send current DOOR state:" + currentDoorState);
-                    sendMessage(ID_CHANNEL_ADOOR_SENSOR, String.valueOf(currentDoorState));
-                } catch (IOException | TimeoutException e1) {
-                    logger.error(e1);
+            logger.info(isActive());
+            if (isActive()) {//si el sistema de alarmas esta activado 
+                if (doorState) {//si la alarma esta trabajando normal
+                    currentDoorState = getRandomNumberInt();
+                    try {
+                        logger.info("Send current DOOR state:" + currentDoorState);
+                        sendMessage(ID_CHANNEL_ADOOR_SENSOR, String.valueOf(currentDoorState));//envio de mensajes
+                    } catch (IOException | TimeoutException e1) {
+                        logger.error(e1);
+                    }
+                    try {
+                        Thread.sleep(delay);
+                    } catch (Exception e) {
+                        logger.error(e);
+                    }
+                } else {//si la alarma se activa por un evento de instruso 
+                    logger.info("ESPERANDO CLIC DESDE VENTANA DOOR");
+                    try {
+                        Thread.sleep(delay);
+                    } catch (InterruptedException ex) {
+                        logger.error(ex);
+                    }
                 }
-                try {
-                    Thread.sleep(delay);
-                } catch (Exception e) {
-                    logger.error(e);
-                }
-            } else {
-                logger.info("ESPERANDO CLIC DESDE VENTANA DOOR");
+            } else {//si el sistema de alarmas esta apagado
+                logger.info("ESPERANDO CLIC MOVE SYSTEM OFF");
                 try {
                     Thread.sleep(delay);
                 } catch (InterruptedException ex) {
@@ -95,16 +113,14 @@ public class AlarmDoorSensor extends Sensor {
             }
         }
     }
-    
+
     /**
-     *
+     * creacion de la instacia
      */
     private static void createInstance() {
-        if (INSTANCE == null) {
-            synchronized (AlarmDoorSensor.class) {
-                if (INSTANCE == null) {
-                    INSTANCE = new AlarmDoorSensor();
-                }
+        synchronized (AlarmDoorSensor.class) {
+            if (INSTANCE == null) {
+                INSTANCE = new AlarmDoorSensor();
             }
         }
     }
@@ -122,10 +138,6 @@ public class AlarmDoorSensor extends Sensor {
         return INSTANCE;
     }
 
-    /**
-     *
-     * @param args
-     */
     public static void main(String args[]) {
         AlarmDoorSensor alarmDoorSensor = AlarmDoorSensor.getInstance();
         logger.info("Class AlarmDoorSensor --- Start ALARM DOOR ...");

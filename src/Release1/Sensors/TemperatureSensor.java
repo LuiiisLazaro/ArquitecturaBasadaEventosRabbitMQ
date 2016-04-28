@@ -1,17 +1,13 @@
 /**
- *
+ * TEMPERATURESENSOR. simiulador de dispositivo de temperatura
  */
 package Release1.Sensors;
 
-/**
- *
- */
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
- *
- * @author luiiislazaro
+ * @author Faleg, Daniel, Luis
  */
 public class TemperatureSensor extends Sensor {
 
@@ -25,12 +21,16 @@ public class TemperatureSensor extends Sensor {
     private static final String ID_CHANNEL_TEMPERATURE_CONTROLLER = "5";    //channel ID to receive messages
 
     /**
-     *
+     * constructors
      */
     private TemperatureSensor() {
         super();
     }
 
+    /**
+     * sobre escritura del método checkvalues para controlar los dispositivos
+     * heater y chiller
+     */
     @Override
     public void checkValues() {
         switch (getMessage()) {
@@ -52,12 +52,12 @@ public class TemperatureSensor extends Sensor {
     }
 
     /**
-     *
+     * aqui se reciben mensajes del controlador y se envia la temperatura al controlador
      */
     @Override
     public void run() {
         try {
-            receiveMessage(ID_CHANNEL_TEMPERATURE_CONTROLLER);
+            receiveMessage(ID_CHANNEL_TEMPERATURE_CONTROLLER);//recepcion de mensaje
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
@@ -70,20 +70,19 @@ public class TemperatureSensor extends Sensor {
             }
             currentTemperature += driftValue;
             try {
-                sendMessage(ID_CHANNEL_TEMPERATURE_SENSOR, String.valueOf(currentTemperature));
+                sendMessage(ID_CHANNEL_TEMPERATURE_SENSOR, String.valueOf(currentTemperature));//envio de mensaje
             } catch (IOException | TimeoutException e1) {
                 logger.error(e1);
             }
             if (heaterState) {
                 currentTemperature += getRandomNumber();
-            } // if heater is on
+            }
             if (!heaterState && !chillerState) {
                 currentTemperature += driftValue;
-            } // if both the heater and chiller are off
+            }
             if (chillerState) {
                 currentTemperature -= getRandomNumber();
             }
-            
             try {
                 Thread.sleep(delay);
             } catch (Exception e) {
@@ -93,14 +92,12 @@ public class TemperatureSensor extends Sensor {
     }
 
     /**
-     *
+     * creacion de la instacia para un objeto temperaturesensor
      */
     private static void createInstance() {
-        if (INSTANCE == null) {
-            synchronized (TemperatureSensor.class) {
-                if (INSTANCE == null) {
-                    INSTANCE = new TemperatureSensor();
-                }
+        synchronized (TemperatureSensor.class) {
+            if (INSTANCE == null) {
+                INSTANCE = new TemperatureSensor();
             }
         }
     }
@@ -118,14 +115,9 @@ public class TemperatureSensor extends Sensor {
         return INSTANCE;
     }
 
-    /**
-     *
-     * @param args
-     */
     public static void main(String args[]) {
         TemperatureSensor temperatureSensor = TemperatureSensor.getInstance();
         logger.info("Class TemperatureSensot --- Start Sensor Temperature...");
         temperatureSensor.start();
     }
-
 }

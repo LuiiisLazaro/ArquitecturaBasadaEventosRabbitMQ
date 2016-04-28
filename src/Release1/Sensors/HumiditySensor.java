@@ -9,24 +9,32 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
- *
- * @author luiiislazaro
+ * @author Faleg, Daniel, Luis
  */
 public class HumiditySensor extends Sensor {
 
-    private boolean humidityState = false;
-    private boolean deshumidityState =false;
+    private boolean humidityState;
+    private boolean deshumidityState;
     private float currentHumidity;
 
     private static HumiditySensor INSTANCE = new HumiditySensor();
 
-    private static final String ID_CHANNEL_HUMIDITY_SENSOR = "-4";
-    private static final String ID_CHANNEL_HUMIDITY_CONTROLLER = "4";
+    private static final String ID_CHANNEL_HUMIDITY_SENSOR = "-4"; //id para el canal de comunicacion de sensor de humedad
+    private static final String ID_CHANNEL_HUMIDITY_CONTROLLER = "4";//id para el canal de comunicacion del controlador de humedad
 
+    /**
+     *contructor para inicializar valores
+     */
     private HumiditySensor() {
         super();
+        this.deshumidityState = false;
+        this.humidityState = false;
+        this.currentHumidity = 47;
     }
 
+    /**
+     * método para decidir acciones de acuerdo al mensaje recibido del controlador
+     */
     @Override
     public void checkValues() {
         switch (getMessage()) {
@@ -37,25 +45,29 @@ public class HumiditySensor extends Sensor {
                 humidityState = false;
                 break;
             case "D1":
-                deshumidityState=true;
+                deshumidityState = true;
                 break;
             case "D0":
-                deshumidityState= false;
+                deshumidityState = false;
                 break;
-                
+
             default:
         }
-        logger.info("Class HumiditySensor --- NewValues Humidity:" + humidityState+" , Deshumidity: "+deshumidityState);
+        logger.info("Class HumiditySensor --- NewValues Humidity:" + humidityState + " , Deshumidity: " + deshumidityState);
     }
 
+    /**
+     * método para correr el hilo
+     * recibe mensajes del controlador de humedada
+     * envia valor de humedad al controlador
+     */
     @Override
     public void run() {
         try {
-            receiveMessage(ID_CHANNEL_HUMIDITY_CONTROLLER);
+            receiveMessage(ID_CHANNEL_HUMIDITY_CONTROLLER);//recepcion de mensajes
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
-        currentHumidity = 47;
         while (!isDone) {
             if (coinToss()) {
                 driftValue = getRandomNumber() * (float) -1.0;
@@ -64,21 +76,19 @@ public class HumiditySensor extends Sensor {
             }
             currentHumidity += driftValue;
             try {
-                sendMessage(ID_CHANNEL_HUMIDITY_SENSOR, String.valueOf(currentHumidity));
+                sendMessage(ID_CHANNEL_HUMIDITY_SENSOR, String.valueOf(currentHumidity));//envio de mensajes
             } catch (IOException | TimeoutException e1) {
                 logger.error(e1);
             }
             if (humidityState) {
-                    currentHumidity += getRandomNumber();
-                } // if humidifier is on
-
-                if (!humidityState && !deshumidityState) {
-                    currentHumidity += driftValue;
-                } // if both the humidifier and dehumidifier are off
-
-                if (deshumidityState) {
-                    currentHumidity -= getRandomNumber();
-                }
+                currentHumidity += getRandomNumber();
+            }
+            if (!humidityState && !deshumidityState) {
+                currentHumidity += driftValue;
+            }
+            if (deshumidityState) {
+                currentHumidity -= getRandomNumber();
+            }
             try {
                 Thread.sleep(delay);
             } catch (Exception e) {
@@ -87,12 +97,13 @@ public class HumiditySensor extends Sensor {
         }
     }
 
+    /**
+     * crear instancia
+     */
     private static void createInstance() {
-        if (INSTANCE == null) {
-            synchronized (HumiditySensor.class) {
-                if (INSTANCE == null) {
-                    INSTANCE = new HumiditySensor();
-                }
+        synchronized (HumiditySensor.class) {
+            if (INSTANCE == null) {
+                INSTANCE = new HumiditySensor();
             }
         }
     }
@@ -110,14 +121,9 @@ public class HumiditySensor extends Sensor {
         return INSTANCE;
     }
 
-    /**
-     *
-     * @param args
-     */
     public static void main(String args[]) {
         HumiditySensor humiditySensor = HumiditySensor.getInstance();
         logger.info("Class HumiditysSensor --- Start Sensor Temperature...");
         humiditySensor.start();
     }
-
 }

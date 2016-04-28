@@ -5,43 +5,33 @@
  */
 package Release1.Controllers;
 
-/**
- *
- */
 import Release1.Sensors.TemperatureSensor;
-import com.rabbitmq.client.AMQP;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.Consumer;
-import com.rabbitmq.client.DefaultConsumer;
-import com.rabbitmq.client.Envelope;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 /**
- *
- * @author luiiislazaro
+ * @author Faleg, Daniel, Luis
  */
 public class TemperatureController extends Controller {
-
-    private static TemperatureController INSTANCE = new TemperatureController();
-
-    private static final String ID_CHANNEL_TEMPERATURE_CONTROLLER = "5";
-    private static final String ID_CHANNEL_TEMPERATURE_SENSOR = "-5";
-    private static final String ID_CHANNEL_CHANGE_TEMPERATURE = "CT";
 
     private int maxTemperature;
     private int minTemperature;
 
-    private static final String ID_HEATER_ON = "H1";
-    private static final String ID_HEATER_OFF = "H0";
+    private static TemperatureController INSTANCE = new TemperatureController();
 
-    private static final String ID_CHILLER_ON = "C1";
-    private static final String ID_CHILLER_OFF = "C0";
+    private static final String ID_CHANNEL_TEMPERATURE_CONTROLLER = "5"; //id del canal de comunicacion para el controlador de temperatura 
+    private static final String ID_CHANNEL_TEMPERATURE_SENSOR = "-5"; //id del canal de comunicacion para el sensor de temperatura
+    private static final String ID_CHANNEL_CHANGE_TEMPERATURE = "CT"; //id del canal de comunicacion para el cambio de valores maximo y minimo de la temperatura
+
+    private static final String ID_HEATER_ON = "H1"; //clave para encender el calentador
+    private static final String ID_HEATER_OFF = "H0";//clave para apagar el calentador
+
+    private static final String ID_CHILLER_ON = "C1";//clave para encender el enfriador
+    private static final String ID_CHILLER_OFF = "C0";//clave para apagar el enfriador
 
     /**
-     *
+     *constructor
+     * inicializacion de valores
      */
     private TemperatureController() {
         super();
@@ -66,21 +56,20 @@ public class TemperatureController extends Controller {
     }
 
     /**
-     *
-     * @throws IOException
-     * @throws TimeoutException
+     *método para tomar acciones dependiendo del mensaje envia por el controlador 
+     * dependiendo de la temperatura se envia la orden de encender o apagar algun dispositivo
      */
     @Override
     public void checkValues() {
         logger.info("Class TemperatureController --- SEND to Controller ...");
-        if (Math.round(Float.parseFloat(getMessage())) > maxTemperature) {
+        if (Math.round(Float.parseFloat(getMessage())) > maxTemperature) {//si la temperatura actual es mayor
             try {
                 sendMessage(ID_CHANNEL_TEMPERATURE_CONTROLLER, ID_CHILLER_ON);
                 sendMessage(ID_CHANNEL_TEMPERATURE_CONTROLLER, ID_HEATER_OFF);
             } catch (IOException | TimeoutException ex) {
                 logger.error(ex);
             }
-        } else if (Math.round(Float.parseFloat(getMessage())) < minTemperature) {
+        } else if (Math.round(Float.parseFloat(getMessage())) < minTemperature) {//si la temperatura actual es menor
             try {
                 sendMessage(ID_CHANNEL_TEMPERATURE_CONTROLLER, ID_CHILLER_OFF);
                 sendMessage(ID_CHANNEL_TEMPERATURE_CONTROLLER, ID_HEATER_ON);
@@ -90,6 +79,10 @@ public class TemperatureController extends Controller {
         }
     }
 
+    /**
+     * método para actualizar los valores de temperatura minima y maxima
+     * estos mensjaes se reciben desde GUI
+     */
     @Override
     public void checkValuesMaxMin() {
         String[] values = getMessage().split(":");
@@ -99,7 +92,7 @@ public class TemperatureController extends Controller {
     }
 
     /**
-     *
+     *creacion de la instancia
      */
     private static void createInstance() {
         if (INSTANCE == null) {
@@ -125,13 +118,15 @@ public class TemperatureController extends Controller {
     }
 
     /**
-     *
+     *método para correr el hilo, 
+     * se inicia la recepcion de mensajes desde el cambio de valores GUI
+     * se inicia la recepcion de mensajes desde el sensor de temperatura
      */
     @Override
     public void run() {
         try {
-            receiveChangeMaxMinMessage(ID_CHANNEL_CHANGE_TEMPERATURE);
-            receiveMessage(ID_CHANNEL_TEMPERATURE_SENSOR);
+            receiveChangeMaxMinMessage(ID_CHANNEL_CHANGE_TEMPERATURE);//listener para los cambios de valores de temperaturamaxima o minima
+            receiveMessage(ID_CHANNEL_TEMPERATURE_SENSOR);//listener para recibir la temperatura actual desde el sensor
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
@@ -140,18 +135,13 @@ public class TemperatureController extends Controller {
         } catch (InterruptedException ex) {
             logger.error(ex);
         }
-
-        //para fines de debug dejar las siguientes lineas de codigo
+        //inicio del hilo se sensor de temperatura 
         TemperatureSensor temperatureSensor = TemperatureSensor.getInstance();
         logger.info("Class TemperatureSensot Start Sensor Temperature...");
         temperatureSensor.start();
 
     }
 
-    /**
-     *
-     * @param args
-     */
     public static void main(String args[]) {
         TemperatureController temperatureController = TemperatureController.getInstance();
         logger.info("Class TemperatureController --- Start Controller Temperature...");
