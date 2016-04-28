@@ -1,11 +1,11 @@
 /**
  * MAIN MENU GUI para verificar los eventos generadoss por los sensores
  */
-package Release2.Views;
+package Release3.Views;
 
-import Release1.Controllers.AlarmController;
-import Release1.Controllers.HumidityController;
-import Release1.Controllers.TemperatureController;
+import Release3.Controllers.AlarmController;
+import Release3.Controllers.HumidityController;
+import Release3.Controllers.TemperatureController;
 import Release2.Controllers.AlarmFireController;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;

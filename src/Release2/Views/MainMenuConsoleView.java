@@ -3,9 +3,9 @@
  */
 package Release2.Views;
 
-import Release1.Controllers.AlarmController;
-import Release1.Controllers.HumidityController;
-import Release1.Controllers.TemperatureController;
+import Release2.Controllers.AlarmController;
+import Release2.Controllers.HumidityController;
+import Release2.Controllers.TemperatureController;
 import Release2.Controllers.AlarmFireController;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;

@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Release2.Controllers;
+package Release3.Controllers;
 
-import static Release2.Controllers.Controller.HOST;
-import static Release2.Controllers.Controller.logger;
+import static Release3.Controllers.Controller.HOST;
+import static Release3.Controllers.Controller.logger;
 import Release1.Sensors.AlarmDoorSensor;
 import Release1.Sensors.AlarmMoveSensor;
 import Release1.Sensors.AlarmWindowSensor;

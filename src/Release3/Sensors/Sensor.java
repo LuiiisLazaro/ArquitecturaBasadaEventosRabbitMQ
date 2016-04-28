@@ -1,7 +1,7 @@
 /**
  * sensor generico para las demas clases
  */
-package Release2.Sensors;
+package Release3.Sensors;
 
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;

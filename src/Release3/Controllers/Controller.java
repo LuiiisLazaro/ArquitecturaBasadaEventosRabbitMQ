@@ -1,4 +1,4 @@
-package Release2.Controllers;
+    package Release3.Controllers;
 
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;

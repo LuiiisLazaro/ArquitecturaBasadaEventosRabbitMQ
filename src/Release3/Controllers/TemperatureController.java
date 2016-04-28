@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Release2.Controllers;
+package Release3.Controllers;
 
 import Release1.Sensors.TemperatureSensor;
 import java.io.IOException;

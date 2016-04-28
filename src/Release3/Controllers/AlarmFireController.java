@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Release2.Controllers;
+package Release3.Controllers;
 
-import static Release2.Controllers.Controller.HOST;
+import static Release3.Controllers.Controller.HOST;
 import Release2.Sensors.AlarmFireSensor;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;

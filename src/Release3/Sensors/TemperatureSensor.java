@@ -1,7 +1,7 @@
 /**
  * TEMPERATURESENSOR. simiulador de dispositivo de temperatura
  */
-package Release2.Sensors;
+package Release3.Sensors;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
