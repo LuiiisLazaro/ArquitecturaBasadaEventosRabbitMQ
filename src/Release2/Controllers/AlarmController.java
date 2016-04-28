@@ -257,7 +257,7 @@ public class AlarmController extends Controller {
 
     public static void main(String args[]) {
         AlarmController alarmWindowController = AlarmController.getInstance();
-        logger.info("Class TemperatureController --- Start Controller Temperature...");
+        logger.info("Class AlarmController --- Start Controller Alarms...");
         alarmWindowController.start();
     }
 }

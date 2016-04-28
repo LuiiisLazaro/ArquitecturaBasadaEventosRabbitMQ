@@ -1,11 +1,12 @@
-/**MAIN MENU 
- * GUI para verificar los eventos generadoss por los sensores
+/**
+ * MAIN MENU GUI para verificar los eventos generadoss por los sensores
  */
 package Release2.Views;
 
 import Release1.Controllers.AlarmController;
 import Release1.Controllers.HumidityController;
 import Release1.Controllers.TemperatureController;
+import Release2.Controllers.AlarmFireController;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -26,12 +27,13 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
 
     private int MAX_TEMPERATURE_VIEW;
     private int MIN_TEMPERATURE_VIEW;
-    
+
     private int MAX_HUMIDITY_VIEW;
     private int MIN_HUMIDITY_VIEW;
-    
+
     private AlarmController alarmWindowController;
-        
+    private AlarmFireController alarmFireController;
+
     private static final String HOST = "localhost";
 
     private static final String ID_CHANNEL_TEMPERATURE_SENSOR = "-5";       //canal de comunicacion para mandar y recibir mensajes al sensor de temperatura
@@ -57,14 +59,20 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
 
     private static final String ID_CHANNEL_AMOVE_CONTROLLER = "8";          //canal de comunicacion para mandar y recibir mensajes al controlador de alarma de movimiento
     private static final String ID_CHANNEL_AMOVE_SENSOR = "-8";             //canal de comunicacion para mandar y recibir mensajes al sensor de alarma de movimiento
+
+    private static final String ID_CHANNEL_AFIRE_CONTROLLER = "9";
+    private static final String ID_CHANNEL_AFIRE_SENSOR = "-9";
     
+    private static final String ID_CHANNEL_AFIRE_SPRINKLERS="AFS";
+
     private static final Logger logger = Logger.getLogger(MainMenuConsoleView.class);   //logger para eventos del sistema
 
     /**
-     * constructor que inicializa los componentes GUI y los controladores 
+     * constructor que inicializa los componentes GUI y los controladores
      */
     public MainMenuConsoleView() {
         this.alarmWindowController = AlarmController.getInstance();
+        this.alarmFireController = AlarmFireController.getInstance();
         this.MIN_HUMIDITY_VIEW = MIN_HUMIDITY - 5;
         this.MAX_HUMIDITY_VIEW = MAX_HUMIDITY + 5;
         this.MIN_TEMPERATURE_VIEW = MIN_TEMPERATURE - 5;
@@ -74,15 +82,18 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
             initComponents();
             initValuesGeneral();
 
-            receiveTemperatureControllerMessage();
-            receiveTemperatureSensorMessage();
+            /*receiveTemperatureControllerMessage();
+             receiveTemperatureSensorMessage();
 
-            receiveHumidityControllerMessage();
-            receiveHumiditySensorMessage();
+             receiveHumidityControllerMessage();
+             receiveHumiditySensorMessage();
 
-            receiveAlarmWindowStateMessage();
-            receiveAlarmDoorStateMessage();
-            receiveAlarmMoveStateMessage();
+             receiveAlarmWindowStateMessage();
+             receiveAlarmDoorStateMessage();
+             receiveAlarmMoveStateMessage();
+             */
+            receiveAlarmFireStateMessage();
+            receiveAlarmSprinklersMessage();
 
             runThreadsControllers();
         } catch (IOException | TimeoutException ex) {
@@ -94,16 +105,20 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
      * método para iniciar los hilos de temperatura, humedad y alarmas
      */
     public final void runThreadsControllers() {
-        TemperatureController temperatureController = TemperatureController.getInstance();
-        logger.info("Class TemperatureController --- Start Controller Temperature...");
-        temperatureController.start();
+        /*
+         TemperatureController temperatureController = TemperatureController.getInstance();
+         logger.info("Class MAINMENU--- Start Controller Temperature...");
+         temperatureController.start();
 
-        HumidityController humidityController = HumidityController.getInstance();
-        logger.info("Class HumidityController --- Start Controller Humidity...");
-        humidityController.start();
+         HumidityController humidityController = HumidityController.getInstance();
+         logger.info("Class MAIN MENU--- Start Controller Humidity...");
+         humidityController.start();
 
-        logger.info("Class TemperatureController --- Start Controller Temperature...");
-        alarmWindowController.start();
+         logger.info("Class MAINMENU --- Start Controller alarms...");
+         alarmWindowController.start();
+         */
+        logger.info("Class MAINMENU--- Start Controller alarm fire...");
+        alarmFireController.start();
     }
 
     /**
@@ -171,6 +186,13 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         jpADoorNow = new javax.swing.JPanel();
         btnADoorOff = new javax.swing.JToggleButton();
         jsADoor = new javax.swing.JSeparator();
+        jpAMove = new javax.swing.JPanel();
+        lblAMoveTitle = new javax.swing.JLabel();
+        lblAMoveOff = new javax.swing.JLabel();
+        lblAMoveValue = new javax.swing.JLabel();
+        jpAMoveNow = new javax.swing.JPanel();
+        btnAMoveOff = new javax.swing.JToggleButton();
+        jsAMove = new javax.swing.JSeparator();
         jpAFire = new javax.swing.JPanel();
         lblAFireTitle = new javax.swing.JLabel();
         lblAFireOff = new javax.swing.JLabel();
@@ -178,6 +200,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         jpAFireNow = new javax.swing.JPanel();
         btnAFireOff = new javax.swing.JToggleButton();
         jsAFire = new javax.swing.JSeparator();
+        jpAFireSprinklersNow = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -386,26 +409,27 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         lblAWindowTitle.setText("ALARM WINDOW");
         jpAWindow.add(lblAWindowTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 120, -1));
 
-        lblAWindowOff.setText("Turn Off Alarm");
-        jpAWindow.add(lblAWindowOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        lblAWindowOff.setText("Resume Alarm");
+        jpAWindow.add(lblAWindowOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
         lblAWindowValue.setText("State Alarm Window");
         jpAWindow.add(lblAWindowValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
         jpAWindowNow.setBackground(new java.awt.Color(0, 255, 0));
+        jpAWindowNow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jpAWindowNowLayout = new javax.swing.GroupLayout(jpAWindowNow);
         jpAWindowNow.setLayout(jpAWindowNowLayout);
         jpAWindowNowLayout.setHorizontalGroup(
             jpAWindowNowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 140, Short.MAX_VALUE)
+            .addGap(0, 138, Short.MAX_VALUE)
         );
         jpAWindowNowLayout.setVerticalGroup(
             jpAWindowNowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+            .addGap(0, 38, Short.MAX_VALUE)
         );
 
-        jpAWindow.add(jpAWindowNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 140, 30));
+        jpAWindow.add(jpAWindowNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 140, 40));
 
         btnAWindowOff.setText("RESUME");
         btnAWindowOff.addActionListener(new java.awt.event.ActionListener() {
@@ -413,7 +437,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
                 btnAWindowOffActionPerformed(evt);
             }
         });
-        jpAWindow.add(btnAWindowOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
+        jpAWindow.add(btnAWindowOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 140, -1));
         jpAWindow.add(jsAWindow, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 181, 10));
 
         jpADoor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -423,26 +447,27 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         lblADoorTitle.setText("ALARM DOOR");
         jpADoor.add(lblADoorTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 120, -1));
 
-        lblADoorOff.setText("Turn Off Alarm");
-        jpADoor.add(lblADoorOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        lblADoorOff.setText("Resume Alarm");
+        jpADoor.add(lblADoorOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
-        lblADoorValue.setText("State Alarm Window");
+        lblADoorValue.setText("State Alarm Door");
         jpADoor.add(lblADoorValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
         jpADoorNow.setBackground(new java.awt.Color(0, 255, 0));
+        jpADoorNow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jpADoorNowLayout = new javax.swing.GroupLayout(jpADoorNow);
         jpADoorNow.setLayout(jpADoorNowLayout);
         jpADoorNowLayout.setHorizontalGroup(
             jpADoorNowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 140, Short.MAX_VALUE)
+            .addGap(0, 138, Short.MAX_VALUE)
         );
         jpADoorNowLayout.setVerticalGroup(
             jpADoorNowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+            .addGap(0, 38, Short.MAX_VALUE)
         );
 
-        jpADoor.add(jpADoorNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 140, 30));
+        jpADoor.add(jpADoorNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 140, 40));
 
         btnADoorOff.setText("RESUME");
         btnADoorOff.addActionListener(new java.awt.event.ActionListener() {
@@ -450,36 +475,75 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
                 btnADoorOffActionPerformed(evt);
             }
         });
-        jpADoor.add(btnADoorOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
+        jpADoor.add(btnADoorOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 140, -1));
         jpADoor.add(jsADoor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 181, 10));
+
+        jpAMove.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jpAMove.setPreferredSize(new java.awt.Dimension(200, 250));
+        jpAMove.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblAMoveTitle.setText("ALARM MOVE");
+        jpAMove.add(lblAMoveTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 100, -1));
+
+        lblAMoveOff.setText("Resume Alarm");
+        jpAMove.add(lblAMoveOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+
+        lblAMoveValue.setText("State Alarm Move");
+        jpAMove.add(lblAMoveValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+
+        jpAMoveNow.setBackground(new java.awt.Color(0, 255, 0));
+        jpAMoveNow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jpAMoveNowLayout = new javax.swing.GroupLayout(jpAMoveNow);
+        jpAMoveNow.setLayout(jpAMoveNowLayout);
+        jpAMoveNowLayout.setHorizontalGroup(
+            jpAMoveNowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 138, Short.MAX_VALUE)
+        );
+        jpAMoveNowLayout.setVerticalGroup(
+            jpAMoveNowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 38, Short.MAX_VALUE)
+        );
+
+        jpAMove.add(jpAMoveNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 140, 40));
+
+        btnAMoveOff.setText("RESUME");
+        btnAMoveOff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAMoveOffActionPerformed(evt);
+            }
+        });
+        jpAMove.add(btnAMoveOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 140, -1));
+        jpAMove.add(jsAMove, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 181, 10));
 
         jpAFire.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jpAFire.setPreferredSize(new java.awt.Dimension(200, 250));
         jpAFire.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblAFireTitle.setText("ALARM MOVE");
+        lblAFireTitle.setText("ALARM FIRE");
         jpAFire.add(lblAFireTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 100, -1));
 
-        lblAFireOff.setText("Turn Off Alarm");
-        jpAFire.add(lblAFireOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        lblAFireOff.setText("State Sprinklers Fire");
+        jpAFire.add(lblAFireOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
-        lblAFireValue.setText("State Alarm Window");
-        jpAFire.add(lblAFireValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+        lblAFireValue.setText("State Alarm Fire");
+        jpAFire.add(lblAFireValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
         jpAFireNow.setBackground(new java.awt.Color(0, 255, 0));
+        jpAFireNow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jpAFireNowLayout = new javax.swing.GroupLayout(jpAFireNow);
         jpAFireNow.setLayout(jpAFireNowLayout);
         jpAFireNowLayout.setHorizontalGroup(
             jpAFireNowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 140, Short.MAX_VALUE)
+            .addGap(0, 138, Short.MAX_VALUE)
         );
         jpAFireNowLayout.setVerticalGroup(
             jpAFireNowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+            .addGap(0, 18, Short.MAX_VALUE)
         );
 
-        jpAFire.add(jpAFireNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 140, 30));
+        jpAFire.add(jpAFireNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 140, 20));
 
         btnAFireOff.setText("RESUME");
         btnAFireOff.addActionListener(new java.awt.event.ActionListener() {
@@ -487,8 +551,25 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
                 btnAFireOffActionPerformed(evt);
             }
         });
-        jpAFire.add(btnAFireOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 140, -1));
+        jpAFire.add(btnAFireOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 140, -1));
         jpAFire.add(jsAFire, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 181, 10));
+
+        jpAFireSprinklersNow.setBackground(new java.awt.Color(255, 0, 0));
+        jpAFireSprinklersNow.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        javax.swing.GroupLayout jpAFireSprinklersNowLayout = new javax.swing.GroupLayout(jpAFireSprinklersNow);
+        jpAFireSprinklersNow.setLayout(jpAFireSprinklersNowLayout);
+        jpAFireSprinklersNowLayout.setHorizontalGroup(
+            jpAFireSprinklersNowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 138, Short.MAX_VALUE)
+        );
+        jpAFireSprinklersNowLayout.setVerticalGroup(
+            jpAFireSprinklersNowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 18, Short.MAX_VALUE)
+        );
+
+        jpAFire.add(jpAFireSprinklersNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 140, 20));
+        jpAFireSprinklersNow.getAccessibleContext().setAccessibleDescription("");
 
         javax.swing.GroupLayout jpSystemAlarmLayout = new javax.swing.GroupLayout(jpSystemAlarm);
         jpSystemAlarm.setLayout(jpSystemAlarmLayout);
@@ -502,14 +583,17 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
                             .addGroup(jpSystemAlarmLayout.createSequentialGroup()
                                 .addComponent(jpAWindow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jpAFire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jpAMove, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jpSystemAlarmLayout.createSequentialGroup()
                                 .addComponent(lblTitleAlarms)
                                 .addGap(58, 58, 58)
-                                .addComponent(btnStateSystemAlarm, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btnStateSystemAlarm, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jpSystemAlarmLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jpADoor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jpADoor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jpAFire, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpSystemAlarmLayout.setVerticalGroup(
@@ -522,9 +606,11 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpSystemAlarmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jpAWindow, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
-                    .addComponent(jpAFire, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jpAMove, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jpADoor, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jpSystemAlarmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jpADoor, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jpAFire, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -571,10 +657,12 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
 
     /**
      * Método para enviar mensajes a los controladores
-     * @param ID_CHANNEL_SEND --- identificador del canal de comunicacion del controlador
+     *
+     * @param ID_CHANNEL_SEND --- identificador del canal de comunicacion del
+     * controlador
      * @param message --- mensaje enviado
      * @throws IOException
-     * @throws TimeoutException 
+     * @throws TimeoutException
      */
     private void sendMessageComponents(String ID_CHANNEL_SEND, String message) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
@@ -594,7 +682,8 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
 
     /**
      * Método para actualizar los valores de la temperatura en el controlador
-     * @param evt 
+     *
+     * @param evt
      */
     private void btnUpdateValuesTemperatureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateValuesTemperatureActionPerformed
         if (Integer.parseInt(txtMaximumTemperature.getText()) > Integer.parseInt(txtMinimunTemperature.getText())) {
@@ -615,7 +704,8 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
 
     /**
      * Método para actualizar los valores de la humedad en el controlador
-     * @param evt 
+     *
+     * @param evt
      */
     private void btnUpdateValuesHumidityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateValuesHumidityActionPerformed
         if (Integer.parseInt(txtMaximumHumidity.getText()) > Integer.parseInt(txtMinimunHumidity.getText())) {
@@ -635,8 +725,10 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdateValuesHumidityActionPerformed
 
     /**
-     * método para reanudar la actividad de la alarma de puerta, es decir que vuelva a generar mensajes el sensor 
-     * @param evt 
+     * método para reanudar la actividad de la alarma de puerta, es decir que
+     * vuelva a generar mensajes el sensor
+     *
+     * @param evt
      */
     private void btnADoorOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnADoorOffActionPerformed
         try {
@@ -648,8 +740,10 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnADoorOffActionPerformed
 
     /**
-     * método para reanudar la actividad de la alarma de ventana, es decir que vuelva a generar mensajes el sensor 
-     * @param evt 
+     * método para reanudar la actividad de la alarma de ventana, es decir que
+     * vuelva a generar mensajes el sensor
+     *
+     * @param evt
      */
     private void btnAWindowOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAWindowOffActionPerformed
         try {
@@ -661,21 +755,24 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAWindowOffActionPerformed
 
     /**
-     * método para reanudar la actividad de la alarma de movimiento, es decir que vuelva a generar mensajes el sensor 
-     * @param evt 
+     * método para reanudar la actividad de la alarma de movimiento, es decir
+     * que vuelva a generar mensajes el sensor
+     *
+     * @param evt
      */
-    private void btnAFireOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAFireOffActionPerformed
+    private void btnAMoveOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAMoveOffActionPerformed
         try {
             logger.info("Enviado resumen al HILO CONTROLLER WINDOW");
             sendMessageComponents(ID_CHANNEL_AMOVE_SENSOR, "1");
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
-    }//GEN-LAST:event_btnAFireOffActionPerformed
+    }//GEN-LAST:event_btnAMoveOffActionPerformed
 
     /**
      * método para activar/desactivar de eventos de los controladores y sensores
-     * @param evt 
+     *
+     * @param evt
      */
     private void btnStateSystemAlarmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStateSystemAlarmActionPerformed
         alarmWindowController.resumeThread();
@@ -686,10 +783,22 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnStateSystemAlarmActionPerformed
 
+    private void btnAFireOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAFireOffActionPerformed
+        try {
+            logger.info("Enviado resumen al HILO CONTROLLER FIRE");
+            sendMessageComponents(ID_CHANNEL_AFIRE_SENSOR, "1");
+            
+        } catch (IOException | TimeoutException ex) {
+            logger.error(ex);
+        }
+    }//GEN-LAST:event_btnAFireOffActionPerformed
+
     /**
-     * método para recibir mensajes del controlador de temperatura para mostrar el estado de los dispositivos de heater y chiller
+     * método para recibir mensajes del controlador de temperatura para mostrar
+     * el estado de los dispositivos de heater y chiller
+     *
      * @throws IOException
-     * @throws TimeoutException 
+     * @throws TimeoutException
      */
     private void receiveTemperatureControllerMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
@@ -729,14 +838,16 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     }
 
     /**
-     * método para recibir mensajes del controlador de Humedad para mostrar el estado de los dispositivos humidity y deshumidity
+     * método para recibir mensajes del controlador de Humedad para mostrar el
+     * estado de los dispositivos humidity y deshumidity
+     *
      * @throws IOException
-     * @throws TimeoutException 
+     * @throws TimeoutException
      */
     private void receiveHumidityControllerMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
-        
+
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
@@ -771,14 +882,16 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     }
 
     /**
-     * método para recibir mensajes del controlador de alarma de ventana, para mostrar el estado de la alarma
+     * método para recibir mensajes del controlador de alarma de ventana, para
+     * mostrar el estado de la alarma
+     *
      * @throws IOException
-     * @throws TimeoutException 
+     * @throws TimeoutException
      */
     private synchronized void receiveAlarmWindowStateMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
-        
+
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
@@ -803,9 +916,11 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     }
 
     /**
-     * método para recibir mensajes del controlador de alarma de puerta, para mostrar el estado de la alarma
+     * método para recibir mensajes del controlador de alarma de puerta, para
+     * mostrar el estado de la alarma
+     *
      * @throws IOException
-     * @throws TimeoutException 
+     * @throws TimeoutException
      */
     private synchronized void receiveAlarmDoorStateMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
@@ -835,9 +950,11 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     }
 
     /**
-     * método para recibir mensajes del controlador de alarma de movimiento, para mostrar el estado de la alarma
+     * método para recibir mensajes del controlador de alarma de movimiento,
+     * para mostrar el estado de la alarma
+     *
      * @throws IOException
-     * @throws TimeoutException 
+     * @throws TimeoutException
      */
     private synchronized void receiveAlarmMoveStateMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
@@ -856,10 +973,64 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
                 String message = new String(body, "UTF-8");
                 logger.info("Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM MOVE --- Value: " + new String(body, "UTF-8"));
                 if (message.equals("AM1")) {
+                    jpAMoveNow.setBackground(new java.awt.Color(255, 0, 0));
+                    logger.info("CAMBIO DE COLOR");
+                } else {
+                    jpAMoveNow.setBackground(new java.awt.Color(0, 255, 0));
+                }
+            }
+        };
+        channel.basicConsume(queueName, true, consumer);
+    }
+
+    private synchronized void receiveAlarmFireStateMessage() throws IOException, TimeoutException {
+        ConnectionFactory factory = new ConnectionFactory();
+        factory.setHost(HOST);
+
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+
+        channel.exchangeDeclare(ID_CHANNEL_AFIRE_CONTROLLER, "fanout");
+        String queueName = channel.queueDeclare().getQueue();
+        channel.queueBind(queueName, ID_CHANNEL_AFIRE_CONTROLLER, "");
+
+        Consumer consumer = new DefaultConsumer(channel) {
+            @Override
+            public synchronized void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                String message = new String(body, "UTF-8");
+                logger.info("Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM FIRE --- Value: " + new String(body, "UTF-8"));
+                if (message.equals("AF1")) {
                     jpAFireNow.setBackground(new java.awt.Color(255, 0, 0));
                     logger.info("CAMBIO DE COLOR");
                 } else {
                     jpAFireNow.setBackground(new java.awt.Color(0, 255, 0));
+                }
+            }
+        };
+        channel.basicConsume(queueName, true, consumer);
+    }
+    
+    private synchronized void receiveAlarmSprinklersMessage() throws IOException, TimeoutException {
+        ConnectionFactory factory = new ConnectionFactory();
+        factory.setHost(HOST);
+
+        Connection connection = factory.newConnection();
+        Channel channel = connection.createChannel();
+
+        channel.exchangeDeclare(ID_CHANNEL_AFIRE_SPRINKLERS, "fanout");
+        String queueName = channel.queueDeclare().getQueue();
+        channel.queueBind(queueName, ID_CHANNEL_AFIRE_SPRINKLERS, "");
+
+        Consumer consumer = new DefaultConsumer(channel) {
+            @Override
+            public synchronized void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                String message = new String(body, "UTF-8");
+                logger.info("Class MAIN MENUCONSOLE VIEW  --- RECEIVED from ALARM SPRINKELERS --- Value: " + new String(body, "UTF-8"));
+                if (message.equals("true")) {
+                    jpAFireSprinklersNow.setBackground(new java.awt.Color(0, 255, 0));
+                    logger.info("CAMBIO DE COLOR");
+                } else {
+                    jpAFireSprinklersNow.setBackground(new java.awt.Color(255, 0, 0));
                 }
             }
         };
@@ -891,6 +1062,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnADoorOff;
     private javax.swing.JToggleButton btnAFireOff;
+    private javax.swing.JToggleButton btnAMoveOff;
     private javax.swing.JToggleButton btnAWindowOff;
     private javax.swing.JToggleButton btnStateSystemAlarm;
     private javax.swing.JButton btnUpdateValuesHumidity;
@@ -906,6 +1078,9 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     private javax.swing.JPanel jpADoorNow;
     private javax.swing.JPanel jpAFire;
     private javax.swing.JPanel jpAFireNow;
+    private javax.swing.JPanel jpAFireSprinklersNow;
+    private javax.swing.JPanel jpAMove;
+    private javax.swing.JPanel jpAMoveNow;
     private javax.swing.JPanel jpAWindow;
     private javax.swing.JPanel jpAWindowNow;
     private javax.swing.JPanel jpChillerValueNow;
@@ -916,6 +1091,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     private javax.swing.JPanel jpSystemAlarm;
     private javax.swing.JSeparator jsADoor;
     private javax.swing.JSeparator jsAFire;
+    private javax.swing.JSeparator jsAMove;
     private javax.swing.JSeparator jsAWindow;
     private javax.swing.JLabel lblADoorOff;
     private javax.swing.JLabel lblADoorTitle;
@@ -923,6 +1099,9 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     private javax.swing.JLabel lblAFireOff;
     private javax.swing.JLabel lblAFireTitle;
     private javax.swing.JLabel lblAFireValue;
+    private javax.swing.JLabel lblAMoveOff;
+    private javax.swing.JLabel lblAMoveTitle;
+    private javax.swing.JLabel lblAMoveValue;
     private javax.swing.JLabel lblAWindowOff;
     private javax.swing.JLabel lblAWindowTitle;
     private javax.swing.JLabel lblAWindowValue;
@@ -955,9 +1134,11 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     /**
-     * método para recibir mensajes del sensor de temperatura, para mostrar en la barra de progreso
+     * método para recibir mensajes del sensor de temperatura, para mostrar en
+     * la barra de progreso
+     *
      * @throws IOException
-     * @throws TimeoutException 
+     * @throws TimeoutException
      */
     private void receiveTemperatureSensorMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
@@ -984,14 +1165,16 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     }
 
     /**
-     * método para recibir mensajes del sensor de humedad, para mostrar en la barra de progreso
+     * método para recibir mensajes del sensor de humedad, para mostrar en la
+     * barra de progreso
+     *
      * @throws IOException
-     * @throws TimeoutException 
+     * @throws TimeoutException
      */
     private void receiveHumiditySensorMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
-        
+
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
