@@ -62,8 +62,8 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
 
     private static final String ID_CHANNEL_AFIRE_CONTROLLER = "9";
     private static final String ID_CHANNEL_AFIRE_SENSOR = "-9";
-    
-    private static final String ID_CHANNEL_AFIRE_SPRINKLERS="AFS";
+
+    private static final String ID_CHANNEL_AFIRE_SPRINKLERS = "AFS";
 
     private static final Logger logger = Logger.getLogger(MainMenuConsoleView.class);   //logger para eventos del sistema
 
@@ -82,16 +82,16 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
             initComponents();
             initValuesGeneral();
 
-            /*receiveTemperatureControllerMessage();
-             receiveTemperatureSensorMessage();
+            receiveTemperatureControllerMessage();
+            receiveTemperatureSensorMessage();
 
-             receiveHumidityControllerMessage();
-             receiveHumiditySensorMessage();
+            receiveHumidityControllerMessage();
+            receiveHumiditySensorMessage();
 
-             receiveAlarmWindowStateMessage();
-             receiveAlarmDoorStateMessage();
-             receiveAlarmMoveStateMessage();
-             */
+            receiveAlarmWindowStateMessage();
+            receiveAlarmDoorStateMessage();
+            receiveAlarmMoveStateMessage();
+
             receiveAlarmFireStateMessage();
             receiveAlarmSprinklersMessage();
 
@@ -105,18 +105,18 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
      * método para iniciar los hilos de temperatura, humedad y alarmas
      */
     public final void runThreadsControllers() {
-        /*
-         TemperatureController temperatureController = TemperatureController.getInstance();
-         logger.info("Class MAINMENU--- Start Controller Temperature...");
-         temperatureController.start();
 
-         HumidityController humidityController = HumidityController.getInstance();
-         logger.info("Class MAIN MENU--- Start Controller Humidity...");
-         humidityController.start();
+        TemperatureController temperatureController = TemperatureController.getInstance();
+        logger.info("Class MAINMENU--- Start Controller Temperature...");
+        temperatureController.start();
 
-         logger.info("Class MAINMENU --- Start Controller alarms...");
-         alarmWindowController.start();
-         */
+        HumidityController humidityController = HumidityController.getInstance();
+        logger.info("Class MAIN MENU--- Start Controller Humidity...");
+        humidityController.start();
+
+        logger.info("Class MAINMENU --- Start Controller alarms...");
+        alarmWindowController.start();
+
         logger.info("Class MAINMENU--- Start Controller alarm fire...");
         alarmFireController.start();
     }
@@ -787,7 +787,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         try {
             logger.info("Enviado resumen al HILO CONTROLLER FIRE");
             sendMessageComponents(ID_CHANNEL_AFIRE_SENSOR, "1");
-            
+
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
@@ -1009,7 +1009,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         };
         channel.basicConsume(queueName, true, consumer);
     }
-    
+
     private synchronized void receiveAlarmSprinklersMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
