@@ -41,7 +41,7 @@ public class Sensor extends Thread {
         super();
         this.isDone = false;
         this.active = true;
-        this.delay = 10000;
+        this.delay = 2000;
         PropertyConfigurator.configure("log4j.properties");
     }
 

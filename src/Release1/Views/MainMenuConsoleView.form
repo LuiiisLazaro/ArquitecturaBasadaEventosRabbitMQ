@@ -744,7 +744,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblADoorValue">
               <Properties>
-                <Property name="text" type="java.lang.String" value="State Alarm Window"/>
+                <Property name="text" type="java.lang.String" value="State Alarm Door"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -837,7 +837,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblAFireValue">
               <Properties>
-                <Property name="text" type="java.lang.String" value="State Alarm Window"/>
+                <Property name="text" type="java.lang.String" value="State Alarm Move"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

@@ -18,6 +18,7 @@ import java.util.concurrent.TimeoutException;
 import javax.swing.JOptionPane;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
+import org.netbeans.lib.awtextra.*;
 
 /**
  * @author Faleg, Daniel, Luis
@@ -426,7 +427,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         lblADoorOff.setText("Turn Off Alarm");
         jpADoor.add(lblADoorOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
-        lblADoorValue.setText("State Alarm Window");
+        lblADoorValue.setText("State Alarm Door");
         jpADoor.add(lblADoorValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
         jpADoorNow.setBackground(new java.awt.Color(0, 255, 0));
@@ -463,7 +464,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         lblAFireOff.setText("Turn Off Alarm");
         jpAFire.add(lblAFireOff, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
-        lblAFireValue.setText("State Alarm Window");
+        lblAFireValue.setText("State Alarm Move");
         jpAFire.add(lblAFireValue, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
         jpAFireNow.setBackground(new java.awt.Color(0, 255, 0));
