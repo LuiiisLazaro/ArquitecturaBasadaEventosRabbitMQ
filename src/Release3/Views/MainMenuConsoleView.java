@@ -6,7 +6,7 @@ package Release3.Views;
 import Release3.Controllers.AlarmController;
 import Release3.Controllers.HumidityController;
 import Release3.Controllers.TemperatureController;
-import Release2.Controllers.AlarmFireController;
+import Release3.Controllers.AlarmFireController;
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
@@ -14,6 +14,7 @@ import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Consumer;
 import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
+import com.rabbitmq.client.QueueingConsumer;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 import javax.swing.JOptionPane;
@@ -62,8 +63,8 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
 
     private static final String ID_CHANNEL_AFIRE_CONTROLLER = "9";
     private static final String ID_CHANNEL_AFIRE_SENSOR = "-9";
-    
-    private static final String ID_CHANNEL_AFIRE_SPRINKLERS="AFS";
+
+    private static final String ID_CHANNEL_AFIRE_SPRINKLERS = "AFS";
 
     private static final Logger logger = Logger.getLogger(MainMenuConsoleView.class);   //logger para eventos del sistema
 
@@ -82,20 +83,20 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
             initComponents();
             initValuesGeneral();
 
-            /*receiveTemperatureControllerMessage();
-             receiveTemperatureSensorMessage();
-
+            receiveTemperatureControllerMessage();
+            receiveTemperatureSensorMessage();
+            /*
              receiveHumidityControllerMessage();
              receiveHumiditySensorMessage();
 
              receiveAlarmWindowStateMessage();
              receiveAlarmDoorStateMessage();
              receiveAlarmMoveStateMessage();
-             */
-            receiveAlarmFireStateMessage();
-            receiveAlarmSprinklersMessage();
 
-            runThreadsControllers();
+             receiveAlarmFireStateMessage();
+             receiveAlarmSprinklersMessage();
+
+             runThreadsControllers();*/
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
@@ -105,18 +106,18 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
      * método para iniciar los hilos de temperatura, humedad y alarmas
      */
     public final void runThreadsControllers() {
-        /*
-         TemperatureController temperatureController = TemperatureController.getInstance();
-         logger.info("Class MAINMENU--- Start Controller Temperature...");
-         temperatureController.start();
 
-         HumidityController humidityController = HumidityController.getInstance();
-         logger.info("Class MAIN MENU--- Start Controller Humidity...");
-         humidityController.start();
+        TemperatureController temperatureController = TemperatureController.getInstance();
+        logger.info("Class MAINMENU--- Start Controller Temperature...");
+        temperatureController.start();
 
-         logger.info("Class MAINMENU --- Start Controller alarms...");
-         alarmWindowController.start();
-         */
+        HumidityController humidityController = HumidityController.getInstance();
+        logger.info("Class MAIN MENU--- Start Controller Humidity...");
+        humidityController.start();
+
+        logger.info("Class MAINMENU --- Start Controller alarms...");
+        alarmWindowController.start();
+
         logger.info("Class MAINMENU--- Start Controller alarm fire...");
         alarmFireController.start();
     }
@@ -787,7 +788,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         try {
             logger.info("Enviado resumen al HILO CONTROLLER FIRE");
             sendMessageComponents(ID_CHANNEL_AFIRE_SENSOR, "1");
-            
+
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
@@ -803,6 +804,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     private void receiveTemperatureControllerMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
+        factory.setRequestedHeartbeat(5);
 
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
@@ -986,6 +988,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
     private synchronized void receiveAlarmFireStateMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
+        factory.setRequestedHeartbeat(10);
 
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
@@ -1009,7 +1012,7 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
         };
         channel.basicConsume(queueName, true, consumer);
     }
-    
+
     private synchronized void receiveAlarmSprinklersMessage() throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);

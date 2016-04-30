@@ -136,6 +136,7 @@ public class TemperatureController extends Controller {
             logger.error(ex);
         }
         //inicio del hilo se sensor de temperatura 
+        
         TemperatureSensor temperatureSensor = TemperatureSensor.getInstance();
         logger.info("Class TemperatureSensot Start Sensor Temperature...");
         temperatureSensor.start();

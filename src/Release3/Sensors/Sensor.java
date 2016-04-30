@@ -99,6 +99,7 @@ public class Sensor extends Thread {
     protected void sendMessage(String ID_CHANNEL_SEND, String message) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("localhost");
+        factory.setRequestedHeartbeat(5);
 
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
@@ -121,6 +122,7 @@ public class Sensor extends Thread {
     protected synchronized void receiveMessage(String ID_CHANNEL_TEMPERATURE_CONTROLLER) throws IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(HOST);
+        factory.setRequestedHeartbeat(5);
 
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
