@@ -14,7 +14,6 @@ import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Consumer;
 import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
-import com.rabbitmq.client.QueueingConsumer;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 import javax.swing.JOptionPane;
@@ -85,18 +84,18 @@ public class MainMenuConsoleView extends javax.swing.JFrame {
 
             receiveTemperatureControllerMessage();
             receiveTemperatureSensorMessage();
-            /*
-             receiveHumidityControllerMessage();
-             receiveHumiditySensorMessage();
 
-             receiveAlarmWindowStateMessage();
-             receiveAlarmDoorStateMessage();
-             receiveAlarmMoveStateMessage();
+            receiveHumidityControllerMessage();
+            receiveHumiditySensorMessage();
 
-             receiveAlarmFireStateMessage();
-             receiveAlarmSprinklersMessage();
+            receiveAlarmWindowStateMessage();
+            receiveAlarmDoorStateMessage();
+            receiveAlarmMoveStateMessage();
 
-             runThreadsControllers();*/
+            receiveAlarmFireStateMessage();
+            receiveAlarmSprinklersMessage();
+
+            runThreadsControllers();
         } catch (IOException | TimeoutException ex) {
             logger.error(ex);
         }
